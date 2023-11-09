@@ -9,10 +9,10 @@ const Accordion = ({ question, answer }) => {
       <AnimatePresence>
         <motion.div
           key="question"
-          className="rounded-tr-md relative z-20 bg-red rounded-br-md shadow-sm px-1 py-2 bg-blue-200 cursor-pointer font-open border-l-2 border-yellow-500"
+          className="relative z-20 bg-red rounded-md px-6 py-4 bg-blue-200 cursor-pointer"
           onClick={() => setIsOpen(!isOpen)}
         >
-          <motion.div className="text-gray-800 font-bold ml-1">
+          <motion.div className="font-bold ml-1 text-white">
             {question}
           </motion.div>
         </motion.div>
@@ -28,7 +28,7 @@ const Accordion = ({ question, answer }) => {
               },
             }}
             exit={{ opacity: 0 }}
-            className="p-2 text-lg text-gray-700 border-l border-b border-gray-300"
+            className="p-4 text-lg"
           >
             {answer}
           </motion.div>
