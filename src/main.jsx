@@ -11,7 +11,7 @@ import Feed from "./Pages/FeedPage";
 import Trends from "./Pages/TrendsPage";
 import Playlist from "./Pages/PlaylistPage";
 import Featured from "./Pages/FeaturedPage";
-import Catagories from "./Pages/CatagoriesPage";
+import Categories from "./Pages/CategoriesPage";
 import Songs from "./Pages/SongsPage";
 import Artists from "./Pages/ArtistsPage";
 import Albums from "./Pages/AlbumsPage";
@@ -35,7 +35,7 @@ const router = createBrowserRouter(
       <Route path="/Trends/" element={<Trends />} />
       <Route path="/Playlist/" element={<Playlist />} />
       <Route path="/Featured/" element={<Featured />} />
-      <Route path="/Catagories/" element={<Catagories />} />
+      <Route path="/Categories/" element={<Categories />} />
       <Route path="/Songs/" element={<Songs />} />
       <Route path="/Artists/" element={<Artists />} />
       <Route path="/Albums/" element={<Albums />} />
