@@ -1,9 +1,10 @@
-import { useState } from "react";
 import { motion } from "framer-motion";
-import { Link } from "react-router-dom";
+import { useEffect } from "react";
+import { useHistory } from "react-router-dom";
 import musiclogo from "../assets/musiclogo.png";
 import tw from "tailwind-styled-components";
 import Heading from "../components/Heading";
+import FeedPage from "./FeedPage";
 
 const Logo = tw(motion.img)`
   mx-auto
@@ -20,6 +21,23 @@ const Container = tw(motion.div)`
 `;
 
 const WelcomePage = () => {
+  const history = useHistory();
+
+  const preloadDuration = 3000; // 3 seconds
+
+  const targetPath = "/FeedPage";
+  const fullTargetPath = `${history.createHref({ pathname: targetPath })}`;
+
+  useEffect(() => {
+    const redirectToTargetSite = () => {
+      history.push(fullTargetPath);
+    };
+
+    const timeoutId = setTimeout(redirectToTargetSite, preloadDuration);
+
+    return () => clearTimeout(timeoutId);
+  }, [history, fullTargetPath]);
+
   const containerVariants = {
     initial: { opacity: 0 },
     animate: { opacity: 1, transition: { duration: 1 } },
