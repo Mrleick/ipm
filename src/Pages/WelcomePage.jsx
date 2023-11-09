@@ -9,7 +9,6 @@ const Logo = tw.img`
 `;
 
 const Container = tw.div`
-  bg-secondary
   h-screen
   flex
   flex-col
