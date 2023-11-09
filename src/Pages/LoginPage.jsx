@@ -1,3 +1,4 @@
+import { IoFingerPrintOutline } from "react-icons/io5";
 export default function LoginPage() {
   return (
     <main className="px-6 h-screen">
@@ -55,10 +56,7 @@ export default function LoginPage() {
           </button>
           <div>
             <button className="p-4 aspect-square rounded-full flex justify-center items-center h-32 bg-primary mx-auto mt-20">
-              <ion-icon
-                style={{ color: "white" }}
-                name="finger-print-outline"
-              ></ion-icon>
+              <IoFingerPrintOutline size={64} style={{ color: "red" }} />
             </button>
             <p className="text-center pt-4">One-Touch Login</p>
           </div>
