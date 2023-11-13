@@ -11,7 +11,7 @@ import "swiper/css/scrollbar";
 import "swiper/swiper-bundle.css";
 import { IoIosMusicalNote } from "react-icons/io";
 import { IoHeart, IoRadio } from "react-icons/io5";
-import Waves from "../assets/Waves.svg";
+import waves from "../assets/waves.svg";
 import tw from "tailwind-styled-components";
 
 const Container = tw.div`
@@ -85,11 +85,11 @@ w-8
 h-8
 `;
 
-const WalkthoughPage = () => {
+const WalkthroughPage = () => {
   return (
     <>
       <Container>
-        <img className="pb-16" src={Waves} alt="" />
+        <img className="pb-16" src={waves} alt="" />
 
         <Swiper
           className="swiper overflow-hidden"
@@ -190,4 +190,4 @@ const WalkthoughPage = () => {
   );
 };
 
-export default WalkthoughPage;
+export default WalkthroughPage;
