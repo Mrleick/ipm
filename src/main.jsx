@@ -2,7 +2,6 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import App from "./App.jsx";
 import "./index.css";
-
 import Welcome from "./Pages/WelcomePage.jsx";
 import Login from "./Pages/LoginPage.jsx";
 import Walkthough from "./Pages/WalkthoughPage.jsx";
@@ -29,7 +28,7 @@ const router = createBrowserRouter(
     <Route path="/" element={<App />}>
       <Route index element={<Welcome />} />
       <Route path="/Login/" element={<Login />} />
-      <Route path="/Walkthough/" element={<Walkthough />} />
+      <Route path="/Walkthrough/" element={<Walkthough />} />
       <Route path="/Player/" element={<Player />} />
       <Route path="/Feed/" element={<Feed />} />
       <Route path="/Trends/" element={<Trends />} />
