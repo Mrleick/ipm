@@ -1,3 +1,4 @@
+
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom"; // Change import
@@ -21,6 +22,7 @@ const Container = tw(motion.div)`
 `;
 
 const WelcomePage = () => {
+
   const navigate = useNavigate(); // Change from useHistory to useNavigate
 
   const containerVariants = {
