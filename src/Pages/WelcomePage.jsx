@@ -1,11 +1,9 @@
-
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom"; // Change import
 import musiclogo from "../assets/musiclogo.png";
 import tw from "tailwind-styled-components";
 import Heading from "../components/Heading";
-import WalkthoughPage from "./WalkthoughPage";
 
 const Logo = tw(motion.img)`
   mx-auto
@@ -22,7 +20,6 @@ const Container = tw(motion.div)`
 `;
 
 const WelcomePage = () => {
-
   const navigate = useNavigate(); // Change from useHistory to useNavigate
 
   const containerVariants = {
