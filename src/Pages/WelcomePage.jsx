@@ -1,10 +1,10 @@
+import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
-import { useEffect } from "react";
-import { useHistory } from "react-router-dom";
+import { useNavigate } from "react-router-dom"; // Change import
 import musiclogo from "../assets/musiclogo.png";
 import tw from "tailwind-styled-components";
 import Heading from "../components/Heading";
-import FeedPage from "./FeedPage";
+import WalkthoughPage from "./WalkthoughPage";
 
 const Logo = tw(motion.img)`
   mx-auto
@@ -21,22 +21,7 @@ const Container = tw(motion.div)`
 `;
 
 const WelcomePage = () => {
-  const history = useHistory();
-
-  const preloadDuration = 3000; // 3 seconds
-
-  const targetPath = "/FeedPage";
-  const fullTargetPath = `${history.createHref({ pathname: targetPath })}`;
-
-  useEffect(() => {
-    const redirectToTargetSite = () => {
-      history.push(fullTargetPath);
-    };
-
-    const timeoutId = setTimeout(redirectToTargetSite, preloadDuration);
-
-    return () => clearTimeout(timeoutId);
-  }, [history, fullTargetPath]);
+  const navigate = useNavigate(); // Change from useHistory to useNavigate
 
   const containerVariants = {
     initial: { opacity: 0 },
@@ -52,6 +37,14 @@ const WelcomePage = () => {
     initial: { y: -20, opacity: 0 },
     animate: { y: 0, opacity: 1, transition: { duration: 0.5, delay: 1 } },
   };
+
+  useEffect(() => {
+    const timeoutId = setTimeout(() => {
+      navigate("/Walkthrough"); // Use navigate instead of history.push
+    }, 3000);
+
+    return () => clearTimeout(timeoutId); // Cleanup timeout on component unmount
+  }, [navigate]);
 
   return (
     <Container variants={containerVariants} initial="initial" animate="animate">
