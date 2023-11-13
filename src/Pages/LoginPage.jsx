@@ -22,7 +22,12 @@ export default function LoginPage() {
   return (
     <main className="px-6 h-screen">
       <section>
-        <Heading className="">Log in</Heading>
+        <Heading
+          level="1"
+          className="font-bold text-transparent text-5xl bg-clip-text inline-block bg-gradient-to-r from-orange to-primarycolor py-12"
+        >
+          Log in
+        </Heading>
         <form className="w-full space-y-6">
           <div className="flex flex-col">
             <label htmlFor="username" className="font-bold py-2">
@@ -66,8 +71,8 @@ export default function LoginPage() {
             Log in
           </button>
           <div>
-            <button className="p-4 aspect-square rounded-full flex justify-center items-center h-32 bg-slate-300 mx-auto mt-20">
-              <IoFingerPrintOutline size={64} style={{ color: "red" }} />
+            <button className="p-4 aspect-square rounded-full flex justify-center items-center h-32 bg-primarycolor mx-auto mt-20">
+              <IoFingerPrintOutline size={64} style={{ color: "white" }} />
             </button>
             <p className="text-center pt-4">One-Touch Login</p>
           </div>
