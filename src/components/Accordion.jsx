@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { IoIosArrowForward } from "react-icons/io";
+import { IoIosMore } from "react-icons/io";
 
 const Accordion = ({ heading, content, className }) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -29,10 +29,9 @@ const Accordion = ({ heading, content, className }) => {
               },
             }}
             exit={{ opacity: 0 }}
-            className="p-4 text-lg"
+            className="p-4 justify-between"
           >
-            {content}
-            <IoIosArrowForward />
+            {content} <IoIosMore />
           </motion.div>
         )}
       </AnimatePresence>

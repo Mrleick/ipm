@@ -1,7 +1,11 @@
+import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import { IoIosArrowForward } from "react-icons/io";
 import Accordion from "../components/Accordion";
 import Heading from "../components/Heading";
 import Header from "../components/Header";
+import FooterMenu from "../components/FooterMenu";
+import fetchFromApi from "../lib/fetchFromApi";
 
 const placeholders = [
   { title: "Blue Page", link: "linktopage1" },
@@ -10,9 +14,30 @@ const placeholders = [
 ];
 
 const CatagoriesPage = () => {
+  const [categories, setCategories] = useState([]);
+  const [key, setKey] = useState(0);
+
+  useEffect(() => {
+    async function fetchDataFromSpotify() {
+      try {
+        const data = await fetchFromApi(
+          "https://api.spotify.com/v1/browse/categories?country=DK&offset=0&limit=20"
+        );
+        if (data) {
+          setCategories(data.categories.items);
+          console.log(data);
+          setKey((prevKey) => prevKey + 1);
+        }
+      } catch (error) {
+        console.error("An error occurred:", error);
+      }
+    }
+
+    fetchDataFromSpotify();
+  }, []);
   return (
     <>
-      <main className="px-6">
+      <main className="px-6 pb-20">
         <Header />
         <Heading
           level="1"
@@ -24,31 +49,18 @@ const CatagoriesPage = () => {
             className="relative z-20 bg-red rounded-md px-6 py-4 cursor-pointer"
             heading="Alternative"
             content={placeholders.map((placeholder, index) => (
-              <div key={index}>
+              <div
+                key={index}
+                className="flex justify-between px-3 py-4 mb-2 items-center bg-slate-300"
+              >
                 <Link to={placeholder.link}>{placeholder.title}</Link>
-              </div>
-            ))}
-          />
-          <Accordion
-            className="relative z-20 bg-red rounded-md px-6 py-4 cursor-pointer"
-            heading="hello"
-            content={placeholders.map((placeholder, index) => (
-              <div key={index}>
-                <Link to={placeholder.link}>{placeholder.title}</Link>
-              </div>
-            ))}
-          />
-          <Accordion
-            className="relative z-20 bg-red rounded-md px-6 py-4 cursor-pointer"
-            heading="hello"
-            content={placeholders.map((placeholder, index) => (
-              <div key={index}>
-                <Link to={placeholder.link}>{placeholder.title}</Link>
+                <IoIosArrowForward />
               </div>
             ))}
           />
         </section>
       </main>
+      <FooterMenu />
     </>
   );
 };
