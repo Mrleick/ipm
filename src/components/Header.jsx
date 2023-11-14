@@ -5,7 +5,6 @@ import Heading from "./Heading";
 export default function Header() {
   const location = useLocation();
   const navigate = useNavigate();
-  console.log(location.pathname);
 
   return (
     <header className="flex justify-between bg-slate-400 py-4 tracking-widest">
