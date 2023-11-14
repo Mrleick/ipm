@@ -1,8 +1,7 @@
 /** @type {import('tailwindcss').Config} */
 export default {
-  darkMode: 'class',
-  content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}'],
- app
+  darkMode: "class",
+  content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
 
   theme: {
     extend: {
@@ -29,7 +28,6 @@ export default {
       },
       boxShadow: {
         shadowblur: "0 0 12.5px 0 rgba(0,0,0 0.14) ",
-
       },
     },
   },
