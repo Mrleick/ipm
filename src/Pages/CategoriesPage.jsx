@@ -25,7 +25,7 @@ const CatagoriesPage = () => {
         );
         if (data) {
           setCategories(data.categories.items);
-          console.log(data);
+          console.log(data.categories);
           setKey((prevKey) => prevKey + 1);
         }
       } catch (error) {
@@ -48,12 +48,12 @@ const CatagoriesPage = () => {
           <Accordion
             className="relative z-20 bg-red rounded-md px-6 py-4 cursor-pointer"
             heading="Alternative"
-            content={placeholders.map((placeholder, index) => (
+            content={categories.map((category, index) => (
               <div
                 key={index}
                 className="flex justify-between px-3 py-4 mb-2 items-center bg-slate-300"
               >
-                <Link to={placeholder.link}>{placeholder.title}</Link>
+                <Link to={category.name}>{category.name}</Link>
                 <IoIosArrowForward />
               </div>
             ))}
