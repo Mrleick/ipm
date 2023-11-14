@@ -9,7 +9,7 @@ export default function Header() {
   const pathname = location.pathname.substring(1);
 
   return (
-    <header className="flex justify-between bg-slate-400 py-4 tracking-widest">
+    <header className="flex justify-between py-6 tracking-widest">
       <button onClick={() => navigate(-1)}>
         <IoIosArrowBack size={24} />
       </button>

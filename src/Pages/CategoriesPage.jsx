@@ -14,33 +14,32 @@ const placeholders = [
 ];
 
 const colors = [
-  "bg-red",
-  "bg-orange",
-  "bg-gradient-color2",
-  "bg-green",
-  "bg-turquoise",
-  "bg-dark-green",
-  "bg-blue",
-  "bg-dark-blue",
   "bg-gradient-color1",
+  "bg-custom-red",
+  "bg-gradient-color2",
+  "bg-orange",
+  "bg-custom-yellow",
+  "bg-dark-green",
+  "bg-custom-green",
+  "bg-turquoise",
+  "bg-light-blue",
+  "bg-dark-blue",
   "bg-additional-color",
   "bg-primarycolor",
 ];
 
 const CategoriesPage = () => {
   const [categories, setCategories] = useState([]);
-  const [key, setKey] = useState(0);
 
   useEffect(() => {
     async function fetchDataFromSpotify() {
       try {
         const data = await fetchFromApi(
-          "https://api.spotify.com/v1/browse/categories?offset=0&limit=10"
+          "https://api.spotify.com/v1/browse/categories?offset=0&limit=11"
         );
         if (data) {
           setCategories(data.categories.items);
           console.log(data.categories);
-          setKey((prevKey) => prevKey + 1);
         }
       } catch (error) {
         console.error("An error occurred:", error);

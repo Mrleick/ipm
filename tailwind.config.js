@@ -9,7 +9,7 @@ export default {
         primarycolor: "#FF1168",
         "secondary-color": "#341931",
         "additional-color": "#111625",
-        "gradient-color1": "##EE0979",
+        "gradient-color1": "#EE0979",
         "gradient-color2": "#FF6A00",
         "dark-blue": "#115793",
         "light-blue": "#00A1CB",
