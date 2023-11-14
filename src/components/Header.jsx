@@ -10,17 +10,20 @@ export default function Header() {
 
   return (
     <header className="flex justify-between py-6 tracking-widest">
-      <button onClick={() => navigate(-1)}>
+      <button
+        onClick={() => navigate(-1)}
+        className="text-white dark:text-black"
+      >
         <IoIosArrowBack size={24} />
       </button>
       <Heading
         level="2"
-        className="uppercase tracking-wider"
+        className="uppercase tracking-wider text-white dark:text-black"
         title={pathname}
       />
-      <nav>
-        <IoIosSearch size={24} />
-      </nav>
+      <button className="dark:text-black text-white text-2xl">
+        <IoIosSearch />
+      </button>
     </header>
   );
 }

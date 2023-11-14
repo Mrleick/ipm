@@ -2,6 +2,7 @@
 import { useState, useEffect } from "react";
 import FooterMenu from "../components/FooterMenu";
 import { IoIosArrowBack, IoIosSearch } from "react-icons/io";
+import Header from "../components/Header";
 
 const AlbumPage = () => {
   const [token, setToken] = useState();
@@ -44,15 +45,13 @@ const AlbumPage = () => {
     <>
       <div>
         <div className="w-screen h-screen bg-primarycolor dark:bg-white">
-          
+          <Header />
           <header className="pt-5 px-5 flex justify-between text-white dark:text-black">
-            <button
-              className="dark:text-black text-white text-2xl">
+            <button className="dark:text-black text-white text-2xl">
               <IoIosArrowBack />
             </button>
             <h2>Music</h2>
-            <button
-              className="dark:text-black text-white text-2xl">
+            <button className="dark:text-black text-white text-2xl">
               <IoIosSearch />
             </button>
           </header>
@@ -65,7 +64,10 @@ const AlbumPage = () => {
               <p className="font-bold text-lg">Featured Albums</p>
               <a
                 href="#"
-                className="no-underline text-purple-700 dark:text-pink-500">View more</a>
+                className="no-underline text-purple-700 dark:text-pink-500"
+              >
+                View more
+              </a>
             </div>
 
             <section className="gap-5 flex overflow-x-auto px-5 pb-8">
@@ -111,7 +113,10 @@ const AlbumPage = () => {
               <p className="font-bold text-lg">New Releases</p>
               <a
                 href="#"
-                className="no-underline text-purple-700 dark:text-pink-500">View more</a>
+                className="no-underline text-purple-700 dark:text-pink-500"
+              >
+                View more
+              </a>
             </div>
             <section className="overflow-y-auto max-h-96 pb-14">
               {songs &&
@@ -126,9 +131,12 @@ const AlbumPage = () => {
                         className="h-14 rounded-lg"
                       />
                       <span className="max-h-14">
-                        <p className="font-bold text-xl m-0">{
-                        track.name.length > 15 ? track.name.split(" ").slice(0, 3).join(" ")+ "..." : track.name
-                        }</p>
+                        <p className="font-bold text-xl m-0">
+                          {track.name.length > 15
+                            ? track.name.split(" ").slice(0, 3).join(" ") +
+                              "..."
+                            : track.name}
+                        </p>
                         <p className="m-0">{track.artists[0].name}</p>
                       </span>
                     </div>
