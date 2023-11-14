@@ -107,10 +107,13 @@ const AlbumPage = () => {
               />
             </section>
 
-            <p className="font-bold text-white dark:text-black  pl-5">
-              New Releases
-            </p>
-            <section className="overflow-y-auto scrollbar-hide max-h-96">
+            <div className="flex justify-between px-5 pb-4 text-white dark:text-black">
+              <p className="font-bold text-lg">New Releases</p>
+              <a
+                href="#"
+                className="no-underline text-purple-700 dark:text-pink-500">View more</a>
+            </div>
+            <section className="overflow-y-auto max-h-96 pb-14">
               {songs &&
                 songs.tracks.items.map((track) => (
                   <article
