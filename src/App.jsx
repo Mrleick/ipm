@@ -3,9 +3,9 @@ import "./App.css";
 import { Outlet } from "react-router-dom";
 
 function App() {
-  const [context, setContext] = useState({});
+  const [context, setContext] = useState(false);
   return (
-    <div className="app">
+    <div className={"app " +(context && "dark")}>
       <Outlet context={[context, setContext]} />
     </div>
   );
