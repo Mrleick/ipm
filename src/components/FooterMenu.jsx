@@ -8,8 +8,14 @@ import {
 import { IconContext } from "react-icons";
 import GradientIcon from "./icons/GradientIcon";
 import { Link } from "react-router-dom";
+import { useOutletContext } from "react-router-dom";
 
 export default function FooterMenu() {
+  const [context, setContext] = useOutletContext()
+  const HandleDarkmode = () => {
+    setContext(!context);
+  };
+  
   return (
     <IconContext.Provider value={{ className: "react-icons" }}>
       <footer className="fixed bottom-0 left-0 z-20 w-full p-4 bg-white border-t border-gray-200 shadow">
@@ -31,13 +37,13 @@ export default function FooterMenu() {
           <div className="h-11 w-11 bg-slate-400 flex items-center justify-center bg-gradient-to-r from-orange to-primarycolor rounded-full">
             <IoMdWifi size={32} color="white" />
           </div>
-          <div>
+          <button onClick={HandleDarkmode}>
             <GradientIcon
               size={32}
               icon={IoIosContrast}
               gradientId="red-to-orange-react"
             />
-          </div>
+          </button>
           <div>
             <GradientIcon
               size={32}
