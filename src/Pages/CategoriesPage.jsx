@@ -13,7 +13,21 @@ const placeholders = [
   { title: "Red Page", link: "linktopage3" },
 ];
 
-const CatagoriesPage = () => {
+const colors = [
+  "bg-red",
+  "bg-orange",
+  "bg-gradient-color2",
+  "bg-green",
+  "bg-turquoise",
+  "bg-dark-green",
+  "bg-blue",
+  "bg-dark-blue",
+  "bg-gradient-color1",
+  "bg-additional-color",
+  "bg-primarycolor",
+];
+
+const CategoriesPage = () => {
   const [categories, setCategories] = useState([]);
   const [key, setKey] = useState(0);
 
@@ -21,7 +35,7 @@ const CatagoriesPage = () => {
     async function fetchDataFromSpotify() {
       try {
         const data = await fetchFromApi(
-          "https://api.spotify.com/v1/browse/categories?country=DK&offset=0&limit=20"
+          "https://api.spotify.com/v1/browse/categories?offset=0&limit=10"
         );
         if (data) {
           setCategories(data.categories.items);
@@ -45,19 +59,24 @@ const CatagoriesPage = () => {
           title="Categories"
         />
         <section className="flex flex-col gap-6">
-          <Accordion
-            className="relative z-20 bg-red rounded-md px-6 py-4 cursor-pointer"
-            heading="Alternative"
-            content={categories.map((category, index) => (
-              <div
-                key={index}
-                className="flex justify-between px-3 py-4 mb-2 items-center bg-slate-300"
-              >
-                <Link to={category.name}>{category.name}</Link>
-                <IoIosArrowForward />
-              </div>
-            ))}
-          />
+          {categories.map((category, index) => (
+            <Accordion
+              key={index}
+              className={`relative z-20 rounded-md px-6 py-4 cursor-pointer ${
+                colors[index % colors.length]
+              }`}
+              heading={category.name}
+              content={placeholders.map((placeholder, index) => (
+                <div
+                  key={index}
+                  className="flex justify-between px-3 py-4 mb-2 items-center bg-slate-300"
+                >
+                  <Link to={placeholder.title}>{placeholder.title}</Link>
+                  <IoIosArrowForward />
+                </div>
+              ))}
+            />
+          ))}
         </section>
       </main>
       <FooterMenu />
@@ -65,4 +84,4 @@ const CatagoriesPage = () => {
   );
 };
 
-export default CatagoriesPage;
+export default CategoriesPage;
