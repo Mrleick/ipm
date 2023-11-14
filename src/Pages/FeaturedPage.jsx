@@ -9,17 +9,20 @@ import tw from "tailwind-styled-components";
 const StyledName = tw.h3`
 absolute 
 left-4 
-bottom-28
+bottom-44
 text-3xl
 text-white
+max-w-xs
+drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,0.8)]
 `;
 
 const StyledSongs = tw.p`
 absolute 
 left-4 
-bottom-16
+bottom-32
 text-2xl
 text-white
+drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,0.8)]
 `;
 
 const FeaturedPage = () => {
@@ -31,7 +34,7 @@ const FeaturedPage = () => {
     async function fetchDataFromSpotify() {
       try {
         const data = await fetchFromApi(
-          "https://api.spotify.com/v1/browse/featured-playlists"
+          "https://api.spotify.com/v1/browse/featured-playlists?country=DK"
         );
         if (data) {
           setFeaturedPlaylists(data.playlists.items); // Fix here: use data instead of response
@@ -54,12 +57,12 @@ const FeaturedPage = () => {
 
       <main className="px-6 pb-20">
         {loading ? (
-          <p>Loading...</p>
+          <p>Loading featured playlists...</p>
         ) : (
           <div className="flex flex-col gap-10">
             {featuredPlaylists.map((playlist) => (
               <div key={playlist.id}>
-                <article className="relative ">
+                <article className="relative drop-shadow-[100px_100px_100px_rgba(255,0,0,0.8)">
                   {/* <h3>{playlist.name}</h3>
                   <p>{playlist.type}</p> */}
                   <StyledSongs>{playlist.tracks.total + " songs"}</StyledSongs>
