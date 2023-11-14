@@ -1,6 +1,6 @@
 // import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
-import Footer from "../components/Footer";
+import FooterMenu from "../components/FooterMenu";
 import { IoIosArrowBack, IoIosSearch } from "react-icons/io";
 
 const AlbumPage = () => {
@@ -42,7 +42,7 @@ const AlbumPage = () => {
 
   return (
     <>
-      <div className="dark">
+      <div>
         <div className="w-screen h-screen bg-primarycolor dark:bg-white">
           
           <header className="pt-5 px-5 flex justify-between text-white dark:text-black">
@@ -114,16 +114,18 @@ const AlbumPage = () => {
               {songs &&
                 songs.tracks.items.map((track) => (
                   <article
-                    className="flex px-5 justify-between align-middle mb-6 text-white dark:text-black"
+                    className="flex px-5 justify-between items-center mb-6 text-white dark:text-black"
                     key={track.id}
                   >
                     <div className="flex gap-3">
                       <img
                         src={songs && songs.images[0].url}
-                        className="h-14"
+                        className="h-14 rounded-lg"
                       />
-                      <span>
-                        <p className="font-bold text-xl m-0">{track.name}</p>
+                      <span className="max-h-14">
+                        <p className="font-bold text-xl m-0">{
+                        track.name.length > 15 ? track.name.split(" ").slice(0, 3).join(" ")+ "..." : track.name
+                        }</p>
                         <p className="m-0">{track.artists[0].name}</p>
                       </span>
                     </div>
@@ -132,7 +134,7 @@ const AlbumPage = () => {
                 ))}
             </section>
           </section>
-          <Footer />
+          <FooterMenu />
         </div>
       </div>
     </>
