@@ -6,6 +6,8 @@ export default function Header() {
   const location = useLocation();
   const navigate = useNavigate();
 
+  const pathname = location.pathname.substring(1);
+
   return (
     <header className="flex justify-between bg-slate-400 py-4 tracking-widest">
       <button onClick={() => navigate(-1)}>
@@ -14,7 +16,7 @@ export default function Header() {
       <Heading
         level="2"
         className="uppercase tracking-wider"
-        title={location.pathname}
+        title={pathname}
       />
       <nav>
         <IoIosSearch size={24} />
