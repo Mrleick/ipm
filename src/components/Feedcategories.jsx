@@ -1,7 +1,7 @@
 import tw from "tailwind-styled-components";
 
 //Genre categories
-const CatFlex = tw.section`
+const Container = tw.section`
   flex
   flex-row
   gap-x-5
@@ -18,25 +18,20 @@ const CatWrapper = tw.button`
   w-auto
   text-white
   text-center
-  transition duration-300
-  hover:bg-cat
-  hover:text-white
   gap-x-2
-  mt-5
-  flex  // Make it a flex container
-  items-center  // Center the content vertically
-  justify-center  // Center the content horizontally
+  flex  
+  items-center   
 `;
 
 const Genres = () => {
   return (
     <>
       {" "}
-      <CatFlex>
+      <Container>
         <CatWrapper>Test</CatWrapper>
         <CatWrapper>Test</CatWrapper>
         <CatWrapper>Test</CatWrapper>
-      </CatFlex>
+      </Container>
     </>
   );
 };
