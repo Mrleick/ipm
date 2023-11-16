@@ -16,6 +16,8 @@ import Artists from "./Pages/ArtistsPage";
 import Albums from "./Pages/AlbumsPage";
 import AlbumDetails from "./Pages/AlbumDetailsPage";
 
+import TempRouting from "./Pages/TempRoutingPage";
+
 import {
   createBrowserRouter,
   createRoutesFromElements,
@@ -39,6 +41,7 @@ const router = createBrowserRouter(
       <Route path="/Artists/" element={<Artists />} />
       <Route path="/Albums/" element={<Albums />} />
       <Route path="/AlbumDetails/" element={<AlbumDetails />} />
+      <Route path="/TempRouting/" element={<TempRouting />} />
     </Route>
   )
 );
