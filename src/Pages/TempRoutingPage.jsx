@@ -7,20 +7,20 @@ const TempRoutingPage = () => {
         Temp page for navigation only delete before finalized version!
       </h1>
       <div className="grid grid-cols-4 gap-8">
-        <Link to="/AlbumDetailsPage">AlbumDetailsPage</Link>
-        <Link to="/AlbumsPage">AlbumsPage</Link>
-        <Link to="/ArtistsPage">ArtistsPage</Link>
-        <Link to="/CategoriesPage">CategoriesPage</Link>
-        <Link to="/FeaturedPage">FeaturedPage</Link>
-        <Link to="/FeedPage">FeedPage</Link>
-        <Link to="/LoginPage">LoginPage</Link>
-        <Link to="/PlayerPage">PlayerPage</Link>
-        <Link to="/PlaylistPage">PlaylistPage</Link>
-        <Link to="/SongsPage">SongsPage</Link>
+        <Link to="/AlbumDetails">AlbumDetailsPage</Link>
+        <Link to="/Albums">AlbumsPage</Link>
+        <Link to="/Artists">ArtistsPage</Link>
+        <Link to="/Categories">CategoriesPage</Link>
+        <Link to="/Featured">FeaturedPage</Link>
+        <Link to="/Feed">FeedPage</Link>
+        <Link to="/Login">LoginPage</Link>
+        <Link to="/Player">PlayerPage</Link>
+        <Link to="/Playlist">PlaylistPage</Link>
+        <Link to="/Songs">SongsPage</Link>
         <Link to="/TempRouting">TempRouting</Link>
-        <Link to="/TrendsPage">TrendsPage</Link>
-        <Link to="/WalkthroughPage">WalkthroughPage</Link>
-        <Link to="/WelcomePage">WelcomePage</Link>
+        <Link to="/Trends">TrendsPage</Link>
+        <Link to="/Walkthrough">WalkthroughPage</Link>
+        <Link to="/Welcome">WelcomePage</Link>
       </div>
     </>
   );
