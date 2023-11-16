@@ -1,8 +1,9 @@
 import tw from "tailwind-styled-components";
 import Card from "../components/Feedcard";
 import Categories from "../components/Feedcategories";
-import Backbtn from "../components/Backbtn";
 import Heading from "../components/Heading";
+import Header from "../components/Header";
+import FooterMenu from "../components/FooterMenu";
 
 const Container = tw.section`
   bg-secondary-color
@@ -13,12 +14,16 @@ const Container = tw.section`
 const FeedPage = () => {
   return (
     <>
-      <main>
+      <main className="">
         <Container>
-          <Backbtn />
+          {" "}
+          <header>
+            <Header />
+          </header>
           <Heading title="Featured" />
           <Categories />
           <Card />
+          <FooterMenu />
         </Container>
       </main>
     </>
