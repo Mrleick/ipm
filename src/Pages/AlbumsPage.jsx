@@ -63,7 +63,7 @@ const AlbumPage = () => {
   return (
     <>
       <div>
-        <div className="w-screen h-screen bg-primarycolor dark:bg-white">
+        <div className="w-screen h-screen bg-secondary-color dark:bg-white">
           <Header />
           
           <section>
