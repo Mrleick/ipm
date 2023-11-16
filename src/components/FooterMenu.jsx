@@ -11,14 +11,14 @@ import { Link } from "react-router-dom";
 import { useOutletContext } from "react-router-dom";
 
 export default function FooterMenu() {
-  const [context, setContext] = useOutletContext()
+  const [context, setContext] = useOutletContext();
   const HandleDarkmode = () => {
     setContext(!context);
   };
-  
+
   return (
     <IconContext.Provider value={{ className: "react-icons" }}>
-      <footer className="fixed bottom-0 left-0 z-20 w-full p-4 bg-white border-t border-gray-200 shadow">
+      <footer className="fixed bottom-0 left-0 z-20 w-full p-4 bg-white border-t border-gray-200 shadow dark:bg-additional-color dark:border-additional-color">
         <nav className="flex justify-around items-center">
           <Link to="/">
             <GradientIcon
@@ -35,7 +35,7 @@ export default function FooterMenu() {
             />
           </Link>
           <div className="h-11 w-11 bg-slate-400 flex items-center justify-center bg-gradient-to-r from-orange to-primarycolor rounded-full">
-            <IoMdWifi size={32} color="white" />
+            <IoMdWifi size={32} />
           </div>
           <button onClick={HandleDarkmode}>
             <GradientIcon
