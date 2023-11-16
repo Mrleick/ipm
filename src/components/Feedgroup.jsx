@@ -5,8 +5,8 @@ import roundpexel3 from "../assets/3.png";
 
 const Feedgroup = () => {
   return (
-    <div className="flex items-center text-white">
-      <div className="">
+    <section className="flex items-center text-white">
+      <div className="-ml-2">
         <img src={roundpexel} alt="Image 1" className="w-full h-auto" />
       </div>
       <div className="-ml-8">
@@ -20,7 +20,7 @@ const Feedgroup = () => {
           <span className="font-bold">3,123 </span>are talking about this
         </p>
       </div>
-    </div>
+    </section>
   );
 };
 
