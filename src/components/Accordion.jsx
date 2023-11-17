@@ -1,8 +1,35 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { Link } from "react-router-dom";
+import { IoIosArrowForward, IoIosMore } from "react-icons/io";
+import fetchFromApi from "../lib/fetchFromApi";
 
-const Accordion = ({ heading, content, className }) => {
+const Accordion = ({ heading, category, className }) => {
   const [isOpen, setIsOpen] = useState(false);
+  const [subCategories, setSubCategories] = useState([]);
+
+  const fetchSubcategories = async (category) => {
+    console.log("Category id", category);
+
+    try {
+      const data = await fetchFromApi(
+        `https://api.spotify.com/v1/browse/categories/${category}/playlists?country=US`
+      );
+
+      if (data) {
+        console.log("SUBCATEGORIES", data.playlists.items);
+        setSubCategories(data.playlists.items);
+      }
+    } catch (error) {
+      console.error("An error occurred:", error);
+    }
+  };
+
+  useEffect(() => {
+    if (isOpen) {
+      fetchSubcategories(category);
+    }
+  }, [isOpen, category]);
 
   return (
     <motion.div>
@@ -10,16 +37,19 @@ const Accordion = ({ heading, content, className }) => {
         <motion.div
           key="heading"
           className={className}
-          onClick={() => setIsOpen(!isOpen)}
+          onClick={() => {
+            setIsOpen(!isOpen);
+          }}
         >
-          <motion.div className="font-bold ml-1 text-white">
-            {heading}
+          <motion.div className="font-bold ml-1 text-white flex justify-between items-center">
+            <h2 className="block">{heading}</h2>
+            <IoIosMore size={32} />
           </motion.div>
         </motion.div>
 
         {isOpen && (
           <motion.div
-            key="content"
+            key="children"
             initial={{ opacity: 0 }}
             animate={{
               opacity: 1,
@@ -28,9 +58,21 @@ const Accordion = ({ heading, content, className }) => {
               },
             }}
             exit={{ opacity: 0 }}
-            className="p-4 justify-between"
+            className="pl-7 pr-6 pt-4 flex flex-col gap-2"
           >
-            {content}
+            {subCategories?.map(
+              (item, index) =>
+                item &&
+                item.name && (
+                  <div
+                    key={index}
+                    className="flex justify-between items-center py-3"
+                  >
+                    <Link to="/">{item.name}</Link>
+                    <IoIosArrowForward size={22} />
+                  </div>
+                )
+            )}
           </motion.div>
         )}
       </AnimatePresence>
