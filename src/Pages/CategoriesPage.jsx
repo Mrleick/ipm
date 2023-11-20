@@ -43,7 +43,7 @@ const CategoriesPage = () => {
 
   return (
     <>
-      <Header className="uppercase tracking-wider text-black dark:text-white" />
+      <Header className="uppercase tracking-wider text-black dark:text-white flex justify-between py-6 px-6 dark:bg-secondary-color" />
       <main className="px-6 pb-20 dark:bg-secondary-color dark:text-white">
         <Heading
           level="1"
