@@ -29,6 +29,9 @@ export default {
       boxShadow: {
         shadowblur: "0 0 12.5px 0 rgba(0,0,0 0.14) ",
       },
+      backgroundImage: {
+        wave: "url('./src/assets/sound-wave.svg')",
+      },
     },
   },
   plugins: [],
