@@ -2,25 +2,21 @@ import { useNavigate, useLocation } from "react-router-dom";
 import { IoIosArrowBack, IoIosSearch } from "react-icons/io";
 import Heading from "./Heading";
 
-export default function Header() {
+export default function Header({ className }) {
   const location = useLocation();
   const navigate = useNavigate();
 
   const pathname = location.pathname.substring(1);
 
   return (
-    <header className="flex justify-between py-6 tracking-widest">
+    <header className="flex justify-between py-6 tracking-widest px-6">
       <button
         onClick={() => navigate(-1)}
         className="text-black dark:text-white"
       >
         <IoIosArrowBack size={24} />
       </button>
-      <Heading
-        level="2"
-        className="uppercase tracking-wider text-black dark:text-white"
-        title={pathname}
-      />
+      <Heading level="2" className={className} title={pathname} />
       <button className="dark:text-white text-black text-2xl">
         <IoIosSearch />
       </button>
