@@ -43,6 +43,7 @@ h-[640px]
 `;
 
 let id = "4aawyAB9vmqN3uQ7FjRGTy";
+// let id = useSearchParams
 
 function millisToMinutesAndSeconds(millis) {
   var minutes = Math.floor(millis / 60000);
@@ -59,7 +60,7 @@ const AlbumDetailsPage = () => {
     async function fetchDataFromSpotify() {
       try {
         const data = await fetchFromApi(
-          { id }`https://api.spotify.com/v1/albums/${id}`
+          `https://api.spotify.com/v1/albums/${id}`
           //  "https://api.spotify.com/v1/albums/4aawyAB9vmqN3uQ7FjRGTy"
         );
         if (data) {
