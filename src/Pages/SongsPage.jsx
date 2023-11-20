@@ -2,6 +2,7 @@ import Header from "../components/Header";
 import FooterMenu from "../components/FooterMenu";
 import Heading from "../components/Heading";
 import { useEffect, useState } from "react";
+import Track from "../components/Track";
 
 const SongsPage = () => {
   const [token, setToken] = useState();
@@ -37,7 +38,7 @@ const SongsPage = () => {
       }
     )
       .then((res) => res.json())
-      .then((data) => setTracks(data.tracks.items));
+      .then((data) => setTracks(data));
   }, [token]);
 
   ////////////// convert ms to s /////////////////////
@@ -48,40 +49,17 @@ const SongsPage = () => {
   }
   return (
     <>
-      <main className="dark:bg-white bg-secondary-color">
-        <div className="dark:text-black px-5">
+      <main className="dark:bg-secondary-color bg-white ">
+        <div className="px-5">
           <Header />
         </div>
         <Heading level="1" title="All Songs" className="py-4 px-5" />
-        <section className="px-5 overflow-y-auto max-h-fit pb-96 text-white dark:text-black">
+        <section className="px-5 overflow-y-auto max-h-fit pb-96 text-black dark:text-white">
           {tracks &&
-            tracks.map((song) => (
+            tracks.tracks.items.map((song) => (
               <>
-                {console.log(song)}
-                <div className="flex items-center pb-4 justify-between" key={song.id}>
-                  <div className="flex gap-4">
-                    <button className="bg-gradient-to-r from-orange to-primarycolor rounded-full w-9 h-9 text-white">
-                      ▶
-                    </button>
-                    <span>
-                      <h2 className="font-bold">
-                        {song.name.length > 15
-                          ? song.name.split(" ").slice(0, 3).join(" ") + "..."
-                          : song.name}
-                      </h2>
-                      <div className="flex gap-4 text-sm">
-                        {/* {song.artists.map((artist) => {
-                        return <p key={artist.id}>{artist.name.length > 1
-                          ? artist.name.split(" ").slice(0, 3).join(" ") +
-                            "..."
-                          : artist.name}</p>;
-                      })} */}
-                        {song.artists[0].name}
-                      </div>
-                    </span>
-                  </div>
-                  <p>{millisToMinutesAndSeconds(song.duration_ms)}</p>
-                </div>
+              {console.log(tracks)}
+               <Track title={song.name} artist={song.artists[0].name} image={tracks.images[0].url} playtime={millisToMinutesAndSeconds(song.duration_ms)} key={song.id} />
               </>
             ))}
         </section>

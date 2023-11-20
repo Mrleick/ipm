@@ -2,11 +2,11 @@
 import { useState, useEffect } from "react";
 import FooterMenu from "../components/FooterMenu";
 import Header from "../components/Header";
-
+import { Link } from "react-router-dom";
 
 const AlbumPage = () => {
   const [token, setToken] = useState();
-////////////////////////// Get Token ////////////////////////////
+  ////////////////////////// Get Token ////////////////////////////
   useEffect(() => {
     const body = new URLSearchParams({
       grant_type: "client_credentials",
@@ -28,44 +28,37 @@ const AlbumPage = () => {
 
   //////////////////////////7 get singles offset /////////////////////////
   useEffect(() => {
-    fetch(
-      "https://api.spotify.com/v1/browse/new-releases?offset=20",
-      {
-        method: "GET",
-        headers: {
-          "content-type": "application/x-www-form-urlencoded",
-          Authorization: `Bearer ${token}`,
-        },
-      }
-    )
+    fetch("https://api.spotify.com/v1/browse/new-releases?offset=20", {
+      method: "GET",
+      headers: {
+        "content-type": "application/x-www-form-urlencoded",
+        Authorization: `Bearer ${token}`,
+      },
+    })
       .then((res) => res.json())
       .then((data) => setSongs(data.albums.items));
   }, [token]);
 
   ///////////////////// get Featured Albums /////////////////////
-  const [FeatAlbums, setFeatAlbums] = useState()
+  const [FeatAlbums, setFeatAlbums] = useState();
   useEffect(() => {
-    fetch(
-      "https://api.spotify.com/v1/browse/new-releases",
-      {
-        method: "GET",
-        headers: {
-          "content-type": "application/x-www-form-urlencoded",
-          Authorization: `Bearer ${token}`,
-        },
-      }
-    )
+    fetch("https://api.spotify.com/v1/browse/new-releases", {
+      method: "GET",
+      headers: {
+        "content-type": "application/x-www-form-urlencoded",
+        Authorization: `Bearer ${token}`,
+      },
+    })
       .then((res) => res.json())
       .then((data) => setFeatAlbums(data.albums.items));
-  },[token])
+  }, [token]);
 
-    
   return (
     <>
       <div>
         <div className="w-screen h-screen bg-secondary-color dark:bg-white">
           <Header />
-          
+
           <section>
             <h1 className="bg-gradient-to-r from-[#FF6A00] to-[#EE0979] text-transparent bg-clip-text text-5xl pl-5 py-7">
               All Albums
@@ -81,18 +74,16 @@ const AlbumPage = () => {
             </div>
 
             <section className="gap-5 flex overflow-x-auto px-5 pb-8">
-              {FeatAlbums && FeatAlbums.map((album) => (
-                <img
-                src={album.images[0].url}
-                className="rounded-lg h-32"
-                key={album.id}
-              /> ) 
-              )
-              }
-
-
-               
-              
+              {FeatAlbums &&
+                FeatAlbums.map((album) => (
+                  <Link to={`/albumDetails/${album.id}`} key={album.id}>
+                    <img
+                      src={album.images[0].url}
+                      className="rounded-lg h-32"
+                      
+                    />
+                  </Link>
+                ))}
             </section>
 
             <div className="flex justify-between px-5 pb-4 text-white dark:text-black">
@@ -107,9 +98,9 @@ const AlbumPage = () => {
             <section className="overflow-y-auto h-40 pb-14">
               {songs &&
                 songs.map((single) => (
+                  <Link to={`/albumDetails/${single.id}`} key={single.id}>
                   <article
                     className="flex px-5 justify-between items-center mb-6 text-white dark:text-black"
-                    key={single.id}
                   >
                     <div className="flex gap-3">
                       <img
@@ -128,6 +119,7 @@ const AlbumPage = () => {
                     </div>
                     <p>12 sec</p>
                   </article>
+                  </Link>
                 ))}
             </section>
           </section>
