@@ -14,11 +14,11 @@ export default function Header({ className }) {
         onClick={() => navigate(-1)}
         className="text-black dark:text-white"
       >
-        <IoIosArrowBack size={24} />
+        <IoIosArrowBack className={className} size={24} />
       </button>
       <Heading level="2" className={className} title={pathname} />
       <button className="dark:text-white text-black text-2xl">
-        <IoIosSearch />
+        <IoIosSearch className={className} />
       </button>
     </header>
   );
