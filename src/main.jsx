@@ -40,7 +40,7 @@ const router = createBrowserRouter(
       <Route path="/Songs/" element={<Songs />} />
       <Route path="/Artists/" element={<Artists />} />
       <Route path="/Albums/" element={<Albums />} />
-      <Route path="/AlbumDetails/" element={<AlbumDetails />} />
+      <Route path="/AlbumDetails/:id" element={<AlbumDetails />} />
       <Route path="/TempRouting/" element={<TempRouting />} />
     </Route>
   )
