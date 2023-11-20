@@ -127,21 +127,24 @@ const AlbumDetailsPage = () => {
           </StyleBackgroundImage>
         )}
       </section>
-      <main className="px-6 pb-20 grid-cols-4">
-        <h2 className="font-poppins w-40 pt-10 pb-6  font-bold text-secondary-color">
+      <main className="px-6 pb-20 grid-cols-4 dark:bg-secondary-color">
+        <h2 className="font-poppins w-40 pt-10 pb-6  font-bold text-secondary-color dark:text-white">
           All Songs
         </h2>
         <ul>
           {albumDetails.tracks && albumDetails.tracks.items ? (
             albumDetails.tracks.items.map((track, index) => (
-              <li className="flex justify-between max-w-lg" key={index}>
+              <li
+                className="flex justify-between max-w-lg  dark:text-white"
+                key={index}
+              >
                 <section className="flex gap-5 py-2 items-center">
                   {" "}
                   <StyledIconDiv>
                     <StyledPlayIcon />{" "}
                   </StyledIconDiv>
                   <div className="flex flex-col">
-                    <h3 className="font-poppins w-40 font-bold text-secondary-color">
+                    <h3 className="font-poppins w-40 font-bold text-secondary-color  dark:text-white">
                       {" "}
                       {track.name}
                     </h3>
