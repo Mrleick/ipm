@@ -8,6 +8,10 @@
   }
 }
 
+:root {
+  font-family: poppins;
+}
+
 .react-icons {
   color: white;
 }
