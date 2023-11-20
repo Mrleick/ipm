@@ -57,7 +57,7 @@ const AlbumPage = () => {
     <>
       <div>
         <div className="w-screen h-screen bg-secondary-color dark:bg-white">
-          <Header />
+          <Header/>
 
           <section>
             <h1 className="bg-gradient-to-r from-[#FF6A00] to-[#EE0979] text-transparent bg-clip-text text-5xl pl-5 py-7">
