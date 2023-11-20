@@ -43,8 +43,8 @@ const CategoriesPage = () => {
 
   return (
     <>
+      <Header className="uppercase tracking-wider text-black dark:text-white" />
       <main className="px-6 pb-20 dark:bg-secondary-color dark:text-white">
-        <Header />
         <Heading
           level="1"
           className="font-bold text-transparent text-5xl bg-clip-text inline-block bg-gradient-to-r from-orange to-primarycolor py-12"
