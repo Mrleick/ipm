@@ -8,9 +8,10 @@
   }
 }
 
+:root {
+  font-family: poppins;
+}
+
 .react-icons {
-  background: #f18d05;
-  background: linear-gradient(to right, #f18d05 0%, #cf1512 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  color: white;
 }
