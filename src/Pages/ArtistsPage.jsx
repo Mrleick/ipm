@@ -12,16 +12,13 @@ const ArtistsPage = () => {
       <Header className="uppercase tracking-wider text-black dark:text-white flex justify-between py-4 px-4 dark:bg-secondary-color" />
 
       <h1 className="pl-4">Artists Page</h1>
-      <ViewAll text="Artists of the Month" />
+      <ViewAll text="Artists of the Month" showButton={true} />
       <ArtistsOfTheMonth />
-      <ViewAll text="Featured Artists" />
+      <ViewAll text="Featured Artists" showButton={true} />
       <ArtistCard />
-      <ViewAll text="Featured Artists" />
-      <ViewAll text="Featured Artists" />
-      <ViewAll text="Featured Artists" />
-      <ViewAll text="Featured Artists" />
-      <ViewAll text="Featured Artists" />
-      <ViewAll text="Featured Artists" />
+      <ViewAll text="Top Artists By Country" showButton={false} />
+      <ViewAll text="Top Artists By Country" showButton={false} />
+      <ViewAll text="Top Artists By Country" showButton={false} />
       <Footer />
     </div>
   );
