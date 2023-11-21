@@ -1,12 +1,11 @@
-import { Link } from "react-router-dom";
 import Header from "../components/Header";
 import Wave from "../assets/sound-wave-3.png";
 import Vinyl from "../assets/vinyl.png";
+import Backward from "../assets/skip-backward.png";
+import Forward from "../assets/skip-forward.png";
 import {
-  IoPlaySkipBackSharp,
   IoPlayBackSharp,
   IoPlayForwardSharp,
-  IoPlaySkipForwardSharp,
   IoPlaySharp,
 } from "react-icons/io5";
 
@@ -36,13 +35,13 @@ const PlayerPage = () => {
       </div>
 
       <div className="flex gap-x-4 justify-center items-center">
-        <IoPlaySkipBackSharp className="text-4xl" />
+        <img src={Backward} alt="Backward" />
         <IoPlayBackSharp className="text-4xl" />
         <div className="flex justify-center items-center h-[75px] w-[75px] rounded-full bg-gradient-to-r from-orange to-primarycolor">
           <IoPlaySharp className="text-white text-[40px]" />
         </div>
         <IoPlayForwardSharp className="text-4xl" />
-        <IoPlaySkipForwardSharp className="text-4xl" />
+        <img src={Forward} alt="Forward" />
       </div>
     </>
   );
