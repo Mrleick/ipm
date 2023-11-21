@@ -15,7 +15,7 @@ export default function Header({ className, buttonClass }) {
       </button>
       <Heading level="2" className={className} title={pathname} />
       <button className={buttonClass}>
-        <IoIosSearch />
+        <IoIosSearch size={24} />
       </button>
     </header>
   );
