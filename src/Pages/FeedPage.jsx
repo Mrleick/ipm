@@ -22,7 +22,9 @@ const FeedPage = () => {
           </header>
           <Heading title="Featured" />
           <Categories />
-          <Card />
+          <section className="VerticalMovieListContainer">
+            <Card />
+          </section>
           <FooterMenu />
         </Container>
       </main>
