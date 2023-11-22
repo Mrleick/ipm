@@ -36,11 +36,11 @@ const ArtistsOfTheMonth = () => {
   }, [token]);
 
   return (
-    <div className="flex overflow-x-auto">
+    <div className="flex overflow-x-auto ">
       {artists.map((artist) => (
         <div
           key={artist.id}
-          className="relative w-64 h-40 overflow-hidden m-4 shadow-lg rounded-lg flex-shrink-0"
+          className="relative w-64 h-48 overflow-hidden m-4 shadow-lg rounded-lg flex-shrink-0 shadow-slate-700"
           style={{ minWidth: "20rem" }}
         >
           <img

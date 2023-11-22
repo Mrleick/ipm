@@ -49,18 +49,21 @@ const TopArtistsByCountry = ({ country }) => {
 
   return (
     <div className="flex flex-wrap justify-center gap-4">
-      {topPlaylists.map((playlist) => (
-        <div
-          key={playlist.id}
-          className="relative w-48 h-48 overflow-hidden m-2 shadow-lg rounded-lg"
-        >
-          <img
-            src={playlist.images[0].url}
-            alt={`${playlist.name} background`}
-            className="w-full h-full object-cover rounded-lg"
-          />
-        </div>
-      ))}
+      {topPlaylists
+        .slice()
+        .reverse()
+        .map((playlist) => (
+          <div
+            key={playlist.id}
+            className="relative w-32 h-32 overflow-hidden m-6 shadow-lg rounded-lg shadow-slate-700"
+          >
+            <img
+              src={playlist.images[0].url}
+              alt={`${playlist.name} background`}
+              className="w-full h-full object-cover rounded-lg"
+            />
+          </div>
+        ))}
     </div>
   );
 };
