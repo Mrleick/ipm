@@ -49,7 +49,7 @@ const ArtistCard = () => {
   }, []);
 
   return (
-    <div className="flex overflow-x-auto">
+    <div className="flex overflow-x-auto pl-2">
       {artists.map((artist) => (
         <div
           key={artist.id}
