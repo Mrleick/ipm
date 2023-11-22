@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Link } from "react-router-dom";
 import { IoIosArrowForward, IoIosMore } from "react-icons/io";
+
 import fetchFromApi from "../lib/fetchFromApi";
 
 const Accordion = ({ heading, category, className }) => {
@@ -68,7 +69,7 @@ const Accordion = ({ heading, category, className }) => {
                     key={index}
                     className="flex justify-between items-center py-3"
                   >
-                    <Link to="/">{item.name}</Link>
+                    <Link to={`/playlist?q=${item.id}`}>{item.name}</Link>
                     <IoIosArrowForward size={22} />
                   </div>
                 )

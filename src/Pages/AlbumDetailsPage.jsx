@@ -155,7 +155,7 @@ const AlbumDetailsPage = () => {
           {albumDetails.tracks && albumDetails.tracks.items ? (
             albumDetails.tracks.items.map((track, index) => (
               <li
-                className="flex justify-between max-w-lg  dark:text-white"
+                className="flex justify-between max-w-full  dark:text-white"
                 key={index}
               >
                 <section className="flex gap-5 py-2 items-center">
@@ -169,15 +169,15 @@ const AlbumDetailsPage = () => {
                       {track.name}
                     </h3>
 
-                    <p className="max-w-full">
+                    <p className="max-w-full font-light">
                       {track.artists[0]?.name}
                       {track.artists[1]?.name && ` feat. `}
                     </p>
-                    <p> {track.artists[1]?.name}</p>
+                    <p className="font-light"> {track.artists[1]?.name}</p>
                   </div>
                 </section>
-                <p className="w-6 text-right flex">
-                  {millisToMinutesAndSeconds(track.duration_ms, "s")} mins
+                <p className="w-6 text-right flex justify-end">
+                  {millisToMinutesAndSeconds(track.duration_ms, "s")}
                 </p>
               </li>
             ))
