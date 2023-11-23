@@ -5,7 +5,7 @@ const Container = tw.section`
   flex
   flex-row
   gap-x-5
-  overflow-x-hidden
+  overflow-x-scroll
   overflow-y-hidden
   whitespace-no-wrap
   mb-5

@@ -26,7 +26,7 @@ const FeedPage = () => {
           <section className="VerticalMovieListContainer">
             <Feedcard showId="38bS44xjbVVZ3No3ByF1dJ" />
             <Feedcard showId="5CfCWKI5pZ28U0uOzXkDHe" />
-            <Feedcard showId="yetAnotherShowId" />
+            <Feedcard showId="5as3aKmN2k11yfDDDSrvaZ" />
           </section>
           <FooterMenu />
         </Container>

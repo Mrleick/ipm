@@ -75,7 +75,7 @@ const Feedcard = ({ showId }) => {
         />
         <section className="ml-5">
           <FavContainer>
-            <p>#Test</p>,<p>#Test</p>,<p>#Test</p>
+            <p>#Spotify</p>,<p>#Music</p>,<p>#Grammy2020</p>
           </FavContainer>
           <Feedgroup />
           <div className="font-bold text-white text-2xl mb-5">
