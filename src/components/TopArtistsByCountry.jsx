@@ -48,14 +48,14 @@ const TopArtistsByCountry = ({ country }) => {
   }, [country]);
 
   return (
-    <div className="flex flex-wrap justify-center gap-4">
+    <div className="flex flex-wrap justify-center gap-4 pb-28">
       {topPlaylists
         .slice()
         .reverse()
         .map((playlist) => (
           <div
             key={playlist.id}
-            className="relative w-32 h-32 overflow-hidden m-6 shadow-lg rounded-lg shadow-slate-700"
+            className="relative w-40 h-40 overflow-hidden m-0 shadow-lg rounded-lg dark:shadow-gray-700 shadow-slate-700"
           >
             <img
               src={playlist.images[0].url}

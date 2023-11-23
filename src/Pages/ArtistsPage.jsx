@@ -10,7 +10,7 @@ import Heading from "../Components/Heading";
 
 const ArtistsPage = () => {
   return (
-    <div>
+    <div className="dark:text-white dark:bg-secondary-color">
       <Header className="uppercase tracking-wider text-black dark:text-white flex justify-between py-4 px-4 dark:bg-secondary-color" />
       <Heading className="pl-4" title="All Artists" />
       <ViewAll text="Artists of the Month" showButton={true} />
