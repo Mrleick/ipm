@@ -1,6 +1,11 @@
+// Feedcard.js
 import React, { useState, useEffect } from "react";
 import tw from "tailwind-styled-components";
 import Feedgroup from "../components/Feedgroup";
+
+const Container = tw.section`
+  mb-5
+`;
 
 const CardWrapper = tw.section`
   w-full
@@ -12,20 +17,20 @@ const CardWrapper = tw.section`
 `;
 
 const FavContainer = tw.div`
-  flex     
+  flex
   mb-2 mt-5
   text-primarycolor
 `;
-////////Get Acces/////////
-const FeedPage = () => {
+
+const Feedcard = ({ showId }) => {
   const [token, setToken] = useState();
-  const [showImages, setShowImages] = useState([]);
+  const [showData, setShowData] = useState({ images: [], name: "" });
 
   useEffect(() => {
     const body = new URLSearchParams({
       grant_type: "client_credentials",
-      client_id: "461ed7ac403943928383815a4d8878db",
-      client_secret: "70a34beaff2e412ab39d243b2821f9a2",
+      client_id: import.meta.env.VITE_APP_SPOTIFY_CLIENT_ID,
+      client_secret: import.meta.env.VITE_APP_SPOTIFY_CLIENT_SECRET,
     });
 
     fetch("https://accounts.spotify.com/api/token", {
@@ -39,10 +44,9 @@ const FeedPage = () => {
       .then((data) => setToken(data.access_token));
   }, []);
 
-  //////////////////// Shows //////////////////
   useEffect(() => {
     if (token) {
-      fetch("https://api.spotify.com/v1/shows/38bS44xjbVVZ3No3ByF1dJ", {
+      fetch(`https://api.spotify.com/v1/shows/${showId}`, {
         method: "GET",
         headers: {
           "content-type": "application/x-www-form-urlencoded",
@@ -51,34 +55,36 @@ const FeedPage = () => {
       })
         .then((res) => res.json())
         .then((data) => {
-          setShowImages(data.images || []);
+          setShowData({ images: data.images || [], name: data.name || "" });
         })
         .catch((error) => {
           console.error("Error fetching show:", error);
         });
     }
-  }, [token]);
+  }, [token, showId]);
 
-  const imageUrl = showImages.length > 0 ? showImages[0]?.url : "";
+  const imageUrl = showData.images.length > 0 ? showData.images[0]?.url : "";
 
   return (
-    <CardWrapper>
-      <img
-        src={imageUrl}
-        alt="Card Image"
-        className="rounded-3xl h-auto w-full"
-      />
-      <section className="ml-5">
-        <FavContainer>
-          <p>#Test</p>,<p>#Test</p>,<p>#Test</p>
-        </FavContainer>
-        <Feedgroup />
-        <div className="font-bold text-white text-2xl mb-5">
-          <p>Coachella 2019 Day Three Highlights</p>
-        </div>
-      </section>
-    </CardWrapper>
+    <Container className="">
+      <CardWrapper>
+        <img
+          src={imageUrl}
+          alt="Card Image"
+          className="rounded-t-3xl h-auto w-full"
+        />
+        <section className="ml-5">
+          <FavContainer>
+            <p>#Test</p>,<p>#Test</p>,<p>#Test</p>
+          </FavContainer>
+          <Feedgroup />
+          <div className="font-bold text-white text-2xl mb-5">
+            <p>{showData.name}</p>
+          </div>
+        </section>
+      </CardWrapper>
+    </Container>
   );
 };
 
-export default FeedPage;
+export default Feedcard;

@@ -12,7 +12,7 @@ export default function Header() {
     <header className="flex justify-between py-6 tracking-widest">
       <button
         onClick={() => navigate(-1)}
-        className="text-black dark:text-white"
+        className=" dark:text-white text-black"
       >
         <IoIosArrowBack size={24} />
       </button>
