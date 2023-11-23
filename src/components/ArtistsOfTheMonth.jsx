@@ -40,7 +40,7 @@ const ArtistsOfTheMonth = () => {
       {artists.map((artist) => (
         <div
           key={artist.id}
-          className="relative w-64 h-48 overflow-hidden m-4 shadow-lg rounded-lg flex-shrink-0 shadow-slate-700"
+          className="relative w-64 h-48 overflow-hidden m-4 shadow-lg rounded-lg flex-shrink-0 "
           style={{ minWidth: "20rem" }}
         >
           <img
@@ -48,9 +48,11 @@ const ArtistsOfTheMonth = () => {
             alt={`${artist.name} background`}
             className="w-full h-full object-cover"
           />
-          <div className="absolute inset-0 flex flex-col items-center justify-center bg-black opacity-50">
-            <h3 className="text-pink-500 text-lg font-bold">{artist.name}</h3>
-            <p className="text-white">Artist of the Month</p>
+          <div className="absolute inset-0 flex flex-col items-center justify-center bg-black opacity-75">
+            <p className="text-white pt-16 pl-36">Song of the Month</p>
+            <h3 className="text-primarycolor text-lg font-bold pl-20">
+              {artist.name}
+            </h3>
           </div>
         </div>
       ))}
