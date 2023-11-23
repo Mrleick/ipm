@@ -49,7 +49,7 @@ const ArtistCard = () => {
   }, []);
 
   return (
-    <div className="flex overflow-x-auto pl-2">
+    <div className="flex overflow-x-auto">
       {artists
         .slice()
         .reverse()
@@ -57,9 +57,9 @@ const ArtistCard = () => {
           <div
             key={artist.id}
             className="flex flex-col items-center m-4"
-            style={{ minWidth: "7rem" }}
+            style={{ minWidth: "5rem" }}
           >
-            <div className="relative w-32 h-32 overflow-hidden shadow-lg rounded-full">
+            <div className="relative w-24 h-24 overflow-hidden shadow-lg rounded-full">
               <img
                 src={artist.images[0].url}
                 alt={`${artist.name} background`}
