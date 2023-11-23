@@ -17,7 +17,7 @@ const Track = (props) => {
             className="bg-gradient-to-r from-orange to-primarycolor rounded-full w-9 h-9 text-white"
             onClick={handleChange}
           >
-            ▶
+            ||
           </button>
             </div>
 
