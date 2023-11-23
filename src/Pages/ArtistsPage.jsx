@@ -1,12 +1,11 @@
 import React, { useState, useEffect } from "react";
-import axios from "axios";
 import Header from "../Components/Header";
 import Footer from "../Components/FooterMenu";
 import ArtistsOfTheMonth from "../components/ArtistsOfTheMonth";
 import ViewAll from "../components/ViewAll";
 import ArtistCard from "../components/ArtistCard";
 import TopArtistsByCountry from "../components/TopArtistsByCountry";
-import Heading from "../Components/Heading";
+import Heading from "../components/Heading";
 
 const ArtistsPage = () => {
   return (
