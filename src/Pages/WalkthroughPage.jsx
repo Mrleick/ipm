@@ -134,7 +134,7 @@ const WalkthroughPage = () => {
                   <StyledIoIosMusicalNote />
                 </ButtonCircle>
               </StyledNav>
-              <Link className="pb-10" to="/Feed">
+              <Link className="pb-10" to="/login">
                 Skip
               </Link>
             </StyledDiv>
@@ -162,7 +162,7 @@ const WalkthroughPage = () => {
                   <StyledIoIosMusicalNote />
                 </ButtonCircle>
               </StyledNav>
-              <Link className="pb-10" to="/Feed">
+              <Link className="pb-10" to="/login">
                 Skip
               </Link>
             </StyledDiv>
@@ -190,7 +190,7 @@ const WalkthroughPage = () => {
                   <StyledIoIosMusicalNote />
                 </PaginationButton>
               </StyledNav>
-              <Link className="pb-10" to="/Feed">
+              <Link className="pb-10" to="/login">
                 Skip
               </Link>
             </StyledDiv>
