@@ -58,7 +58,7 @@ const AlbumPage = () => {
           <p className="text-black dark:text-white font-bold text-lg">
             Featured Albums
           </p>
-          <a href="#" className="no-underline  dark:text-pink-500">
+          <a href="#" className="no-underline  dark:text-primarycolor">
             View more
           </a>
         </div>
@@ -104,10 +104,14 @@ const AlbumPage = () => {
                   <span>
                     <h3 className="font-poppins w-40 font-bold text-secondary-color  dark:text-white">
                       {single.name.length > 15
-                        ? single.name.split(" ").slice(0, 3).join(" ") + "..."
+                        ? single.name.slice(0, 15) + "..."
                         : single.name}
                     </h3>
-                    {single.artists[0]?.name}
+                    <p>
+                      {single.artists[0]?.name.length > 15
+                        ? single.artists[0]?.name.slice(0, 15) + "..."
+                        : single.artists[0]?.name}
+                    </p>
                   </span>
                 </div>
                 <p className="m-0 "> {single.total_tracks} songs</p>
