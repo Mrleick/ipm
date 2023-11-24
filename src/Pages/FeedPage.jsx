@@ -17,10 +17,19 @@ const FeedPage = () => {
   return (
     <>
       <main className="">
+
         <Container className="dark:bg-secondary-color">
-          <header>
-            <Header />
-          </header>
+          {" "}
+          <Header
+            className=""
+            buttonClass=""
+            showBackButton={true}
+            showSearchButton={true}
+            isDarkMode={false}
+            showPageName={true}
+            textColor=""
+          />
+
           <Heading title="Featured" />
           <Genres />
           <section className="VerticalMovieListContainer">

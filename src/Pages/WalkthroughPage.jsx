@@ -18,18 +18,21 @@ const Container = tw.div`
 m-0 
 p-0 
 text-center
+dark:bg-gradient-to-r from-gradient-color1 to-gradient-color2
 `;
 
 const StyledHeader = tw.h2`
 text-secondary-color
 leading-8
 text-3xl
+dark:text-white
 `;
 
 const StyledP = tw.p`
 text-secondary-color
 text-sm
 max-w-xs
+dark:text-white
 `;
 
 const ButtonCircle = tw.div`
@@ -42,7 +45,9 @@ h-20
 border-[3px] 
 border-[solid] 
 border-[black] 
+dark:border-[white] 
 rounded-[100%]
+
 `;
 
 const StyledDiv = tw.div`
@@ -51,6 +56,7 @@ flex-col
 justify-center
 items-center
 gap-5
+dark:text-white
 `;
 
 const PaginationButton = tw.div`
@@ -62,6 +68,8 @@ h-20
 border-none
 bg-primarycolor
 text-white
+dark:bg-white
+dark:text-gradient-color2
 rounded-[100%]
 `;
 
@@ -75,14 +83,17 @@ gap-4
 const StyledIoRadio = tw(IoRadio)`
 w-8
 h-8
+
 `;
 const StyledHeart = tw(IoHeart)`
 w-8
 h-8
+
 `;
 const StyledIoIosMusicalNote = tw(IoIosMusicalNote)`
 w-8
 h-8
+
 `;
 
 const WalkthroughPage = () => {
@@ -123,7 +134,7 @@ const WalkthroughPage = () => {
                   <StyledIoIosMusicalNote />
                 </ButtonCircle>
               </StyledNav>
-              <Link className="pb-10" to="/Feed">
+              <Link className="pb-10" to="/login">
                 Skip
               </Link>
             </StyledDiv>
@@ -151,7 +162,7 @@ const WalkthroughPage = () => {
                   <StyledIoIosMusicalNote />
                 </ButtonCircle>
               </StyledNav>
-              <Link className="pb-10" to="/Feed">
+              <Link className="pb-10" to="/login">
                 Skip
               </Link>
             </StyledDiv>
@@ -179,7 +190,7 @@ const WalkthroughPage = () => {
                   <StyledIoIosMusicalNote />
                 </PaginationButton>
               </StyledNav>
-              <Link className="pb-10" to="/Feed">
+              <Link className="pb-10" to="/login">
                 Skip
               </Link>
             </StyledDiv>
