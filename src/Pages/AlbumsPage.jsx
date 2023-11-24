@@ -3,129 +3,119 @@ import { useState, useEffect } from "react";
 import FooterMenu from "../components/FooterMenu";
 import Header from "../components/Header";
 import { Link } from "react-router-dom";
-
+import fetchFromApi from "../lib/fetchFromApi";
 const AlbumPage = () => {
   const [token, setToken] = useState();
-  ////////////////////////// Get Token ////////////////////////////
+  const [album, setAlbum] = useState();
+  const [songs, setSongs] = useState();
+  const [FeatAlbums, setFeatAlbums] = useState();
+
   useEffect(() => {
-    const body = new URLSearchParams({
-      grant_type: "client_credentials",
-      client_id: "91ed82e07cd84670b918c6f2d745a8a8",
-      client_secret: "bf1e4b7105214f26bec1f1bd6acf9967",
-    });
-    fetch("https://accounts.spotify.com/api/token", {
-      method: "POST",
-      headers: {
-        "content-type": "application/x-www-form-urlencoded",
-      },
-      body: body.toString(),
-    })
-      .then((res) => res.json())
-      .then((data) => setToken(data.access_token));
+    async function fetchDataFromSpotify() {
+      try {
+        const data = await fetchFromApi(
+          "https://api.spotify.com/v1/browse/new-releases?offset=19"
+        );
+        if (data) {
+          setSongs(data.albums.items);
+        }
+      } catch (error) {
+        console.error("An error occurred:", error);
+      }
+    }
+
+    fetchDataFromSpotify();
   }, []);
 
-  const [songs, setSongs] = useState();
-
-  //////////////////////////7 get singles offset /////////////////////////
-  useEffect(() => {
-    fetch("https://api.spotify.com/v1/browse/new-releases?offset=20", {
-      method: "GET",
-      headers: {
-        "content-type": "application/x-www-form-urlencoded",
-        Authorization: `Bearer ${token}`,
-      },
-    })
-      .then((res) => res.json())
-      .then((data) => setSongs(data.albums.items));
-  }, [token]);
-
   ///////////////////// get Featured Albums /////////////////////
-  const [FeatAlbums, setFeatAlbums] = useState();
+
   useEffect(() => {
-    fetch("https://api.spotify.com/v1/browse/new-releases", {
-      method: "GET",
-      headers: {
-        "content-type": "application/x-www-form-urlencoded",
-        Authorization: `Bearer ${token}`,
-      },
-    })
-      .then((res) => res.json())
-      .then((data) => setFeatAlbums(data.albums.items));
-  }, [token]);
+    async function fetchDataFromSpotify() {
+      try {
+        const data = await fetchFromApi(
+          "https://api.spotify.com/v1/browse/new-releases"
+        );
+        if (data) {
+          setFeatAlbums(data.albums.items);
+          console.log(data.albums.items);
+        }
+      } catch (error) {
+        console.error("An error occurred:", error);
+      }
+    }
+
+    fetchDataFromSpotify();
+  }, []);
 
   return (
     <>
-      <div>
-        <div className="w-screen h-screen bg-secondary-color dark:bg-white">
-          <Header/>
-
-          <section>
-            <h1 className="bg-gradient-to-r from-[#FF6A00] to-[#EE0979] text-transparent bg-clip-text text-5xl pl-5 py-7">
-              All Albums
-            </h1>
-            <div className="flex justify-between px-5 pb-4 text-white dark:text-black">
-              <p className="font-bold text-lg">Featured Albums</p>
-              <a
-                href="#"
-                className="no-underline text-purple-700 dark:text-pink-500"
-              >
-                View more
-              </a>
-            </div>
-
-            <section className="gap-5 flex overflow-x-auto px-5 pb-8">
-              {FeatAlbums &&
-                FeatAlbums.map((album) => (
-                  <Link to={`/albumDetails/${album.id}`} key={album.id}>
-                    <img
-                      src={album.images[0].url}
-                      className="rounded-lg h-32"
-                      
-                    />
-                  </Link>
-                ))}
-            </section>
-
-            <div className="flex justify-between px-5 pb-4 text-white dark:text-black">
-              <p className="font-bold text-lg">New Releases</p>
-              <a
-                href="#"
-                className="no-underline text-purple-700 dark:text-pink-500"
-              >
-                View more
-              </a>
-            </div>
-            <section className="overflow-y-auto h-40 pb-14">
-              {songs &&
-                songs.map((single) => (
-                  <Link to={`/albumDetails/${single.id}`} key={single.id}>
-                  <article
-                    className="flex px-5 justify-between items-center mb-6 text-white dark:text-black"
-                  >
-                    <div className="flex gap-3">
-                      <img
-                        src={single.images[0].url}
-                        className="h-14 rounded-lg"
-                      />
-                      <span className="max-h-14">
-                        <p className="font-bold text-xl m-0">
-                          {single.name.length > 15
-                            ? single.name.split(" ").slice(0, 3).join(" ") +
-                              "..."
-                            : single.name}
-                        </p>
-                        <p className="m-0">{single.artists[0].name}</p>
-                      </span>
-                    </div>
-                    <p>12 sec</p>
-                  </article>
-                  </Link>
-                ))}
-            </section>
-          </section>
-          <FooterMenu />
+      <Header className="text-black dark:text-white flex justify-between py-6 px-6 dark:bg-secondary-color" />
+      <main className="dark:bg-secondary-color">
+        <h1 className=" bg-gradient-to-r from-orange to-primarycolor text-transparent bg-clip-text text-5xl pl-5 py-7">
+          All Albums
+        </h1>
+        <div className="flex justify-between px-5 pb-4 text-white dark:text-black">
+          <p className="text-black dark:text-white font-bold text-lg">
+            Featured Albums
+          </p>
+          <a href="#" className="no-underline  dark:text-pink-500">
+            View more
+          </a>
         </div>
+        <section className="gap-5 flex overflow-x-auto px-5 pb-8 ">
+          {FeatAlbums &&
+            FeatAlbums.map((album) => (
+              <Link to={`/albumDetails/${album.id}`} key={album.id}>
+                <div className="flex gap-5 mr-8 ">
+                  <img
+                    src={album.images[0].url}
+                    className="rounded-lg h-32 min-w-fit mr-24 "
+                  />
+                </div>
+              </Link>
+            ))}
+        </section>
+      </main>
+      <div className="flex dark:bg-secondary-color justify-between px-5 pb-4 text-white dark:text-black">
+        <p className="text-black mb-5  dark:text-white font-bold text-lg">
+          New Releases
+        </p>
+        <a
+          href="#"
+          className="no-underline  text-purple-700 dark:text-primarycolor"
+        >
+          View more
+        </a>
       </div>
+      <section className="mb-16 flex flex-col dark:bg-secondary-color">
+        {songs &&
+          songs.map((single) => (
+            <Link
+              className="dark:bg-secondary-color"
+              to={`/albumDetails/${single.id}`}
+              key={single.id}
+            >
+              <article className="flex px-6 justify-between items-center mb-6 text-black dark:text-white dark:bg-secondary-color">
+                <div className="flex gap-3 dark:bg-secondary-color">
+                  <img
+                    src={single.images[0].url}
+                    className="h-14 flex m-auto items-center rounded-lg"
+                  />
+                  <span>
+                    <h3 className="font-poppins w-40 font-bold text-secondary-color  dark:text-white">
+                      {single.name.length > 15
+                        ? single.name.split(" ").slice(0, 3).join(" ") + "..."
+                        : single.name}
+                    </h3>
+                    {single.artists[0]?.name}
+                  </span>
+                </div>
+                <p className="m-0 "> {single.total_tracks} songs</p>
+              </article>
+            </Link>
+          ))}
+      </section>{" "}
+      <FooterMenu />
     </>
   );
 };
