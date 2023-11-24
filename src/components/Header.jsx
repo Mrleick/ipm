@@ -16,7 +16,7 @@ export default function Header({
   const navigate = useNavigate();
   const pathname = location.pathname.substring(1);
 
-  const headerClasses = `${className} uppercase tracking-wider ${textColor} flex justify-between py-4 px-4 ${
+  const headerClasses = `${className} uppercase tracking-wider ${textColor} flex justify-between items-center py-4 px-4 ${
     isDarkMode ? "dark:bg-secondary-color" : ""
   }`;
 
@@ -27,9 +27,18 @@ export default function Header({
           <IoIosArrowBack size={24} />
         </button>
       )}
-      {showPageName && (
-        <Heading level="2" className={className} title={pathname} />
-      )}
+      <div
+        style={{
+          flex: "1",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+        }}
+      >
+        {showPageName && (
+          <Heading level="2" className={className} title={pathname} />
+        )}
+      </div>
       {showSearchButton && (
         <button className={buttonClass}>
           <IoIosSearch size={24} />
