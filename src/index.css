@@ -28,6 +28,11 @@
   color: white;
 }
 
+
+.VerticalMovieListContainer {
+  padding: 0 0 100px;
+
 .dark-mode .react-icons {
   color: white;
+
 }
