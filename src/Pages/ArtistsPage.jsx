@@ -1,6 +1,6 @@
 import Heading from "../components/Heading";
-import React, { useState, useEffect } from "react";
-import Footer from "../Components/FooterMenu";
+import Header from "../components/Header";
+import FooterMenu from "../components/FooterMenu";
 import ArtistsOfTheMonth from "../components/ArtistsOfTheMonth";
 import ViewAll from "../components/ViewAll";
 import ArtistCard from "../components/ArtistCard";
@@ -25,7 +25,7 @@ const ArtistsPage = () => {
       <ArtistCard />
       <ViewAll text="Top Artists By Country" showButton={false} />
       <TopArtistsByCountry country="DK" />
-      <Footer />
+      <FooterMenu />
     </div>
   );
 };
