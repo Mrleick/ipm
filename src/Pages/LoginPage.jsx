@@ -12,9 +12,10 @@ export default function LoginPage() {
     <>
       <Heading
         level="1"
-        className="font-bold text-4xl pl-6 inline-block text-black py-20"
+className="font-bold text-4xl pl-6 inline-block text-black py-20"
         title="Log in"
       />
+
       <main className="px-6">
         <section>
           <form className="w-full space-y-16">
