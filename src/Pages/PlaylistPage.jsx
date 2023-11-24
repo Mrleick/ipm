@@ -36,7 +36,15 @@ const PlaylistPage = () => {
   return (
     <>
       <section className="pb-20 bg-wave bg-cover dark:bg-secondary-color dark:text-white px-6 min-h-96">
-        <Header className="uppercase text-white flex justify-between py-6 tracking-widest" />
+        <Header
+          className=""
+          buttonClass=""
+          showBackButton={true}
+          showSearchButton={true}
+          isDarkMode={false}
+          showPageName={true}
+          textColor=""
+        />
         <Heading
           level="1"
           className="font-bold text-5xl text-white py-12"

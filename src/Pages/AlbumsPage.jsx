@@ -1,4 +1,3 @@
-// import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 import FooterMenu from "../components/FooterMenu";
 import Header from "../components/Header";
@@ -49,7 +48,15 @@ const AlbumPage = () => {
 
   return (
     <>
-      <Header className="text-black dark:text-white flex justify-between py-6 px-6 dark:bg-secondary-color" />
+      <Header
+        className=""
+        buttonClass=""
+        showBackButton={true}
+        showSearchButton={true}
+        isDarkMode={false}
+        showPageName={true}
+        textColor=""
+      />
       <main className="dark:bg-secondary-color">
         <h1 className=" bg-gradient-to-r from-orange to-primarycolor text-transparent bg-clip-text text-5xl pl-5 py-7">
           All Albums

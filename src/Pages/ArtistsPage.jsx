@@ -9,7 +9,15 @@ import TopArtistsByCountry from "../components/TopArtistsByCountry";
 const ArtistsPage = () => {
   return (
     <div className="dark:text-white dark:bg-secondary-color">
-      <Header className="uppercase tracking-wider text-black dark:text-white flex justify-between py-4 px-4 dark:bg-secondary-color" />
+      <Header
+        className=""
+        buttonClass=""
+        showBackButton={true}
+        showSearchButton={true}
+        isDarkMode={false}
+        showPageName={true}
+        textColor=""
+      />
       <Heading className="pl-4" title="All Artists" />
       <ViewAll text="Artists of the Month" showButton={true} />
       <ArtistsOfTheMonth />
