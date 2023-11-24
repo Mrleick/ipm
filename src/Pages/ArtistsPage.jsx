@@ -1,10 +1,10 @@
 import Heading from "../components/Heading";
-import Footer from "../components/FooterMenu";
+import Header from "../components/Header";
+import FooterMenu from "../components/FooterMenu";
 import ArtistsOfTheMonth from "../components/ArtistsOfTheMonth";
 import ViewAll from "../components/ViewAll";
 import ArtistCard from "../components/ArtistCard";
 import TopArtistsByCountry from "../components/TopArtistsByCountry";
-import Header from "../components/Header";
 
 const ArtistsPage = () => {
   return (
@@ -25,7 +25,7 @@ const ArtistsPage = () => {
       <ArtistCard />
       <ViewAll text="Top Artists By Country" showButton={false} />
       <TopArtistsByCountry country="DK" />
-      <Footer />
+      <FooterMenu />
     </div>
   );
 };

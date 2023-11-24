@@ -35,9 +35,9 @@ const TrendsPage = () => {
         buttonClass=""
         showBackButton={true}
         showSearchButton={true}
-        isDarkMode={false}
+        isDarkMode={true}
         showPageName={true}
-        textColor=""
+        textColor="dark:text-white"
       />
 
       <main className="px-6 pb-20 dark:bg-secondary-color dark:text-white">
@@ -128,7 +128,6 @@ const TrendsPage = () => {
         </section>
       </main>
       <FooterMenu />
-
     </>
   );
 };
