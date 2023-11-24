@@ -57,7 +57,15 @@ const AlbumPage = () => {
     <>
       <div>
         <div className="w-screen h-screen bg-secondary-color dark:bg-white">
-          <Header/>
+          <Header
+            className=""
+            buttonClass=""
+            showBackButton={true}
+            showSearchButton={true}
+            isDarkMode={false}
+            showPageName={true}
+            textColor=""
+          />
 
           <section>
             <h1 className="bg-gradient-to-r from-[#FF6A00] to-[#EE0979] text-transparent bg-clip-text text-5xl pl-5 py-7">
@@ -80,7 +88,6 @@ const AlbumPage = () => {
                     <img
                       src={album.images[0].url}
                       className="rounded-lg h-32"
-                      
                     />
                   </Link>
                 ))}
@@ -99,26 +106,24 @@ const AlbumPage = () => {
               {songs &&
                 songs.map((single) => (
                   <Link to={`/albumDetails/${single.id}`} key={single.id}>
-                  <article
-                    className="flex px-5 justify-between items-center mb-6 text-white dark:text-black"
-                  >
-                    <div className="flex gap-3">
-                      <img
-                        src={single.images[0].url}
-                        className="h-14 rounded-lg"
-                      />
-                      <span className="max-h-14">
-                        <p className="font-bold text-xl m-0">
-                          {single.name.length > 15
-                            ? single.name.split(" ").slice(0, 3).join(" ") +
-                              "..."
-                            : single.name}
-                        </p>
-                        <p className="m-0">{single.artists[0].name}</p>
-                      </span>
-                    </div>
-                    <p>12 sec</p>
-                  </article>
+                    <article className="flex px-5 justify-between items-center mb-6 text-white dark:text-black">
+                      <div className="flex gap-3">
+                        <img
+                          src={single.images[0].url}
+                          className="h-14 rounded-lg"
+                        />
+                        <span className="max-h-14">
+                          <p className="font-bold text-xl m-0">
+                            {single.name.length > 15
+                              ? single.name.split(" ").slice(0, 3).join(" ") +
+                                "..."
+                              : single.name}
+                          </p>
+                          <p className="m-0">{single.artists[0].name}</p>
+                        </span>
+                      </div>
+                      <p>12 sec</p>
+                    </article>
                   </Link>
                 ))}
             </section>
