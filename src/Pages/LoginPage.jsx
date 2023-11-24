@@ -12,11 +12,11 @@ export default function LoginPage() {
     <>
       <Heading
         level="1"
-        className="font-bold text-transparent text-5xl bg-clip-text inline-block bg-gradient-to-r from-orange to-primarycolor py-12"
+        className="font-bold text-transparent text-5xl bg-clip-text inline-block bg-gradient-to-r from-orange to-primarycolor py-12 px-6"
         title="Log in"
       />
       <main className="px-6">
-        <section>
+        <section className="pt-12">
           <form className="w-full space-y-6">
             <div className="flex flex-col">
               <label htmlFor="username" className="font-bold py-2">
