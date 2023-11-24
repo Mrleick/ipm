@@ -21,12 +21,10 @@ export default function Header({
   }`;
 
   return (
-
-     <header className="flex justify-between py-6 tracking-widest">
+    <header className="flex justify-between py-6 tracking-widest">
       {showBackButton && (
         <button onClick={() => navigate(-1)} className={buttonClass}>
           <IoIosArrowBack size={24} />
-              className=" dark:text-white text-black"
         </button>
       )}
       <div
@@ -36,7 +34,6 @@ export default function Header({
           alignItems: "center",
           justifyContent: "center",
         }}
-
       >
         {showPageName && (
           <Heading level="2" className={className} title={pathname} />
