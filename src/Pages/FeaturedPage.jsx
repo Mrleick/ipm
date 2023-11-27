@@ -52,11 +52,13 @@ const FeaturedPage = () => {
 
   return (
     <>
-      <Header className="uppercase tracking-wider text-black dark:text-white flex justify-between py-6 px-6 dark:bg-secondary-color  font-extralight" />
-      <div className="dark:bg-secondary-color">
+      {" "}
+      <div className="dark:bg-secondary-color dark:text-white">
+        <Header className="uppercase  text-black dark:text-white flex justify-between py-6 px-6 dark:bg-secondary-color  font-extralight" />
+
         <Heading
           level="1"
-          className="font-bold text-transparent text-5xl px-6 pt-0 pb-8 bg-clip-text inline-block bg-gradient-to-r from-orange to-primarycolor dark:bg-secondary-color "
+          className="font-bold text-transparent text-5xl px-6 pt-0 pb-8 bg-clip-text inline-block bg-gradient-to-r from-orange to-primarycolor   dark:bg-secondary-color "
           title="Featured"
         />
       </div>
