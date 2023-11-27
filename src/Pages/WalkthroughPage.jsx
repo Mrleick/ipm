@@ -1,18 +1,18 @@
-import { Link } from 'react-router-dom';
-import { Navigation, Pagination, Scrollbar, A11y } from 'swiper/modules';
+import { Link } from "react-router-dom";
+import { Navigation, Pagination, Scrollbar, A11y } from "swiper/modules";
 
-import { Swiper, SwiperSlide } from 'swiper/react';
+import { Swiper, SwiperSlide } from "swiper/react";
 
 // Import Swiper styles
-import 'swiper/css';
-import 'swiper/css/navigation';
-import 'swiper/css/pagination';
-import 'swiper/css/scrollbar';
-import 'swiper/swiper-bundle.css';
-import { IoIosMusicalNote } from 'react-icons/io';
-import { IoHeart, IoRadio } from 'react-icons/io5';
-import waves from '../assets/waves.svg';
-import tw from 'tailwind-styled-components';
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
+import "swiper/css/scrollbar";
+import "swiper/swiper-bundle.css";
+import { IoIosMusicalNote } from "react-icons/io";
+import { IoHeart, IoRadio } from "react-icons/io5";
+import waves from "../assets/waves.svg";
+import tw from "tailwind-styled-components";
 
 const Container = tw.div`
 m-0 
@@ -100,8 +100,6 @@ const WalkthroughPage = () => {
   return (
     <>
       <Container>
-        <img className="pb-16 mx-auto" src={waves} alt="" />
-
         <Swiper
           className="swiper overflow-hidden"
           // install Swiper modules
@@ -110,9 +108,10 @@ const WalkthroughPage = () => {
           slidesPerView={1}
           // pagination={{ clickable: true }}
           onSwiper={(swiper) => console.log(swiper)}
-          onSlideChange={() => console.log('slide change')}
+          onSlideChange={() => console.log("slide change")}
         >
           <SwiperSlide className="Grab">
+            <img className="pb-16 mx-auto" src={waves} alt="" />
             <StyledDiv>
               <div className="flex flex-col">
                 <StyledHeader>Where Words Fail, </StyledHeader>
@@ -124,7 +123,7 @@ const WalkthroughPage = () => {
               </StyledP>
               <StyledNav className="py-3">
                 <PaginationButton>
-                  {' '}
+                  {" "}
                   <StyledIoRadio />
                 </PaginationButton>
                 <ButtonCircle>
@@ -140,6 +139,7 @@ const WalkthroughPage = () => {
             </StyledDiv>
           </SwiperSlide>
           <SwiperSlide className="Grab">
+            <img className="pb-16 mx-auto" src={waves} alt="" />
             <StyledDiv>
               <div className="flex flex-col">
                 <StyledHeader>No Music</StyledHeader>
@@ -152,7 +152,7 @@ const WalkthroughPage = () => {
 
               <StyledNav className="py-3">
                 <ButtonCircle>
-                  {' '}
+                  {" "}
                   <StyledIoRadio />
                 </ButtonCircle>
                 <PaginationButton>
@@ -168,6 +168,7 @@ const WalkthroughPage = () => {
             </StyledDiv>
           </SwiperSlide>
           <SwiperSlide className="Grab">
+            <img className="pb-16 mx-auto" src={waves} alt="" />
             <StyledDiv>
               <div className="flex flex-col">
                 <StyledHeader>Peace.Love</StyledHeader>
@@ -180,7 +181,7 @@ const WalkthroughPage = () => {
 
               <StyledNav className="py-3">
                 <ButtonCircle>
-                  {' '}
+                  {" "}
                   <StyledIoRadio />
                 </ButtonCircle>
                 <ButtonCircle>
