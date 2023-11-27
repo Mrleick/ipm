@@ -48,19 +48,22 @@ const TopArtistsByCountry = ({ country }) => {
   }, [country]);
 
   return (
-    <div className="flex flex-wrap justify-center gap-4">
-      {topPlaylists.map((playlist) => (
-        <div
-          key={playlist.id}
-          className="relative w-48 h-48 overflow-hidden m-2 shadow-lg rounded-lg"
-        >
-          <img
-            src={playlist.images[0].url}
-            alt={`${playlist.name} background`}
-            className="w-full h-full object-cover rounded-lg"
-          />
-        </div>
-      ))}
+    <div className="flex flex-wrap justify-center gap-4 pb-28">
+      {topPlaylists
+        .slice()
+        .reverse()
+        .map((playlist) => (
+          <div
+            key={playlist.id}
+            className="relative w-40 h-40 overflow-hidden m-0 shadow-lg rounded-lg dark:shadow-gray-700 shadow-slate-700"
+          >
+            <img
+              src={playlist.images[0].url}
+              alt={`${playlist.name} background`}
+              className="w-full h-full object-cover rounded-lg"
+            />
+          </div>
+        ))}
     </div>
   );
 };

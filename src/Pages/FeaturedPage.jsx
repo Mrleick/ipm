@@ -52,10 +52,17 @@ const FeaturedPage = () => {
 
   return (
     <>
-      <Header></Header>
-      <Heading className="px-6 pb-8" title="Featured"></Heading>
+      {" "}
+      <div className="dark:bg-secondary-color dark:text-white">
+        <Header className="uppercase  text-black dark:text-white flex justify-between py-6 px-6 dark:bg-secondary-color  font-extralight" />
 
-      <main className="px-6 pb-20">
+        <Heading
+          level="1"
+          className="font-bold text-transparent text-5xl px-6 pt-0 pb-8 bg-clip-text inline-block bg-gradient-to-r from-orange to-primarycolor   dark:bg-secondary-color "
+          title="Featured"
+        />
+      </div>
+      <main className="px-6 pb-20 dark:bg-secondary-color">
         {loading ? (
           <p>Loading featured playlists...</p>
         ) : (

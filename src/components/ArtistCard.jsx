@@ -50,22 +50,25 @@ const ArtistCard = () => {
 
   return (
     <div className="flex overflow-x-auto">
-      {artists.map((artist) => (
-        <div
-          key={artist.id}
-          className="flex flex-col items-center m-4"
-          style={{ minWidth: "7rem" }}
-        >
-          <div className="relative w-32 h-32 overflow-hidden shadow-lg rounded-full">
-            <img
-              src={artist.images[0].url}
-              alt={`${artist.name} background`}
-              className="w-full h-full object-cover rounded-full"
-            />
+      {artists
+        .slice()
+        .reverse()
+        .map((artist) => (
+          <div
+            key={artist.id}
+            className="flex flex-col items-center m-4"
+            style={{ minWidth: "5rem" }}
+          >
+            <div className="relative w-24 h-24 overflow-hidden shadow-lg rounded-full">
+              <img
+                src={artist.images[0].url}
+                alt={`${artist.name} background`}
+                className="w-full h-full object-cover rounded-full"
+              />
+            </div>
+            <p className="mt-2 text-center">{artist.name}</p>
           </div>
-          <p className="mt-2 text-center">{artist.name}</p>
-        </div>
-      ))}
+        ))}
     </div>
   );
 };

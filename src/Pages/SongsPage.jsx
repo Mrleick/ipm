@@ -51,14 +51,28 @@ const SongsPage = () => {
     <>
       <main className="dark:bg-secondary-color bg-white ">
         <div className="px-5">
-        <Header className="uppercase tracking-wider text-black dark:text-white flex justify-between py-3 px-0 dark:bg-secondary-color" />
+          <Header
+            className=""
+            buttonClass=""
+            showBackButton={true}
+            showSearchButton={true}
+            isDarkMode={false}
+            showPageName={true}
+            textColor=""
+          />
         </div>
         <Heading level="1" title="All Songs" className="pt-0 pb-5 px-5" />
         <section className="px-5 overflow-y-auto max-h-fit pb-96 text-black dark:text-white">
           {tracks &&
             tracks.tracks.items.map((song) => (
               <>
-               <Track title={song.name} artist={song.artists[0].name} image={tracks.images[0].url} playtime={millisToMinutesAndSeconds(song.duration_ms)} key={song.id} />
+                <Track
+                  title={song.name}
+                  artist={song.artists[0].name}
+                  image={tracks.images[0].url}
+                  playtime={millisToMinutesAndSeconds(song.duration_ms)}
+                  key={song.id}
+                />
               </>
             ))}
         </section>
