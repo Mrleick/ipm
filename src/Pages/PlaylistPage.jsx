@@ -5,7 +5,7 @@ import { useState, useEffect } from "react";
 import fetchFromApi from "../lib/fetchFromApi";
 import { Link } from "react-router-dom";
 import { IoIosPlay } from "react-icons/io";
-import Button from "../components/ui/button";
+import Button from "../components/ui/Button";
 import ImageSlider from "../components/ImageSlider";
 import durationConverter from "../lib/durationConverter";
 

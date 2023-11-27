@@ -2,10 +2,10 @@ import {
   IoFingerPrintOutline,
   IoPersonCircleOutline,
   IoKey,
-} from "react-icons/io5";
-import Heading from "../components/Heading";
-import Button from "../components/ui/Button";
-import { Link } from "react-router-dom";
+} from 'react-icons/io5';
+import Heading from '../components/Heading';
+import Button from '../components/ui/Button';
+import { Link } from 'react-router-dom';
 
 export default function LoginPage() {
   return (
@@ -57,7 +57,7 @@ export default function LoginPage() {
             </Link>
             <div className="flex flex-col items-center mt-8">
               <button className="p-4 aspect-square rounded-full bg-primarycolor">
-                <IoFingerPrintOutline size={32} style={{ color: "white" }} />
+                <IoFingerPrintOutline size={32} style={{ color: 'white' }} />
               </button>
               <p className="text-center pt-4 text-sm">One-Touch Login</p>
             </div>
