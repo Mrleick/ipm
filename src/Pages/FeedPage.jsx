@@ -17,7 +17,6 @@ const FeedPage = () => {
   return (
     <>
       <main className="">
-
         <Container className="dark:bg-secondary-color">
           {" "}
           <Header
@@ -29,8 +28,7 @@ const FeedPage = () => {
             showPageName={true}
             textColor=""
           />
-
-          <Heading title="Featured" />
+          <Heading title="Events feed" />
           <Genres />
           <section className="VerticalMovieListContainer">
             <Feedcard showId="38bS44xjbVVZ3No3ByF1dJ" />
