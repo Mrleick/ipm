@@ -21,7 +21,7 @@ export default function Header({
   }`;
 
   return (
-    <header className="flex justify-between py-6 tracking-widest">
+    <header className="flex justify-between py-6 px-6 tracking-widest">
       {showBackButton && (
         <button onClick={() => navigate(-1)} className={buttonClass}>
           <IoIosArrowBack size={24} />

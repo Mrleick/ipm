@@ -1,13 +1,13 @@
-import Heading from '../components/Heading';
-import Header from '../components/Header';
-import FooterMenu from '../components/FooterMenu';
-import { useState, useEffect } from 'react';
-import fetchFromApi from '../lib/fetchFromApi';
-import { Link } from 'react-router-dom';
-import { IoIosPlay } from 'react-icons/io';
-import Button from '../components/ui/Button';
-import ImageSlider from '../components/ImageSlider';
-import durationConverter from '../lib/durationConverter';
+import Heading from "../components/Heading";
+import Header from "../components/Header";
+import FooterMenu from "../components/FooterMenu";
+import { useState, useEffect } from "react";
+import fetchFromApi from "../lib/fetchFromApi";
+import { Link } from "react-router-dom";
+import { IoIosPlay } from "react-icons/io";
+import Button from "../components/ui/Button";
+import ImageSlider from "../components/ImageSlider";
+import durationConverter from "../lib/durationConverter";
 
 const PlaylistPage = () => {
   const [playlists, setPlaylists] = useState([]);
@@ -28,7 +28,7 @@ const PlaylistPage = () => {
           setPlaylists(data.items);
         }
       } catch (error) {
-        console.error('An error occurred:', error);
+        console.error("An error occurred:", error);
       }
     }
 
@@ -39,7 +39,7 @@ const PlaylistPage = () => {
     <>
       <section className="pb-20 bg-wave bg-cover dark:bg-secondary-color dark:text-white min-h-96">
         <Header
-          className="-px-6 text-white"
+          className="px-6 "
           buttonClass=""
           showBackButton={true}
           showSearchButton={true}
