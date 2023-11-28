@@ -47,17 +47,17 @@ const AlbumPage = () => {
   }, []);
 
   return (
-    <>
+    <div className="dark:text-white dark:bg-secondary-color">
       <Header
         className=""
         buttonClass=""
         showBackButton={true}
         showSearchButton={true}
-        isDarkMode={false}
+        isDarkMode={true}
         showPageName={true}
         textColor=""
       />
-      <main className="dark:bg-secondary-color">
+      <main>
         <h1 className=" bg-gradient-to-r from-orange to-primarycolor text-transparent bg-clip-text text-5xl pl-5 py-7">
           All Albums
         </h1>
@@ -127,7 +127,7 @@ const AlbumPage = () => {
           ))}
       </section>{" "}
       <FooterMenu />
-    </>
+    </div>
   );
 };
 
