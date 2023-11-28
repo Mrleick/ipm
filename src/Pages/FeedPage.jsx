@@ -15,19 +15,19 @@ const Container = tw.section`
 
 const FeedPage = () => {
   return (
-    <>
+    <div className="dark:text-white dark:bg-secondary-color">
+      <Header
+        className=""
+        buttonClass=""
+        showBackButton={true}
+        showSearchButton={true}
+        isDarkMode={true}
+        showPageName={true}
+        textColor=""
+      />
       <main className="">
         <Container className="dark:bg-secondary-color">
           {" "}
-          <Header
-            className=""
-            buttonClass=""
-            showBackButton={true}
-            showSearchButton={true}
-            isDarkMode={false}
-            showPageName={true}
-            textColor=""
-          />
           <Heading title="Events feed" />
           <Genres />
           <section className="VerticalMovieListContainer">
@@ -38,7 +38,7 @@ const FeedPage = () => {
           <FooterMenu />
         </Container>
       </main>
-    </>
+    </div>
   );
 };
 
