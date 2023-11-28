@@ -47,7 +47,7 @@ export default function FooterMenu() {
             />
           </button>
           <div>
-            <Link to="#">
+            <Link to="/categories">
               <GradientIcon
                 size={32}
                 icon={IoIosSettings}
