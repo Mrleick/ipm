@@ -42,9 +42,17 @@ const CategoriesPage = () => {
   }, []);
 
   return (
-    <>
-      <Header className="uppercase tracking-wider text-black dark:text-white flex justify-between py-6 px-6 dark:bg-secondary-color" />
-      <main className="px-6 pb-20 dark:bg-secondary-color dark:text-white">
+    <div className="dark:text-white dark:bg-secondary-color">
+      <Header
+        className=""
+        buttonClass=""
+        showBackButton={true}
+        showSearchButton={true}
+        isDarkMode={false}
+        showPageName={true}
+        textColor=""
+      />
+      <main className="px-6 pb-20">
         <Heading
           level="1"
           className="font-bold text-transparent text-5xl bg-clip-text inline-block bg-gradient-to-r from-orange to-primarycolor py-12"
@@ -64,7 +72,7 @@ const CategoriesPage = () => {
         </section>
       </main>
       <FooterMenu />
-    </>
+    </div>
   );
 };
 
