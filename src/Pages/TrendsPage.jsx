@@ -29,7 +29,7 @@ const TrendsPage = () => {
   }, []);
 
   return (
-    <>
+    <div className="dark:text-white dark:bg-secondary-color">
       <Header
         className=""
         buttonClass=""
@@ -40,7 +40,7 @@ const TrendsPage = () => {
         textColor="dark:text-white"
       />
 
-      <main className="px-6 pb-20 dark:bg-secondary-color dark:text-white">
+      <main className="px-6 pb-20">
         <Heading
           level="1"
           className="font-bold text-transparent text-5xl bg-clip-text inline-block bg-gradient-to-r from-orange to-primarycolor py-12"
@@ -128,7 +128,7 @@ const TrendsPage = () => {
         </section>
       </main>
       <FooterMenu />
-    </>
+    </div>
   );
 };
 
