@@ -2,10 +2,11 @@ import {
   IoFingerPrintOutline,
   IoPersonCircleOutline,
   IoKey,
-} from "react-icons/io5";
-import Heading from "../components/Heading";
-import Button from "../components/ui/Button";
-import { Link } from "react-router-dom";
+} from 'react-icons/io5';
+import Heading from '../components/Heading';
+import Button from '../components/ui/Button';
+import { loginEndpoint } from '../../spotify';
+import { Link } from 'react-router-dom';
 
 export default function LoginPage() {
   return (
@@ -57,9 +58,19 @@ export default function LoginPage() {
             </Link>
             <div className="flex flex-col items-center mt-8">
               <button className="p-4 aspect-square rounded-full bg-primarycolor">
-                <IoFingerPrintOutline size={32} style={{ color: "white" }} />
+                <IoFingerPrintOutline size={32} style={{ color: 'white' }} />
               </button>
               <p className="text-center pt-4 text-sm">One-Touch Login</p>
+            </div>
+            <div className="login-page">
+              <img
+                src="https://storage.googleapis.com/pr-newsroom-wp/1/2018/11/Spotify_Logo_RGB_White.png"
+                alt="logo-spotify"
+                className="logo"
+              />
+              <a href={loginEndpoint}>
+                <div className="text-black">LOG IN</div>
+              </a>
             </div>
           </form>
         </section>
