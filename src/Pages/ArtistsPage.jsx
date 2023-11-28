@@ -5,6 +5,7 @@ import ArtistsOfTheMonth from "../components/ArtistsOfTheMonth";
 import ViewAll from "../components/ViewAll";
 import ArtistCard from "../components/ArtistCard";
 import TopArtistsByCountry from "../components/TopArtistsByCountry";
+import { Link } from "react-router-dom";
 
 const ArtistsPage = () => {
   return (
@@ -19,12 +20,17 @@ const ArtistsPage = () => {
         textColor=""
       />
       <Heading className="pl-4" title="All Artists" />
-      <ViewAll text="Artists of the Month" showButton={true} />
+      <Link to="/Albums">
+        <ViewAll text="Artists of the Month" showButton={true} />
+      </Link>
       <ArtistsOfTheMonth />
-      <ViewAll text="Featured Artists" showButton={true} />
+      <Link to="/Featured/">
+        <ViewAll text="Featured Artists" showButton={true} />
+      </Link>
       <ArtistCard />
       <ViewAll text="Top Artists By Country" showButton={false} />
-      <TopArtistsByCountry country="DK" />
+
+      <TopArtistsByCountry country="US" />
       <FooterMenu />
     </div>
   );
