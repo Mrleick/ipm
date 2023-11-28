@@ -13,8 +13,10 @@ const PlaylistPage = () => {
   const [playlists, setPlaylists] = useState([]);
   let params = new URLSearchParams(document.location.search);
   let playlistUrl = params.get("q");
+  let playlistDescription = params.get("desc");
 
-  console.log(playlists);
+
+  console.log("PLAYPAGE", playlists);
 
   useEffect(() => {
     async function fetchDataFromSpotify() {
@@ -53,8 +55,8 @@ const PlaylistPage = () => {
       <main className="px-6 pb-24 pb-20bg dark:bg-secondary-color dark:text-white">
         <Heading
           level="2"
-          className="font-extrabold text-center pb-10 text-3xl"
-          title="Top list"
+          className="font-bold text-center pb-10 text-xl"
+          title={playlistDescription}
         />
 
         <section className="flex flex-col gap-6">
@@ -72,8 +74,8 @@ const PlaylistPage = () => {
                 <h3 className="font-extrabold capitalize pb-1">
                   {playlist.track.name}
                 </h3>
-                <div className="flex gap-4">
-                  {playlist.track.artists.map((artist, index) => (
+                <div className="flex gap-4 max-w-20">
+                  {playlist.track?.artists?.slice(0, 3).map((artist, index) => (
                     <p className="text-sm" key={index}>
                       {artist.name}
                     </p>

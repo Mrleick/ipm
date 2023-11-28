@@ -42,17 +42,17 @@ const CategoriesPage = () => {
   }, []);
 
   return (
-    <div className="dark:text-white dark:bg-secondary-color">
+    <>
       <Header
         className=""
         buttonClass=""
         showBackButton={true}
         showSearchButton={true}
-        isDarkMode={false}
+        isDarkMode={true}
         showPageName={true}
-        textColor=""
+        textColor="dark:text-white"
       />
-      <main className="px-6 pb-20">
+      <main className="px-6 pb-20 dark:bg-secondary-color dark:text-white">
         <Heading
           level="1"
           className="font-bold text-transparent text-5xl bg-clip-text inline-block bg-gradient-to-r from-orange to-primarycolor py-12"
@@ -72,7 +72,7 @@ const CategoriesPage = () => {
         </section>
       </main>
       <FooterMenu />
-    </div>
+    </>
   );
 };
 
