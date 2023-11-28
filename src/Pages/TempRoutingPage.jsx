@@ -15,12 +15,12 @@ const TempRoutingPage = () => {
         <Link to="/Feed">FeedPage</Link>
         <Link to="/Login">LoginPage</Link>
         <Link to="/Player">PlayerPage</Link>
-        <Link to="/Playlist">PlaylistPage</Link>
+        <Link to="/playlist?q=37i9dQZF1DXcBWIGoYBM5M">PlaylistPage</Link>
         <Link to="/Songs">SongsPage</Link>
         <Link to="/TempRouting">TempRouting</Link>
         <Link to="/Trends">TrendsPage</Link>
         <Link to="/Walkthrough">WalkthroughPage</Link>
-        <Link to="/Welcome">WelcomePage</Link>
+        <Link to="/">WelcomePage</Link>
       </div>
     </>
   );
