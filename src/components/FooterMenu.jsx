@@ -34,7 +34,7 @@ export default function FooterMenu() {
               gradientId="red-to-orange-react"
             />
           </Link>
-          <Link to="/trends">
+          <Link to="/feed">
             <div className="h-11 w-11 bg-slate-400 flex items-center justify-center bg-gradient-to-r from-orange to-primarycolor rounded-full">
               <IoMdWifi size={32} />
             </div>
@@ -47,7 +47,7 @@ export default function FooterMenu() {
             />
           </button>
           <div>
-            <Link to="/categories">
+            <Link to="/TempRouting">
               <GradientIcon
                 size={32}
                 icon={IoIosSettings}

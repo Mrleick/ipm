@@ -100,8 +100,6 @@ const WalkthroughPage = () => {
   return (
     <>
       <Container>
-        <img className="pb-16" src={waves} alt="" />
-
         <Swiper
           className="swiper overflow-hidden"
           // install Swiper modules
@@ -113,6 +111,7 @@ const WalkthroughPage = () => {
           onSlideChange={() => console.log("slide change")}
         >
           <SwiperSlide className="Grab">
+            <img className="pb-16 mx-auto" src={waves} alt="" />
             <StyledDiv>
               <div className="flex flex-col">
                 <StyledHeader>Where Words Fail, </StyledHeader>
@@ -140,6 +139,7 @@ const WalkthroughPage = () => {
             </StyledDiv>
           </SwiperSlide>
           <SwiperSlide className="Grab">
+            <img className="pb-16 mx-auto" src={waves} alt="" />
             <StyledDiv>
               <div className="flex flex-col">
                 <StyledHeader>No Music</StyledHeader>
@@ -168,6 +168,7 @@ const WalkthroughPage = () => {
             </StyledDiv>
           </SwiperSlide>
           <SwiperSlide className="Grab">
+            <img className="pb-16 mx-auto" src={waves} alt="" />
             <StyledDiv>
               <div className="flex flex-col">
                 <StyledHeader>Peace.Love</StyledHeader>
