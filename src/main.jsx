@@ -37,7 +37,7 @@ const router = createBrowserRouter(
       <Route path="/Playlist/" element={<Playlist />} />
       <Route path="/Featured/" element={<Featured />} />
       <Route path="/Categories/" element={<Categories />} />
-      <Route path="/Songs/" element={<Songs />} />
+      <Route path="/Songs/:id" element={<Songs />} />
       <Route path="/Artists/" element={<Artists />} />
       <Route path="/Albums/" element={<Albums />} />
       <Route path="/AlbumDetails/:id" element={<AlbumDetails />} />
