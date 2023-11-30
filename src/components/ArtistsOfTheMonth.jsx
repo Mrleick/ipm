@@ -23,7 +23,7 @@ const ArtistsOfTheMonth = () => {
 
     fetchDataFromSpotify();
   }, []);
-
+  console.log(artists);
   return (
     <div className="flex overflow-x-auto ">
       {artists.map((artist) => (
@@ -38,7 +38,7 @@ const ArtistsOfTheMonth = () => {
             className="w-full h-full object-cover"
           />
 
-          <Link to={`/albumDetails/${artist.id}`} key={artist.id}>
+          <Link to={`/Songs/${artist.id}`} key={artist.id}>
             <div className="absolute inset-0 flex flex-col items-center justify-center bg-black opacity-75">
               <p className="text-white pt-16 pl-36">Song of the Month</p>
               <h3 className="text-primarycolor text-lg font-bold pl-20">

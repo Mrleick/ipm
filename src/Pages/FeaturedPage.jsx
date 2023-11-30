@@ -37,7 +37,7 @@ const FeaturedPage = () => {
           "https://api.spotify.com/v1/browse/featured-playlists?country=DK"
         );
         if (data) {
-          setFeaturedPlaylists(data.playlists.items); // Fix here: use data instead of response
+          setFeaturedPlaylists(data.playlists.items);
           setLoading(false);
           console.log(data);
           setKey((prevKey) => prevKey + 1);
@@ -52,14 +52,15 @@ const FeaturedPage = () => {
 
   return (
     <>
-      {" "}
       <div className="dark:bg-secondary-color dark:text-white">
-        <Header className="uppercase  text-black dark:text-white flex justify-between py-6 px-6 dark:bg-secondary-color  font-extralight" />
-
-        <Heading
-          level="1"
-          className="font-bold text-transparent text-5xl px-6 pt-0 pb-8 bg-clip-text inline-block bg-gradient-to-r from-orange to-primarycolor   dark:bg-secondary-color "
-          title="Featured"
+        <Header
+          className="px-6 "
+          buttonClass=""
+          showBackButton={true}
+          showSearchButton={true}
+          isDarkMode={false}
+          showPageName={true}
+          textColor=""
         />
       </div>
       <main className="px-6 pb-20 dark:bg-secondary-color">
