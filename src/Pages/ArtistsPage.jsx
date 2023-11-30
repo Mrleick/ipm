@@ -20,7 +20,7 @@ const ArtistsPage = () => {
         textColor=""
       />
       <Heading className="pl-4" title="All Artists" />
-      <Link to="/Albums">
+      <Link to="/Songs">
         <ViewAll text="Artists of the Month" showButton={true} />
       </Link>
       <ArtistsOfTheMonth />
