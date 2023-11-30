@@ -98,9 +98,7 @@ const AlbumDetailsPage = () => {
                   <IoIosArrowBack className="text-white text-2xl drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,0.8)]" />
                 </button>
               </Link>
-              <h2 className="text-white text-lg font-extralight drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,0.8)]">
-                AlbumDetails
-              </h2>
+              <h2 className="text-white">AlbumDetails</h2>
               <button className="dark:text-white text-black text-2xl"></button>
             </header>
             <div className="px-6 pb-20">
