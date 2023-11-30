@@ -70,18 +70,22 @@ const FeaturedPage = () => {
           <div className="flex flex-col gap-10">
             {featuredPlaylists.map((playlist) => (
               <div key={playlist.id}>
-                <article className="relative drop-shadow-[100px_100px_100px_rgba(255,0,0,0.8)">
-                  {/* <h3>{playlist.name}</h3>
+                <Link to={`/playlist?q=${playlist.id}`}>
+                  <article className="relative drop-shadow-[100px_100px_100px_rgba(255,0,0,0.8)">
+                    {/* <h3>{playlist.name}</h3>
                   <p>{playlist.type}</p> */}
-                  <StyledSongs>{playlist.tracks.total + " songs"}</StyledSongs>
-                  <StyledName>{playlist.name}</StyledName>
-                  <img
-                    className="rounded-xl"
-                    src={playlist.images[0].url} // Assuming there is at least one image in the array
-                    alt={playlist.name}
-                    style={{ width: "325px", height: "425px" }}
-                  />
-                </article>
+                    <StyledSongs>
+                      {playlist.tracks.total + " songs"}
+                    </StyledSongs>
+                    <StyledName>{playlist.name}</StyledName>
+                    <img
+                      className="rounded-xl"
+                      src={playlist.images[0].url} // Assuming there is at least one image in the array
+                      alt={playlist.name}
+                      style={{ width: "325px", height: "425px" }}
+                    />
+                  </article>
+                </Link>
               </div>
             ))}
           </div>
