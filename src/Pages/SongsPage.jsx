@@ -3,81 +3,73 @@ import FooterMenu from "../components/FooterMenu";
 import Heading from "../components/Heading";
 import { useEffect, useState } from "react";
 import Track from "../components/Track";
-
+import fetchFromApi from "../lib/fetchFromApi";
+import { useParams } from "react-router-dom";
+import { Link } from "react-router-dom";
+import { IoIosArrowBack, IoIosSearch } from "react-icons/io";
 const SongsPage = () => {
-  const [token, setToken] = useState();
-  ////////////////////////// Get Token ////////////////////////////
+  const [tracks, setTracks] = useState();
+  const { id } = useParams();
   useEffect(() => {
-    const body = new URLSearchParams({
-      grant_type: "client_credentials",
-      client_id: "91ed82e07cd84670b918c6f2d745a8a8",
-      client_secret: "bf1e4b7105214f26bec1f1bd6acf9967",
-    });
-    fetch("https://accounts.spotify.com/api/token", {
-      method: "POST",
-      headers: {
-        "content-type": "application/x-www-form-urlencoded",
-      },
-      body: body.toString(),
-    })
-      .then((res) => res.json())
-      .then((data) => setToken(data.access_token));
+    async function fetchDataFromSpotify() {
+      // const id = "3SpAbtsIKZ9omjpDCPUQKJ";
+      try {
+        const data = await fetchFromApi(
+          `https://api.spotify.com/v1/albums/${id}`
+        );
+        if (data) {
+          setTracks(data.tracks);
+        }
+      } catch (error) {
+        console.error("Error songs:", error);
+      }
+    }
+
+    fetchDataFromSpotify();
   }, []);
 
-  const [tracks, setTracks] = useState();
-
-  useEffect(() => {
-    fetch(
-      "https://api.spotify.com/v1/albums/3SpAbtsIKZ9omjpDCPUQKJ?si=OKy_lUcVSRmIYtWa5OYBIQ/tracks?limit=50",
-      {
-        method: "GET",
-        headers: {
-          "content-type": "application/x-www-form-urlencoded",
-          Authorization: `Bearer ${token}`,
-        },
-      }
-    )
-      .then((res) => res.json())
-      .then((data) => setTracks(data));
-  }, [token]);
-
-  ////////////// convert ms to s /////////////////////
   function millisToMinutesAndSeconds(millis) {
     let minutes = Math.floor(millis / 60000);
     let seconds = ((millis % 60000) / 1000).toFixed(0);
     return minutes + ":" + (seconds < 10 ? "0" : "") + seconds;
   }
+
   return (
     <>
+      <div className="dark:bg-secondary-color bg-white ">
+        <header className="flex justify-between py-6 tracking-widest px-6">
+          {" "}
+          <Link to="/artists">
+            <button className="text-black dark:text-white">
+              <IoIosArrowBack className="text-white text-2xl drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,0.8)]" />
+            </button>
+          </Link>
+          <h2 className="text-black dark:text-white ">songs</h2>
+          <button className="dark:text-white text-black text-2xl">
+            <IoIosSearch />
+          </button>
+        </header>
+        <Heading level="1" title="All Songs" className="pt-0 pb-5 px-5" />{" "}
+      </div>
       <main className="dark:bg-secondary-color bg-white ">
-        <div className="px-5">
-          <Header
-            className=""
-            buttonClass=""
-            showBackButton={true}
-            showSearchButton={true}
-            isDarkMode={false}
-            showPageName={true}
-            textColor=""
-          />
-        </div>
-        <Heading level="1" title="All Songs" className="pt-0 pb-5 px-5" />
         <section className="px-5 overflow-y-auto max-h-fit pb-96 text-black dark:text-white">
           {tracks &&
-            tracks.tracks.items.map((song) => (
-              <>
-                <Track
-                  title={song.name}
-                  artist={song.artists[0].name}
-                  image={tracks.images[0].url}
-                  playtime={millisToMinutesAndSeconds(song.duration_ms)}
-                  key={song.id}
-                />
-              </>
+            tracks.items.map((song) => (
+              <Track
+                title={song.name}
+                artist={song.artists[0].name}
+                image={
+                  tracks.images && tracks.images.length > 0
+                    ? tracks.images[0].url
+                    : ""
+                }
+                playtime={millisToMinutesAndSeconds(song.duration_ms)}
+                key={song.id}
+              />
             ))}
         </section>
-        <FooterMenu></FooterMenu>
       </main>
+      <FooterMenu></FooterMenu>
     </>
   );
 };
