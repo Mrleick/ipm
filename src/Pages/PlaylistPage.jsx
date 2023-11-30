@@ -15,7 +15,6 @@ const PlaylistPage = () => {
   let playlistUrl = params.get("q");
   let playlistDescription = params.get("desc");
 
-
   console.log("PLAYPAGE", playlists);
 
   useEffect(() => {
@@ -76,13 +75,13 @@ const PlaylistPage = () => {
                 </h3>
                 <div className="flex gap-4 max-w-20">
                   {playlist.track?.artists?.slice(0, 3).map((artist, index) => (
-                    <p className="text-sm" key={index}>
+                    <p className="text-sm font-light" key={index}>
                       {artist.name}
                     </p>
                   ))}
                 </div>
               </div>
-              <p className="text-xs text-gray-600">
+              <p className="text-xs dark:text-white text-gray-600">
                 {durationConverter(playlist.track.duration_ms).minutes}:
                 {durationConverter(playlist.track.duration_ms).seconds}
               </p>
