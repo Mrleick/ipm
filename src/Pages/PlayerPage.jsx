@@ -8,96 +8,111 @@ import {
   IoPlayForwardSharp,
   IoPlaySharp,
 } from "react-icons/io5";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 
 const PlayerPage = () => {
+  let deviceId;
   useEffect(() => {
     window.onSpotifyWebPlaybackSDKReady = () => {
-        const token = 'BQAn6JVEAfJgmQW-NlfKZW6QLqZLo7FCc9ybQLpADrGLYgn10pjEPncLXoj6F72mVZMIhG35NAK9189c4bIJymIjcSPyI3cx1qAs-GYKZ4rW3LWuSB2W_WKcdOdpJUJj081hBworr1Xv8jXXWXvWOdIvSfAcC8Qj48fH-oVSeknLW9HkUnWp0VbiBV4TA40d5k_wzA';
-        
-        const player = new Spotify.Player({
-            name: 'Web Playback SDK Quick Start Player',
-            getOAuthToken: cb => { cb(token); },
-            volume: 0.5
-        });
+      const token =
+        "BQDdC-qr8lR6UxLL15T9KYAg-ObQqxpWXvOeOc6FSzrxBSVvhIfbNn0UFKrZKWw8Y1s9as0q2-Y6uDK_1Ay0dwFdJ3GU7na45Zt0gyB0gXJ0_pkBx80eGFavJlEM3bG3_US6KE0sONPzOTZqQU0q8jaQh9TQs1OZdKEwCYdjbFK_q20iJYnKFblCikODQOZLh3g5vA";
 
-        // Ready
-        player.addListener('ready', ({ device_id }) => {
-            console.log('Ready with Device ID', device_id);
-            document.getElementById('test').onclick = function() {
-              play({
-                playerInstance: player,
-                spotify_uri: 'spotify:track:7MXctppZ1i8H2XxLe6LXKj',
-            });
-             };
-          
-        });
+      const player = new Spotify.Player({
+        name: "Web Playback SDK Quick Start Player",
+        getOAuthToken: (cb) => {
+          cb(token);
+        },
+        volume: 0.5,
+      });
 
-        // Not Ready
-        player.addListener('not_ready', ({ device_id }) => {
-            console.log('Device ID has gone offline', device_id);
-        });
-
-        player.addListener('initialization_error', ({ message }) => {
-            console.error(message);
-        });
-
-        player.addListener('authentication_error', ({ message }) => {
-            console.error(message);
-        });
-
-        player.addListener('account_error', ({ message }) => {
-            console.error(message);
-        });
-
-       
-
-
-        player.on('playback_error', ({ message }) => {
-          console.error('Failed to perform playback', message);
-        });
-        
-
-        document.getElementById('togglePlay').onclick = function() {
-          player.togglePlay();
+      // Ready
+      player.addListener("ready", ({ device_id }) => {
+        console.log("Ready with Device ID", device_id);
+        deviceId = device_id;
+        document.getElementById("test").onclick = function () {
+          play({
+            playerInstance: player,
+            spotify_uri: "spotify:track:7MXctppZ1i8H2XxLe6LXKj",
+          });
         };
+      });
 
-        document.getElementById('previous').onclick = function() {
-          player.previousTrack();
-        };
+      // Not Ready
+      player.addListener("not_ready", ({ device_id }) => {
+        console.log("Device ID has gone offline", device_id);
+      });
 
-        player.addListener('player_state_changed', ({
-          position,
-          duration,
-          track_window: { current_track }
-        }) => {
-          console.log('Currently Playing', current_track);
-          console.log('Position in Song', position);
-          console.log('Duration of Song', duration);
-        });
-        
-        
+      player.addListener("initialization_error", ({ message }) => {
+        console.error(message);
+      });
 
-        player.connect();
-      }
-      function play({ spotify_uri, playerInstance: { _options: { id } } }) {
-        fetch(`https://api.spotify.com/v1/me/player/play?device_id=${id}`, {
-            method: 'PUT',
-            body: JSON.stringify({ uris: [spotify_uri] }),
-            headers: {
-                'Content-Type': 'application/json',
-                'Authorization': `Bearer BQAn6JVEAfJgmQW-NlfKZW6QLqZLo7FCc9ybQLpADrGLYgn10pjEPncLXoj6F72mVZMIhG35NAK9189c4bIJymIjcSPyI3cx1qAs-GYKZ4rW3LWuSB2W_WKcdOdpJUJj081hBworr1Xv8jXXWXvWOdIvSfAcC8Qj48fH-oVSeknLW9HkUnWp0VbiBV4TA40d5k_wzA
-                `
-            },
-        });
+      player.addListener("authentication_error", ({ message }) => {
+        console.error(message);
+      });
+
+      player.addListener("account_error", ({ message }) => {
+        console.error(message);
+      });
+
+      player.on("playback_error", ({ message }) => {
+        console.error("Failed to perform playback", message);
+      });
+
+      document.getElementById("togglePlay").onclick = function () {
+        player.togglePlay();
+      };
+
+      document.getElementById("previous").onclick = function () {
+        player.previousTrack();
+      };
+
+      document.getElementById("next").onclick = function () {
+        player.nextTrack();
+      };
+
+      let currentPosition;
+      document.getElementById("seekback").onclick = function () {
+        player.seek(10 + currentPosition);
+      };
+
+      player.addListener(
+        "player_state_changed",
+        ({ position, duration, track_window: { current_track } }) => {
+          console.log("Currently Playing", current_track);
+          console.log("Position in Song", position);
+          console.log("Duration of Song", duration);
+          currentPosition = position;
+        }
+      );
+
+      player.connect();
+    };
+
+    function play({ spotify_uri }) {
+      fetch(`https://api.spotify.com/v1/me/player/play?device_id=${deviceId}`, {
+        method: "PUT",
+        body: JSON.stringify({ uris: [spotify_uri] }),
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer BQDdC-qr8lR6UxLL15T9KYAg-ObQqxpWXvOeOc6FSzrxBSVvhIfbNn0UFKrZKWw8Y1s9as0q2-Y6uDK_1Ay0dwFdJ3GU7na45Zt0gyB0gXJ0_pkBx80eGFavJlEM3bG3_US6KE0sONPzOTZqQU0q8jaQh9TQs1OZdKEwCYdjbFK_q20iJYnKFblCikODQOZLh3g5vA
+
+                `,
+        },
+      });
     }
-}, []);
-
-
+  }, []);
 
   return (
     <>
-      <Header />
+      <Header
+        className=""
+        buttonClass=""
+        showBackButton={true}
+        showSearchButton={true}
+        isDarkMode={false}
+        showPageName={true}
+        textColor=""
+      />
       <div className="flex justify-center items-center mx-auto mt-[64px] w-full relative">
         <img className="p-0 absolute w-[375px]" src={Wave} alt="Sound Wave" />
         <img className="p-0 z-10" src={Vinyl} alt="Record Cover" />
@@ -121,19 +136,28 @@ const PlayerPage = () => {
 
       <div className="flex gap-x-4 justify-center items-center">
         <button id="previous">
-        <img src={Backward} alt="Backward" />
+          <img src={Backward} alt="Backward" />
         </button>
-        <IoPlayBackSharp className="text-4xl" />
-        <button id="togglePlay" className="flex justify-center items-center h-[75px] w-[75px] rounded-full bg-gradient-to-r from-orange to-primarycolor">
+
+        <button id="seekback">
+          <IoPlayBackSharp className="text-4xl" />
+        </button>
+
+        <button
+          id="togglePlay"
+          className="flex justify-center items-center h-[75px] w-[75px] rounded-full bg-gradient-to-r from-orange to-primarycolor"
+        >
           <IoPlaySharp className="text-white text-[40px]" />
         </button>
+
         <IoPlayForwardSharp className="text-4xl" />
-        <img src={Forward} alt="Forward" />
+
+        <button id="next">
+          <img src={Forward} alt="Forward" />
+        </button>
       </div>
 
-      <button id="test">
-        play this
-      </button>
+      <button id="test">play this</button>
     </>
   );
 };

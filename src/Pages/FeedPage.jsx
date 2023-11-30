@@ -1,30 +1,44 @@
+// FeedPage.js
+import React from "react";
 import tw from "tailwind-styled-components";
-import Card from "../components/Feedcard";
-import Categories from "../components/Feedcategories";
+import Feedcard from "../components/Feedcard";
+import Genres from "../components/Feedcategories";
 import Heading from "../components/Heading";
 import Header from "../components/Header";
 import FooterMenu from "../components/FooterMenu";
 
 const Container = tw.section`
-  bg-secondary-color
-  h-screen
+  bg-white
+  h-full
   px-6 pb-8
 `;
 
 const FeedPage = () => {
   return (
-    <>
+    <div className="dark:text-white dark:bg-secondary-color">
+      <Header
+        className=""
+        buttonClass=""
+        showBackButton={true}
+        showSearchButton={true}
+        isDarkMode={true}
+        showPageName={true}
+        textColor=""
+      />
       <main className="">
-        <Container>
+        <Container className="dark:bg-secondary-color">
           {" "}
-          <Header className="uppercase tracking-wider text-black dark:text-white flex justify-between py-6 px-6 dark:bg-secondary-color" />
-          <Heading title="Featured" />
-          <Categories />
-          <Card />
+          <Heading title="Events feed" />
+          <Genres />
+          <section className="VerticalMovieListContainer">
+            <Feedcard showId="38bS44xjbVVZ3No3ByF1dJ" />
+            <Feedcard showId="5CfCWKI5pZ28U0uOzXkDHe" />
+            <Feedcard showId="5as3aKmN2k11yfDDDSrvaZ" />
+          </section>
           <FooterMenu />
         </Container>
       </main>
-    </>
+    </div>
   );
 };
 
