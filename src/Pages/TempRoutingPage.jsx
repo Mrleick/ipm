@@ -18,7 +18,7 @@ const TempRoutingPage = () => {
         <Link to="/playlist?q=37i9dQZF1DXcBWIGoYBM5M">PlaylistPage</Link>
         <Link to="/Songs/3SpAbtsIKZ9omjpDCPUQKJ">SongsPage</Link>
         <Link to="/TempRouting">TempRouting</Link>
-        <Link to="/Trends">TrendsPage</Link>
+        <Link to="/Trends/afrobeat">TrendsPage</Link>
         <Link to="/Walkthrough">WalkthroughPage</Link>
         <Link to="/">WelcomePage</Link>
       </div>
