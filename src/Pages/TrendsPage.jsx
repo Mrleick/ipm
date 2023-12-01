@@ -1,6 +1,7 @@
 import Heading from "../components/Heading";
 import Header from "../components/Header";
 import FooterMenu from "../components/FooterMenu";
+import { useParams } from "react-router";
 import { useState, useEffect } from "react";
 import fetchFromApi from "../lib/fetchFromApi";
 import { IoMdWifi } from "react-icons/io";
@@ -9,6 +10,32 @@ import { Link } from "react-router-dom";
 
 const TrendsPage = () => {
   const [playlists, setPlaylists] = useState([]);
+  const [tracks, setTracks] = useState([]);
+  const { genre } = useParams();
+
+  console.log(genre);
+  useEffect(() => {
+    async function fetchDataFromSpotify() {
+      try {
+        const data = await fetchFromApi(
+          `https://api.spotify.com/v1/recommendations?seed_genres=${genre}`
+        );
+        console.log("Data from Spotify:", data);
+
+        if (data && data.tracks) {
+          // Extract album information from tracks
+          const albumData = data.tracks.map((track) => track.album);
+          setTracks(albumData);
+        } else {
+          console.error("No tracks data found in the response:", data);
+        }
+      } catch (error) {
+        console.error("An error occurred:", error);
+      }
+    }
+
+    fetchDataFromSpotify();
+  }, []);
 
   useEffect(() => {
     async function fetchDataFromSpotify() {
@@ -90,9 +117,11 @@ const TrendsPage = () => {
           </div>
         </section>
         <section className="bg-primarycolor py-5 -mt-10 -ml-3 -mr-6 rounded-l-lg dark:bg-white">
-          <div className="py-10">
-            <ImageSliderDefault slides={playlists} />
-          </div>
+          {tracks.length > 0 && (
+            <div className="py-10">
+              <ImageSliderDefault slides={tracks} />
+            </div>
+          )}
         </section>
         <section className="flex flex-col gap-6 -mt-10 h-96">
           <div className="w-full h-full rounded-md bg-slate-700 relative">
