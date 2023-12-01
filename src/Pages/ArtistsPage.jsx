@@ -24,7 +24,7 @@ const ArtistsPage = () => {
         <ViewAll text="Artists of the Month" showButton={true} />
       </Link>
       <ArtistsOfTheMonth />
-      <Link to="/Featured/">
+      <Link to="/Featured">
         <ViewAll text="Featured Artists" showButton={true} />
       </Link>
       <ArtistCard />
