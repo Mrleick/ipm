@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import tw from "tailwind-styled-components";
 
 const Container = tw.section`
@@ -27,7 +28,6 @@ const CatWrapper = tw.button`
 const Genres = () => {
   const [token, setToken] = useState(null);
   const [genres, setGenres] = useState([]);
-
   useEffect(() => {
     const body = new URLSearchParams({
       grant_type: "client_credentials",
@@ -74,7 +74,9 @@ const Genres = () => {
   return (
     <Container>
       {genres.map((genre, index) => (
-        <CatWrapper key={index}>#{genre}</CatWrapper>
+        <Link to={`/trends/${genre}`}>
+          <CatWrapper key={index}>#{genre}</CatWrapper>
+        </Link>
       ))}
     </Container>
   );
