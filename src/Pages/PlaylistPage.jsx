@@ -64,7 +64,7 @@ const PlaylistPage = () => {
         />
 
         <section className="flex flex-col gap-6">
-          {playlists.map((playlist, index) => (
+          {playlists?.map((playlist, index) => (
             <div
               key={index}
               className="flex gap-6 justify-between items-center"
@@ -76,7 +76,7 @@ const PlaylistPage = () => {
               </Link>
               <div className="flex-grow">
                 <h3 className="font-extrabold capitalize pb-1">
-                  {playlist.track.name}
+                  {playlist.track?.name}
                 </h3>
                 <div className="flex gap-4 max-w-20">
                   {playlist.track?.artists?.slice(0, 3).map((artist, index) => (
@@ -91,7 +91,7 @@ const PlaylistPage = () => {
                 {durationConverter(playlist.track.duration_ms).seconds}
               </p> */}
               <p className="w-6 text-right flex justify-end">
-                {millisToMinutesAndSeconds(playlist.track.duration_ms, "s")}
+                {millisToMinutesAndSeconds(playlist.track?.duration_ms, "s")}
               </p>
             </div>
           ))}

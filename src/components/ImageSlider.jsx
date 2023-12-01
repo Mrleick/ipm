@@ -66,7 +66,7 @@ export default function ImageSlider({ slides }) {
                 }}
               >
                 <img
-                  src={playlist.track.album.images[1].url}
+                  src={playlist.track?.album.images[1].url}
                   alt={`Slide ${index}`}
                   className="object-cover w-full block h-45 rounded-lg"
                   width={240}
