@@ -74,7 +74,7 @@ const Genres = () => {
   return (
     <Container>
       {genres.map((genre, index) => (
-        <Link to={`/trends/${genre}`}>
+        <Link to={`/trends/${genre}`} key={index}>
           <CatWrapper key={index}>#{genre}</CatWrapper>
         </Link>
       ))}
