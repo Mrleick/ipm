@@ -18,7 +18,7 @@ export default function LoginPage() {
           title="Log in"
         />
       </header>
-      <main className="px-6 dark:bg-primarycolor">
+      <main className="px-6 pb-7 dark:bg-primarycolor">
         <section>
           <form className="w-full space-y-8 dark:bg-primarycolor dark:text-white">
             <div className="flex flex-col">
