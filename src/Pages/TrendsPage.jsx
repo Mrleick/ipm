@@ -13,7 +13,6 @@ const TrendsPage = () => {
   const [tracks, setTracks] = useState([]);
   const { genre } = useParams();
 
-  console.log(genre);
   useEffect(() => {
     async function fetchDataFromSpotify() {
       try {
