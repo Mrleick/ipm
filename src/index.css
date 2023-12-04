@@ -34,3 +34,7 @@
 .dark-mode .react-icons {
   color: white;
 }
+
+li {
+  padding-bottom: 5px;
+}
