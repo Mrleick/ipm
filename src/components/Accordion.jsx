@@ -65,13 +65,15 @@ const Accordion = ({ heading, category, className }) => {
               (item, index) =>
                 item &&
                 item.name && (
-                  <div
-                    key={index}
-                    className="flex justify-between items-center py-3"
-                  >
-                    <Link to={`/playlist?q=${item.id}`}>{item.name}</Link>
-                    <IoIosArrowForward size={22} />
-                  </div>
+                  <Link to={`/playlist?q=${item.id}`}>
+                    {item.name}
+                    <div
+                      key={index}
+                      className="flex justify-between items-center py-3"
+                    >
+                      <IoIosArrowForward size={22} />
+                    </div>
+                  </Link>
                 )
             )}
           </motion.div>
