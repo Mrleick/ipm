@@ -31,7 +31,7 @@ export default function FooterMenu() {
       <div className="relative">
         <footer className="fixed bottom-0 left-0 z-20 w-full p-4 bg-white border-t border-gray-200 shadow dark:bg-additional-color dark:border-additional-color">
           <nav className="flex justify-around items-center">
-            <Link to="/">
+            <Link to="/artists">
               <GradientIcon
                 size={32}
                 icon={IoPulse}
@@ -45,9 +45,11 @@ export default function FooterMenu() {
                 gradientId="red-to-orange-react"
               />
             </Link>
-            <div className="h-11 w-11 bg-slate-400 flex items-center justify-center bg-gradient-to-r from-orange to-primarycolor rounded-full">
-              <IoMdWifi size={32} />
-            </div>
+            <Link to="/feed">
+              <div className="h-11 w-11 bg-slate-400 flex items-center justify-center bg-gradient-to-r from-orange to-primarycolor rounded-full">
+                <IoMdWifi size={32} />
+              </div>{" "}
+            </Link>
             <button onClick={handleDarkmode}>
               <GradientIcon
                 size={32}
