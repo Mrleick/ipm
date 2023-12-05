@@ -3,6 +3,8 @@ import axios from "axios";
 import { Link } from "react-router-dom";
 import fetchFromApi from "../lib/fetchFromApi";
 
+const MAX_NAME_LENGTH = 15;
+
 const ArtistCard = () => {
   const [token, setToken] = useState();
   const [artists, setArtists] = useState([]);
@@ -41,10 +43,25 @@ const ArtistCard = () => {
                   src={artist.images[0].url}
                   alt={`${artist.name} background`}
                   className="w-full h-full object-cover rounded-full"
-                />{" "}
+                />
               </Link>
             </div>
-            <p className="mt-2 text-center">{artist.name}</p>
+            <p
+              className="mt-2 text-center"
+              style={{
+                whiteSpace: "nowrap",
+                overflow: "hidden",
+                textOverflow: "ellipsis",
+                maxWidth: "100px",
+              }}
+            >
+              {artist.name.charAt(0).toUpperCase() +
+                artist.name
+                  .slice(1)
+                  .toLowerCase()
+                  .substring(0, MAX_NAME_LENGTH)}
+              {artist.name.length > MAX_NAME_LENGTH ? "..." : ""}
+            </p>
           </div>
         ))}
     </div>
