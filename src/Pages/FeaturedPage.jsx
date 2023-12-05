@@ -82,7 +82,7 @@ const FeaturedPage = () => {
                       className="rounded-xl"
                       src={playlist.images[0].url} // Assuming there is at least one image in the array
                       alt={playlist.name}
-                      style={{ width: "325px", height: "425px" }}
+                      style={{ width: "325px" }}
                     />
                   </article>
                 </Link>
