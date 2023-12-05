@@ -66,13 +66,13 @@ const Accordion = ({ heading, category, className }) => {
                 item &&
                 item.name && (
                   <Link to={`/playlist?q=${item.id}`}>
-                    {item.name}
                     <div
                       key={index}
-                      className="flex justify-between items-center py-3"
+                      className="flex w-full justify-between py-3"
                     >
+                      {item.name}
                       <IoIosArrowForward size={22} />
-                    </div>
+                    </div>{" "}
                   </Link>
                 )
             )}
