@@ -8,8 +8,8 @@ const Container = tw.section`
   gap-x-5
   overflow-x-scroll
   overflow-y-hidden
-  whitespace-no-wrap
   mb-5
+  whitespace-nowrap
 `;
 
 const CatWrapper = tw.button`
@@ -22,7 +22,7 @@ const CatWrapper = tw.button`
   flex
   items-center
   gap-x-2
-  whitespace-no-wrap
+  whitespace-nowrap
 `;
 
 const Genres = () => {

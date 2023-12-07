@@ -76,7 +76,7 @@ export default function FooterMenu() {
         <AnimatePresence>
           {isMenuOpen && (
             <motion.div
-              className="fixed top-0 opacity-90 h-full right-0 w-full z-20 text-3xl bg-white border-l border-gray-200 shadow dark:bg-additional-color dark:border-additional-color p-4"
+              className="fixed top-0 right-0 w-full h-full opacity-95 z-20 text-2xl bg-white border-l border-gray-200 shadow dark:bg-additional-color dark:border-additional-color p-4"
               initial={{ x: "100%" }}
               animate={{ x: 0 }}
               exit={{ x: "100%" }}
@@ -121,9 +121,6 @@ export default function FooterMenu() {
                 </ListItems>
                 <ListItems>
                   <Link to="/Trends/alt-rock">Trending</Link>
-                </ListItems>
-                <ListItems>
-                  <Link to="/Walkthrough">Start</Link>
                 </ListItems>
               </ul>
             </motion.div>
