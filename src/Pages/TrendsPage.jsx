@@ -99,11 +99,8 @@ const TrendsPage = () => {
             </div>
           )}
         </section>
-        <section className="bg-primarycolor py-5 -mt-10 -ml-4 -mr-6 rounded-l-lg dark:bg-white">
-          <div className="flex py-10">
-            <div className=" text-white dark:text-primarycolor pl-5">
-              <h3 className="w-28 font-bold "> Trending now in {genre}</h3>
-            </div>
+        <section className="bg-primarycolor py-5 -mt-10 -ml-6 -mr-6 rounded-l-lg dark:bg-white">
+          <div className="flex py-20">
             {tracks.length > 0 && <ImageSliderDefault slides={tracks} />}{" "}
           </div>
         </section>

@@ -37,7 +37,13 @@ export default function ImageSliderDefault({ slides }) {
   return (
     <div className="embla">
       <div className="overflow-hidden" ref={emblaRef}>
-        <div className="embla__container flex h-30 items-center">
+        <div className="embla__container flex w-96 items-center">
+          <div className=" text-white h-32 flex flex-col justify-center dark:text-primarycolor pl-5">
+            <h3 className="w-32 text-xl h-auto font-bold mr-4">
+              {" "}
+              Trending now in {genre}
+            </h3>
+          </div>
           {tracks.map((track, index) => (
             <div
               key={index}
@@ -52,7 +58,7 @@ export default function ImageSliderDefault({ slides }) {
                   <img
                     src={track.images[0].url}
                     alt={`Slide ${index}`}
-                    className="object-cover block h-30 w-30 rounded-lg"
+                    className="object-fit w-28 h-28 rounded-lg"
                   />
                 ) : (
                   // Provide a fallback if images are not available
