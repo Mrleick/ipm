@@ -7,6 +7,7 @@ import fetchFromApi from "../lib/fetchFromApi";
 import { IoMdWifi } from "react-icons/io";
 import ImageSliderDefault from "../components/ImageSliderDefault";
 import { Link } from "react-router-dom";
+import Attraction from "../components/attraction";
 
 const TrendsPage = () => {
   const [playlists, setPlaylists] = useState([]);
@@ -89,37 +90,16 @@ const TrendsPage = () => {
                   width={240}
                 />
                 <header className="absolute bottom-10 left-3">
-                  <h2 className="text-4xl font-bold text-white pb-2">
+                  <h2 className="text-4xl font-bold drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,0.8)] text-white pb-2">
                     {playlists[0]?.name}
                   </h2>
-                  <h3 className="font-bold text-white">45 #hashtags</h3>
-                  <div className="flex -space-x-2 overflow-hidden items-center pt-4">
-                    <img
-                      className="inline-block h-6 w-6 rounded-full"
-                      src="https://images.unsplash.com/photo-1491528323818-fdd1faba62cc?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
-                      alt=""
-                    />
-                    <img
-                      className="inline-block h-6 w-6 rounded-full"
-                      src="https://images.unsplash.com/photo-1550525811-e5869dd03032?ixlib=rb-1.2.1&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
-                      alt=""
-                    />
-                    <img
-                      className="inline-block h-6 w-6 rounded-full"
-                      src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2.25&w=256&h=256&q=80"
-                      alt=""
-                    />
-                    <span className="text-xs pl-4 flex gap-1 text-white">
-                      <h3 className="font-bold">3,123</h3> are talking about
-                      this
-                    </span>
-                  </div>
+                  <Attraction></Attraction>
                 </header>
               </Link>
             </div>
           )}
         </section>
-        <section className="bg-primarycolor py-5 -mt-10 -ml-3 -mr-6 rounded-l-lg dark:bg-white">
+        <section className="bg-primarycolor py-5 -mt-10 -ml-4 -mr-6 rounded-l-lg dark:bg-white">
           <div className="flex py-10">
             <div className=" text-white dark:text-primarycolor pl-5">
               <h3 className="w-28 font-bold "> Trending now in {genre}</h3>
@@ -143,31 +123,10 @@ const TrendsPage = () => {
                   width={240}
                 />
                 <header className="absolute bottom-10 left-3">
-                  <h2 className="text-4xl font-bold text-white pb-2">
+                  <h2 className="text-4xl font-bold text-white drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,0.8)] pb-2">
                     {playlists[1]?.name}
                   </h2>
-                  <h3 className="font-bold text-white">45 #hashtags</h3>
-                  <div className="flex -space-x-2 overflow-hidden items-center pt-4">
-                    <img
-                      className="inline-block h-6 w-6 rounded-full"
-                      src="https://images.unsplash.com/photo-1491528323818-fdd1faba62cc?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
-                      alt=""
-                    />
-                    <img
-                      className="inline-block h-6 w-6 rounded-full"
-                      src="https://images.unsplash.com/photo-1550525811-e5869dd03032?ixlib=rb-1.2.1&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
-                      alt=""
-                    />
-                    <img
-                      className="inline-block h-6 w-6 rounded-full"
-                      src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2.25&w=256&h=256&q=80"
-                      alt=""
-                    />
-                    <span className="text-xs pl-4 flex gap-1 text-white">
-                      <h3 className="font-bold">3,123</h3> are talking about
-                      this
-                    </span>
-                  </div>
+                  <Attraction></Attraction>
                 </header>
               </Link>
             </div>
