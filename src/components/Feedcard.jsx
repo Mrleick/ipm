@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import tw from "tailwind-styled-components";
 import Feedgroup from "../components/Feedgroup";
+import fetchFromApi from "../lib/fetchFromApi";
 
 const Container = tw.section`
   mb-5
@@ -27,43 +28,23 @@ const Feedcard = ({ showIds }) => {
   const [showDataList, setShowDataList] = useState([]);
 
   useEffect(() => {
-    const body = new URLSearchParams({
-      grant_type: "client_credentials",
-      client_id: import.meta.env.VITE_APP_SPOTIFY_CLIENT_ID,
-      client_secret: import.meta.env.VITE_APP_SPOTIFY_CLIENT_SECRET,
-    });
 
-    fetch("https://accounts.spotify.com/api/token", {
-      method: "POST",
-      headers: {
-        "content-type": "application/x-www-form-urlencoded",
-      },
-      body: body.toString(),
-    })
-      .then((res) => res.json())
-      .then((data) => setToken(data.access_token));
+    async function fetchDataFromSpotify() {
+      try {
+        const data = await fetchFromApi(
+          `https://api.spotify.com/v1/shows/${showId}`
+        );
+        if (data) {
+          setShowData({ images: data.images || [], name: data.name || "" });
+        }
+      } catch (error) {
+        console.error("Error fetching show:", error);
+      }
+    }
+
+    fetchDataFromSpotify();
   }, []);
 
-  useEffect(() => {
-    const fetchShowData = async () => {
-      if (token) {
-        // Use showIds directly
-        if (showIds.length > 0) {
-          const promises = showIds.map((showId) =>
-            fetch(`https://api.spotify.com/v1/shows/${showId}`, {
-              method: "GET",
-              headers: {
-                "content-type": "application/x-www-form-urlencoded",
-                Authorization: `Bearer ${token}`,
-              },
-            }).then((res) => res.json())
-          );
-
-          const results = await Promise.all(promises);
-          setShowDataList(results);
-        }
-      }
-    };
 
     fetchShowData();
   }, [token, showIds]);
