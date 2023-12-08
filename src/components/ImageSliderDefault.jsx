@@ -37,9 +37,9 @@ export default function ImageSliderDefault({ slides }) {
   return (
     <div className="embla">
       <div className="overflow-hidden" ref={emblaRef}>
-        <div className="embla__container flex w-96 items-center">
+        <div className="embla__container flex w-[375px] items-center">
           <div className=" text-white h-32 flex flex-col justify-center dark:text-primarycolor pl-5">
-            <h3 className="w-32 text-xl h-auto font-bold mr-4">
+            <h3 className="w-32 text-xl h-auto font-bold ">
               {" "}
               Trending now in {genre}
             </h3>
