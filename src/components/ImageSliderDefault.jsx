@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { useParams } from "react-router";
 import { useState, useEffect } from "react";
 import fetchFromApi from "../lib/fetchFromApi";
+import musiclogo from "../assets/musiclogo.png";
 
 export default function ImageSliderDefault({ slides }) {
   const [tracks, setTracks] = useState([]);
@@ -62,7 +63,14 @@ export default function ImageSliderDefault({ slides }) {
                   />
                 ) : (
                   // Provide a fallback if images are not available
-                  <span>No Image Available</span>
+                  <div
+                    style={{ backgroundImage: `url(${musiclogo})` }}
+                    className="bg-contain bg-no-repeat bg-center flex bg-black flex-col justify-center text-center w-28 h-28 rounded-lg"
+                  >
+                    <p className="text-white drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,0.8)]">
+                      Image not avaliable
+                    </p>
+                  </div>
                 )}
               </Link>
             </div>
