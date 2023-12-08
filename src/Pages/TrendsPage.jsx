@@ -54,7 +54,7 @@ const TrendsPage = () => {
   }, []);
 
   return (
-    <div className="dark:text-white dark:bg-secondary-color">
+    <div className="dark:text-white max-w-[375px] dark:bg-primarycolor">
       {/* <p>{genre}</p>
       {tracks.length > 0 && <p>{tracks[0].id}</p>} */}
       <Header
@@ -70,7 +70,7 @@ const TrendsPage = () => {
       <main className="px-6 pb-20">
         <Heading
           level="1"
-          className="font-bold text-transparent text-5xl bg-clip-text inline-block bg-gradient-to-r from-orange to-primarycolor py-12"
+          className="font-bold text-transparent dark:text-white text-5xl bg-clip-text inline-block bg-gradient-to-r from-orange to-primarycolor py-12"
           title="Latest Trends"
         />
 
