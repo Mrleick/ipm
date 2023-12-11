@@ -40,10 +40,10 @@ const Track = (props) => {
           </div>
         </span>
       </div>
-      <p className="pr-5">{props.playtime}</p>
+      <p className="pr-3">{props.playtime}</p>
     </div>
   ) : (
-    <section className="flex w-full  items-center pb-4 justify-between">
+    <section className="flex  items-center pb-4 justify-between">
       <div className="flex gap-4">
         <button
           className="bg-gradient-to-r from-orange to-primarycolor rounded-full w-9 h-9 text-white"
@@ -68,7 +68,9 @@ const Track = (props) => {
           </div>
         </span>
       </div>
-      <p className="w-10 text-right mt-2 flex justify-end">{props.playtime} </p>
+      <p className="w-10 ml-1  text-left mt-2 flex justify-start">
+        {props.playtime}{" "}
+      </p>
     </section>
   );
 };
