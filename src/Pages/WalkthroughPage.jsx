@@ -16,7 +16,7 @@ import tw from "tailwind-styled-components";
 
 const Container = tw.div`
 m-0 
-p-0 
+p-0
 text-center
 dark:bg-gradient-to-r from-gradient-color1 to-gradient-color2
 `;
@@ -41,13 +41,11 @@ justify-center
 items-center 
 w-20
 h-20
-
 border-[3px] 
 border-[solid] 
 border-[black] 
 dark:border-[white] 
 rounded-[100%]
-
 `;
 
 const StyledDiv = tw.div`
@@ -111,7 +109,7 @@ const WalkthroughPage = () => {
           onSlideChange={() => console.log("slide change")}
         >
           <SwiperSlide className="Grab">
-            <img className="pb-16 mx-auto w-full" src={waves} alt="" />
+            <img className="pb-10 mx-auto w-full" src={waves} alt="" />
             <StyledDiv>
               <div className="flex flex-col">
                 <StyledHeader>Where Words Fail, </StyledHeader>

@@ -35,7 +35,7 @@ export default function FooterMenu() {
   return (
     <IconContext.Provider value={{ className: "react-icons" }}>
       <div className="relative">
-        <footer className="fixed bottom-0 left-0 z-50 w-full p-4 bg-white border-t border-gray-200 shadow dark:bg-additional-color dark:border-additional-color">
+        <footer className="fixed ease-in duration-300 bottom-0 left-0 z-50 w-full p-4 bg-white border-t border-gray-200 shadow dark:bg-additional-color dark:border-additional-color">
           <nav className="flex justify-around items-center">
             <Link to="/">
               <GradientIcon

@@ -52,7 +52,7 @@ const FeaturedPage = () => {
 
   return (
     <>
-      <div className="dark:bg-secondary-color dark:text-white">
+      <div className="dark:bg-secondary-color  ease-in duration-300 dark:text-white">
         <Header
           className="px-6 "
           buttonClass=""
@@ -63,7 +63,7 @@ const FeaturedPage = () => {
           textColor=""
         />
       </div>
-      <main className="px-6 pb-20 dark:bg-secondary-color ">
+      <main className="px-6 pt-5 pb-20 ease-in duration-300 dark:bg-secondary-color ">
         {loading ? (
           <p>Loading featured playlists...</p>
         ) : (

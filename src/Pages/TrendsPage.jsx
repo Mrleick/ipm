@@ -54,7 +54,7 @@ const TrendsPage = () => {
   }, []);
 
   return (
-    <div className="dark:text-white dark:bg-secondary-color">
+    <div className="dark:text-white ease-in duration-300 dark:bg-primarycolor">
       <Header
         className=""
         buttonClass=""
@@ -65,16 +65,16 @@ const TrendsPage = () => {
         textColor="dark:text-white"
       />
 
-      <main className="px-6 pb-20">
+      <main className="px-6 pb-32">
         <Heading
           level="1"
-          className="font-bold text-transparent text-5xl bg-clip-text inline-block bg-gradient-to-r from-orange to-primarycolor py-12"
+          className="font-bold text-transparent text-5xl bg-clip-text inline-block bg-gradient-to-r ease-in duration-300 from-orange to-primarycolor dark:text-white py-12"
           title="Latest Trends"
         />
 
         <section className="flex flex-col gap-6 h-96">
           <div className="w-full h-full rounded-md bg-slate-700 relative">
-            <div className="absolute right-6 -top-4 h-11 w-11 bg-slate-400 flex items-center justify-center bg-gradient-to-r from-orange to-primarycolor rounded-full">
+            <div className="absolute right-6 -top-4 h-11 w-11 bg-slate-400 flex items-center justify-center bg-gradient-to-r ease-in duration-300 from-orange to-primarycolor rounded-full">
               <IoMdWifi size={32} color="white" />
             </div>
             <Link
@@ -115,7 +115,7 @@ const TrendsPage = () => {
             </Link>
           </div>
         </section>
-        <section className="bg-primarycolor py-5 -mt-10 -ml-3 -mr-6 rounded-l-lg dark:bg-white">
+        <section className="bg-primarycolor py-5 -mt-10 -ml-3 -mr-6 rounded-l-lg ease-in duration-300 dark:bg-white">
           {tracks.length > 0 && (
             <div className="py-10">
               <ImageSliderDefault slides={tracks} />

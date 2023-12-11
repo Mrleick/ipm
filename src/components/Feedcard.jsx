@@ -83,7 +83,7 @@ const Feedcard = ({ showIds }) => {
               alt="Card Image"
               className="rounded-t-3xl h-auto w-full"
             />
-            <section className="ml-5">
+            <section className="ml-5 ease-in duration-300">
               <FavContainer>
                 <p>#Spotify</p>,<p>#Music</p>,<p>#Grammy2020</p>
               </FavContainer>

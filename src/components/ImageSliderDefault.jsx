@@ -11,7 +11,7 @@ export default function ImageSliderDefault({ slides }) {
     <div className="embla">
       <div className="overflow-hidden" ref={emblaRef}>
         <div className="embla__container flex h-30 items-center">
-          <div className="embla__slide flex-[0_0_30%] min-w-0 w-10 font-bold text-white dark:text-primarycolor pl-5">
+          <div className="embla__slide flex-[0_0_30%] min-w-0 w-10 font-bold ease-in duration-300 text-white dark:text-primarycolor pl-5">
             Trending now
           </div>
 

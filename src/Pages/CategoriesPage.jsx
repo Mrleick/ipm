@@ -43,16 +43,19 @@ const CategoriesPage = () => {
 
   return (
     <>
-      <Header
-        className=""
-        buttonClass=""
-        showBackButton={true}
-        showSearchButton={true}
-        isDarkMode={true}
-        showPageName={true}
-        textColor="dark:text-white"
-      />
-      <main className="px-6 pb-20 dark:bg-secondary-color dark:text-white">
+      <section class="dark:bg-secondary-color ease-in duration-300 dark:text-white">
+        <Header
+          className=""
+          buttonClass=""
+          showBackButton={true}
+          showSearchButton={true}
+          isDarkMode={true}
+          showPageName={true}
+          textColor="dark:text-white"
+        />
+      </section>
+
+      <main className="px-6 pb-20 ease-in duration-300 dark:bg-secondary-color dark:text-white">
         <Heading
           level="1"
           className="font-bold text-transparent text-5xl bg-clip-text inline-block bg-gradient-to-r from-orange to-primarycolor py-12"

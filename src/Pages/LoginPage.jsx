@@ -58,7 +58,7 @@ export default function LoginPage() {
                 />
               </div>
             </div>
-            <Link to="/feed">
+            <Link to="/Feed">
               <Button
                 title="LOG IN"
                 className=""

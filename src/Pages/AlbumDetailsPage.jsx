@@ -145,8 +145,8 @@ const AlbumDetailsPage = () => {
           </StyleBackgroundImage>
         )}
       </section>
-      <main className="px-6 pb-20 grid-cols-4 dark:bg-secondary-color">
-        <h2 className="font-poppins w-40 pt-10 pb-6  font-bold text-secondary-color dark:text-white">
+      <main className="px-6 pb-20 grid-cols-4 ease-in duration-300 dark:bg-secondary-color">
+        <h2 className="font-poppins w-40 pt-10 pb-6 ease-in duration-300 font-bold text-secondary-color dark:text-white">
           All Songs
         </h2>
         <ul>
@@ -162,19 +162,22 @@ const AlbumDetailsPage = () => {
                     <StyledPlayIcon />{" "}
                   </StyledIconDiv>
                   <div className="flex flex-col">
-                    <h3 className="font-poppins w-40 font-bold text-secondary-color  dark:text-white">
+                    <h3 className="font-poppins w-40 font-bold ease-in duration-300 text-secondary-color  dark:text-white">
                       {" "}
                       {track.name}
                     </h3>
 
-                    <p className="max-w-full font-light">
+                    <p className="max-w-full ease-in duration-300 font-light">
                       {track.artists[0]?.name}
                       {track.artists[1]?.name && ` feat. `}
                     </p>
-                    <p className="font-light"> {track.artists[1]?.name}</p>
+                    <p className="font-light ease-in duration-300">
+                      {" "}
+                      {track.artists[1]?.name}
+                    </p>
                   </div>
                 </section>
-                <p className="w-6 text-right flex justify-end">
+                <p className="w-6 text-right ease-in duration-300 flex justify-end">
                   {millisToMinutesAndSeconds(track.duration_ms, "s")}
                 </p>
               </li>

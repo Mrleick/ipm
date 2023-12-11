@@ -47,7 +47,7 @@ const AlbumPage = () => {
   }, []);
 
   return (
-    <div className="dark:text-white dark:bg-secondary-color">
+    <div className="dark:text-white ease-in duration-300 dark:bg-secondary-color">
       <Header
         className=""
         buttonClass=""
@@ -65,7 +65,7 @@ const AlbumPage = () => {
           <p className="text-black dark:text-white font-bold text-lg">
             Featured Albums
           </p>
-          <a href="#" className="no-underline  dark:text-primarycolor">
+          <a href="#" className="no-underline text-primarycolor">
             View more
           </a>
         </div>
@@ -84,17 +84,14 @@ const AlbumPage = () => {
         </section>
       </main>
       <div className="flex dark:bg-secondary-color justify-between px-5 pb-4 text-white dark:text-black">
-        <p className="text-black mb-5  dark:text-white font-bold text-lg">
+        <p className="text-black mb-5 dark:text-white font-bold text-lg">
           New Releases
         </p>
-        <a
-          href="#"
-          className="no-underline  text-purple-700 dark:text-primarycolor"
-        >
+        <a href="#" className="no-underline text-primarycolor">
           View more
         </a>
       </div>
-      <section className="mb-16 flex flex-col dark:bg-secondary-color">
+      <section className="mb-16 flex flex-col dark:bg-red-500">
         {songs &&
           songs.map((single) => (
             <Link

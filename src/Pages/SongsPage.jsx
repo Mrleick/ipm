@@ -36,7 +36,7 @@ const SongsPage = () => {
 
   return (
     <>
-      <div className="dark:bg-secondary-color bg-white ">
+      <div className="dark:bg-secondary-color ease-in duration-300 bg-white ">
         <header className="flex justify-between py-6 tracking-widest px-6">
           {" "}
           <Link to="/artists">
@@ -51,8 +51,8 @@ const SongsPage = () => {
         </header>
         <Heading level="1" title="All Songs" className="pt-0 pb-5 px-5" />{" "}
       </div>
-      <main className="dark:bg-secondary-color bg-white ">
-        <section className="px-5 overflow-y-auto max-h-fit pb-96 text-black dark:text-white">
+      <main className="dark:bg-secondary-color ease-in duration-300 bg-white ">
+        <section className="px-5 ease-in duration-300 overflow-y-auto max-h-fit pb-96 text-black dark:text-white">
           {tracks &&
             tracks.items.map((song) => (
               <Track
@@ -69,7 +69,7 @@ const SongsPage = () => {
             ))}
         </section>
       </main>
-      <FooterMenu></FooterMenu>
+      <FooterMenu />
     </>
   );
 };
