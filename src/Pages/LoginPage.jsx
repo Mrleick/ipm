@@ -6,7 +6,7 @@ import {
 import Heading from "../components/Heading";
 // import Button from "../components/ui/Button";
 // import { Link } from "react-router-dom";
-// import FooterMenu from "../components/FooterMenu";
+import FooterMenu from "../components/FooterMenu";
 import { useOutletContext } from "react-router-dom";
 
 
@@ -166,6 +166,7 @@ const main = async () => {
               {/* go to spotify login page end */}
             </div>
         </section>
+        <FooterMenu />
       </main>
     </>
   );
