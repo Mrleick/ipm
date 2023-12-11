@@ -4,13 +4,11 @@ import {
   IoKey,
 } from "react-icons/io5";
 import Heading from "../components/Heading";
-import Button from "../components/ui/Button";
-import { Link } from "react-router-dom";
-<<<<<<< Updated upstream
-import FooterMenu from "../components/FooterMenu";
-=======
+// import Button from "../components/ui/Button";
+// import { Link } from "react-router-dom";
+// import FooterMenu from "../components/FooterMenu";
 import { useOutletContext } from "react-router-dom";
->>>>>>> Stashed changes
+
 
 export default function LoginPage() {
   const [PreemToken, setPreemToken] = useOutletContext()
@@ -154,24 +152,7 @@ const main = async () => {
                   className="border-b-2 dark:bg-primarycolor dark:text-white dark:border-white border-black py-2 px-4 w-full focus:outline-none focus:border-primarycolor"
                 />
               </div>
-            </div>
-<<<<<<< Updated upstream
-            <Link to="/feed">
-              <Button
-                title="LOG IN"
-                className=""
-                color="border-black text-black  dark:bg-primarycolor dark:border-white  dark:text-white"
-              />
-            </Link>
-            <div className="flex flex-col items-center mt-4">
-              <button className="p-4 aspect-square rounded-full dark:bg-gradient-color1 bg-primarycolor">
-                <IoFingerPrintOutline size={32} style={{ color: "white" }} />
-              </button>
-              <p className="text-center pt-4 pb-24 text-sm">One-Touch Login</p>
-=======
-            {/* <Link to="/feed">
-              <Button title="LOG IN" color="border-black text-black" />
-            </Link> */}
+            </div>  
           </form>
             {/* get token button */}
             <button className="border-black text-black uppercase p-5 my-6 rounded-full border-4 font-bold tracking-wide bg-white block w-full" onClick={getToken}> LOG IN</button>
@@ -183,7 +164,6 @@ const main = async () => {
               </button>
               <p className="text-center pt-4 text-sm">Spotify Login</p>
               {/* go to spotify login page end */}
->>>>>>> Stashed changes
             </div>
         </section>
       </main>
