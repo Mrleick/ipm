@@ -174,7 +174,7 @@ const AlbumDetailsPage = () => {
                     <p className="font-light"> {track.artists[1]?.name}</p>
                   </div>
                 </section>
-                <p className="w-6 text-right mt-2 flex justify-end">
+                <p className="w-6 text-right mt-auto mb-auto flex justify-end">
                   {millisToMinutesAndSeconds(track.duration_ms, "s")}
                 </p>
               </li>
