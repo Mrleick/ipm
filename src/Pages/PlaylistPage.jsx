@@ -7,14 +7,18 @@ import { Link } from "react-router-dom";
 import { IoIosPlay } from "react-icons/io";
 import Button from "../components/ui/Button";
 import ImageSlider from "../components/ImageSlider";
-import durationConverter from "../lib/durationConverter";
+
+function millisToMinutesAndSeconds(millis) {
+  var minutes = Math.floor(millis / 60000);
+  var seconds = ((millis % 60000) / 1000).toFixed(0);
+  return minutes + ":" + (seconds < 10 ? "0" : "") + seconds;
+}
 
 const PlaylistPage = () => {
   const [playlists, setPlaylists] = useState([]);
   let params = new URLSearchParams(document.location.search);
   let playlistUrl = params.get("q");
   let playlistDescription = params.get("desc");
-
 
   console.log("PLAYPAGE", playlists);
 
@@ -60,7 +64,7 @@ const PlaylistPage = () => {
         />
 
         <section className="flex flex-col gap-6">
-          {playlists.map((playlist, index) => (
+          {playlists?.map((playlist, index) => (
             <div
               key={index}
               className="flex gap-6 justify-between items-center"
@@ -72,19 +76,22 @@ const PlaylistPage = () => {
               </Link>
               <div className="flex-grow">
                 <h3 className="font-extrabold capitalize pb-1">
-                  {playlist.track.name}
+                  {playlist.track?.name}
                 </h3>
                 <div className="flex gap-4 max-w-20">
                   {playlist.track?.artists?.slice(0, 3).map((artist, index) => (
-                    <p className="text-sm" key={index}>
+                    <p className="text-sm font-light" key={index}>
                       {artist.name}
                     </p>
                   ))}
                 </div>
               </div>
-              <p className="text-xs text-gray-600">
+              {/* <p className="text-xs dark:text-white text-gray-600">
                 {durationConverter(playlist.track.duration_ms).minutes}:
                 {durationConverter(playlist.track.duration_ms).seconds}
+              </p> */}
+              <p className="w-6 text-right flex justify-end">
+                {millisToMinutesAndSeconds(playlist.track?.duration_ms, "s")}
               </p>
             </div>
           ))}

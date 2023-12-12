@@ -8,7 +8,7 @@ import tw from "tailwind-styled-components";
 
 const StyledName = tw.h3`
 absolute 
-left-4 
+left-4
 bottom-44
 text-3xl
 text-white
@@ -63,7 +63,11 @@ const FeaturedPage = () => {
           textColor=""
         />
       </div>
-      <main className="px-6 pb-20  dark:bg-secondary-color">
+
+
+
+      <main className="px-6 pb-20 dark:bg-secondary-color ">
+
         {loading ? (
           <p>Loading featured playlists...</p>
         ) : (
@@ -82,6 +86,7 @@ const FeaturedPage = () => {
                       className="rounded-xl"
                       src={playlist.images[0].url} // Assuming there is at least one image in the array
                       alt={playlist.name}
+
                     />
                   </article>
                 </Link>

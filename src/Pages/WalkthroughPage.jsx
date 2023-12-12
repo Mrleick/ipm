@@ -111,7 +111,7 @@ const WalkthroughPage = () => {
           onSlideChange={() => console.log("slide change")}
         >
           <SwiperSlide className="Grab">
-            <img className="pb-16 mx-auto" src={waves} alt="" />
+            <img className="pb-16 mx-auto w-full" src={waves} alt="" />
             <StyledDiv>
               <div className="flex flex-col">
                 <StyledHeader>Where Words Fail, </StyledHeader>
@@ -139,7 +139,7 @@ const WalkthroughPage = () => {
             </StyledDiv>
           </SwiperSlide>
           <SwiperSlide className="Grab">
-            <img className="pb-16 mx-auto" src={waves} alt="" />
+            <img className="pb-16 mx-auto w-full" src={waves} alt="" />
             <StyledDiv>
               <div className="flex flex-col">
                 <StyledHeader>No Music</StyledHeader>
@@ -168,7 +168,7 @@ const WalkthroughPage = () => {
             </StyledDiv>
           </SwiperSlide>
           <SwiperSlide className="Grab">
-            <img className="pb-16 mx-auto" src={waves} alt="" />
+            <img className="pb-16 mx-auto w-full" src={waves} alt="" />
             <StyledDiv>
               <div className="flex flex-col">
                 <StyledHeader>Peace.Love</StyledHeader>

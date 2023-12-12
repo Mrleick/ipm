@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useState } from "react";
 import useEmblaCarousel from "embla-carousel-react";
 import { flushSync } from "react-dom";
+import { Link } from "react-router-dom";
 
 const TWEEN_FACTOR = 10;
 
@@ -65,12 +66,17 @@ export default function ImageSlider({ slides }) {
                   }),
                 }}
               >
-                <img
-                  src={playlist.track.album.images[1].url}
-                  alt={`Slide ${index}`}
-                  className="object-cover w-full block h-45 rounded-lg"
-                  width={240}
-                />
+                <Link
+                  to={`/albumDetails/${playlist.track?.album.id}`}
+                  key={playlist.track?.album.id}
+                >
+                  <img
+                    src={playlist.track?.album.images[1].url}
+                    alt={`Slide ${index}`}
+                    className="object-cover w-full block h-45 rounded-lg"
+                    width={240}
+                  />
+                </Link>
               </div>
             </div>
           ))}
