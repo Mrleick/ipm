@@ -3,6 +3,8 @@ import axios from "axios";
 import { Link } from "react-router-dom";
 import fetchFromApi from "../lib/fetchFromApi";
 
+const MAX_NAME_LENGTH = 15;
+
 const ArtistCard = () => {
   const [token, setToken] = useState();
   const [loading, setLoading] = useState(true);
@@ -27,7 +29,7 @@ const ArtistCard = () => {
 
   return (
     <div className="flex overflow-x-auto">
-      {loading ? (
+ {loading ? (
         <p className="px-6">Loading featured artists...</p>
       ) : (
         artists

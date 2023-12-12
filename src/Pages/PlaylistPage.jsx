@@ -78,7 +78,7 @@ const PlaylistPage = () => {
                 <h3 className="font-extrabold capitalize pb-1">
                   {playlist.track?.name}
                 </h3>
-                <div className="flex gap-4 max-w-20">
+                <div className="flex gap-4 flex-wrap max-w-20">
                   {playlist.track?.artists?.slice(0, 3).map((artist, index) => (
                     <p className="text-sm font-light" key={index}>
                       {artist.name}

@@ -39,7 +39,7 @@ const WelcomePage = () => {
 
   useEffect(() => {
     const timeoutId = setTimeout(() => {
-      navigate("/TempRouting"); // Use navigate instead of history.push
+      navigate("/Walkthrough"); // Use navigate instead of history.push
     }, 3000);
 
     return () => clearTimeout(timeoutId); // Cleanup timeout on component unmount

@@ -121,7 +121,12 @@ const AlbumPage = () => {
                     </p>
                   </span>
                 </div>
-                <p className="m-0 "> {single.total_tracks} songs</p>
+
+                <p className="m-0 ">
+                  {single.total_tracks === 1
+                    ? single.total_tracks + " song"
+                    : single.total_tracks + " songs"}
+                </p>
               </article>
             </Link>
           ))}

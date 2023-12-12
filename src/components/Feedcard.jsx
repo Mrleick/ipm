@@ -1,4 +1,3 @@
-// Feedcard.js
 import React, { useState, useEffect } from "react";
 import tw from "tailwind-styled-components";
 import Feedgroup from "../components/Feedgroup";
@@ -13,6 +12,7 @@ const CardWrapper = tw.section`
   rounded-3xl
   flex
   flex-col
+  mb-5
   bg-additional-color
 `;
 
@@ -22,9 +22,9 @@ const FavContainer = tw.div`
   text-primarycolor
 `;
 
-const Feedcard = ({ showId }) => {
+const Feedcard = ({ showIds }) => {
   const [token, setToken] = useState();
-  const [showData, setShowData] = useState({ images: [], name: "" });
+  const [showDataList, setShowDataList] = useState([]);
 
   useEffect(() => {
     const body = new URLSearchParams({
@@ -45,44 +45,57 @@ const Feedcard = ({ showId }) => {
   }, []);
 
   useEffect(() => {
-    if (token) {
-      fetch(`https://api.spotify.com/v1/shows/${showId}`, {
-        method: "GET",
-        headers: {
-          "content-type": "application/x-www-form-urlencoded",
-          Authorization: `Bearer ${token}`,
-        },
-      })
-        .then((res) => res.json())
-        .then((data) => {
-          setShowData({ images: data.images || [], name: data.name || "" });
-        })
-        .catch((error) => {
-          console.error("Error fetching show:", error);
-        });
-    }
-  }, [token, showId]);
+    const fetchShowData = async () => {
+      if (token) {
+        // Use showIds directly
+        if (showIds.length > 0) {
+          const promises = showIds.map((showId) =>
+            fetch(`https://api.spotify.com/v1/shows/${showId}`, {
+              method: "GET",
+              headers: {
+                "content-type": "application/x-www-form-urlencoded",
+                Authorization: `Bearer ${token}`,
+              },
+            }).then((res) => res.json())
+          );
 
-  const imageUrl = showData.images.length > 0 ? showData.images[0]?.url : "";
+          const results = await Promise.all(promises);
+          setShowDataList(results);
+        }
+      }
+    };
+
+    fetchShowData();
+  }, [token, showIds]);
 
   return (
     <Container className="">
-      <CardWrapper>
-        <img
-          src={imageUrl}
-          alt="Card Image"
-          className="rounded-t-3xl h-auto w-full"
-        />
-        <section className="ml-5">
-          <FavContainer>
-            <p>#Spotify</p>,<p>#Music</p>,<p>#Grammy2020</p>
-          </FavContainer>
-          <Feedgroup />
-          <div className="font-bold text-white text-2xl mb-5">
-            <p>{showData.name}</p>
-          </div>
-        </section>
-      </CardWrapper>
+      {showDataList.map((showData, index) => {
+        const imageUrl =
+          showData.images && showData.images.length > 0
+            ? showData.images[0]?.url
+            : "";
+
+        return (
+          <CardWrapper key={index}>
+            <img
+              src={imageUrl}
+              alt="Card Image"
+              className="rounded-t-3xl h-auto w-full"
+            />
+            <section className="ml-5">
+              <FavContainer>
+                <p>#Spotify</p>,<p>#Music</p>,<p>#Grammy2020</p>
+              </FavContainer>
+              <p className="uppercase text-white text-2xl">{showData.type}</p>
+              <Feedgroup />
+              <div className="font-bold text-white text-2xl mb-5">
+                <p>{showData.name}</p>
+              </div>
+            </section>
+          </CardWrapper>
+        );
+      })}
     </Container>
   );
 };
