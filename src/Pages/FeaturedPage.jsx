@@ -52,7 +52,7 @@ const FeaturedPage = () => {
 
   return (
     <>
-      <div className="dark:bg-secondary-color dark:text-white">
+      <div className="dark:bg-secondary-color  dark:text-white">
         <Header
           className="px-6 "
           buttonClass=""
@@ -63,15 +63,15 @@ const FeaturedPage = () => {
           textColor=""
         />
       </div>
-      <main className="px-6 pb-20 dark:bg-secondary-color">
+      <main className="px-6 pb-20  dark:bg-secondary-color">
         {loading ? (
           <p>Loading featured playlists...</p>
         ) : (
-          <div className="flex flex-col gap-10">
+          <div className="flex  flex-col gap-10">
             {featuredPlaylists.map((playlist) => (
-              <div key={playlist.id}>
+              <div className="m-auto" key={playlist.id}>
                 <Link to={`/playlist?q=${playlist.id}`}>
-                  <article className="relative drop-shadow-[100px_100px_100px_rgba(255,0,0,0.8)">
+                  <article className="relative ">
                     {/* <h3>{playlist.name}</h3>
                   <p>{playlist.type}</p> */}
                     <StyledSongs>
@@ -82,7 +82,6 @@ const FeaturedPage = () => {
                       className="rounded-xl"
                       src={playlist.images[0].url} // Assuming there is at least one image in the array
                       alt={playlist.name}
-                      style={{ width: "325px", height: "425px" }}
                     />
                   </article>
                 </Link>
