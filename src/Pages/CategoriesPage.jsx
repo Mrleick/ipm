@@ -1,5 +1,4 @@
 import { useState, useEffect } from "react";
-
 import Accordion from "../components/Accordion";
 import Heading from "../components/Heading";
 import Header from "../components/Header";

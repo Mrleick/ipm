@@ -9,7 +9,7 @@ import { Link } from "react-router-dom";
 
 const ArtistsPage = () => {
   return (
-    <div className="dark:text-white dark:bg-secondary-color">
+    <div className="ease-in duration-300 dark:text-white dark:bg-secondary-color">
       <Header
         className=""
         buttonClass=""

@@ -122,7 +122,7 @@ const AlbumPage = () => {
               </article>
             </Link>
           ))}
-      </section>{" "}
+      </section>
       <FooterMenu />
     </div>
   );
