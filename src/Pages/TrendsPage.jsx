@@ -54,7 +54,7 @@ const TrendsPage = () => {
   }, []);
 
   return (
-    <div className="dark:text-white max-w-[375px] dark:bg-primarycolor">
+    <div className="dark:text-white max-w-[375px] m-auto dark:bg-primarycolor">
       {/* <p>{genre}</p>
       {tracks.length > 0 && <p>{tracks[0].id}</p>} */}
       <Header
@@ -76,7 +76,7 @@ const TrendsPage = () => {
 
         <section className="flex flex-col gap-6 h-96">
           {playlists.length > 0 && (
-            <div className="w-full h-full rounded-md bg-slate-700 relative">
+            <div className="w-full h-full drop-shadow-[0_15px_1.2px_rgba(0,0,0,0.5)] rounded-md bg-slate-700 relative">
               <div className="absolute right-6 -top-4 h-11 w-11 bg-slate-400 flex items-center justify-center bg-gradient-to-r from-orange to-primarycolor rounded-full">
                 <IoMdWifi size={32} color="white" />
               </div>
@@ -106,7 +106,7 @@ const TrendsPage = () => {
         </section>
         <section className="flex flex-col gap-6 -mt-10 h-96">
           {playlists.length > 1 && (
-            <div className="w-full h-full rounded-md bg-slate-700 relative">
+            <div className="w-full h-full  rounded-md bg-slate-700 relative">
               <div className="absolute right-6 -top-4 h-11 w-11 bg-slate-400 flex items-center justify-center bg-gradient-to-r from-orange to-primarycolor rounded-full">
                 <IoMdWifi size={32} color="white" />
               </div>
