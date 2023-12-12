@@ -27,6 +27,7 @@ const CatWrapper = tw.button`
 
 const Genres = () => {
   const [genres, setGenres] = useState([]);
+  const [loading, setLoading] = useState(true);
   useEffect(() => {
     async function fetchDataFromSpotify() {
       try {
@@ -35,6 +36,7 @@ const Genres = () => {
         );
         if (data) {
           setGenres(data.genres || []);
+          setLoading(false);
         }
       } catch (error) {
         console.error("Error fetching genres:", error);
@@ -46,11 +48,15 @@ const Genres = () => {
 
   return (
     <Container>
-      {genres.map((genre, index) => (
-        <Link to={`/trends/${genre}`} key={index}>
-          <CatWrapper key={index}>#{genre}</CatWrapper>
-        </Link>
-      ))}
+      {loading ? (
+        <p className="px-6">Loading genres...</p>
+      ) : (
+        genres.map((genre, index) => (
+          <Link to={`/trends/${genre}`} key={index}>
+            <CatWrapper key={index}>#{genre}</CatWrapper>
+          </Link>
+        ))
+      )}
     </Container>
   );
 };
