@@ -8,7 +8,7 @@ import tw from "tailwind-styled-components";
 
 const StyledName = tw.h3`
 absolute 
-left-4 
+left-4
 bottom-44
 text-3xl
 text-white
@@ -37,7 +37,7 @@ const FeaturedPage = () => {
           "https://api.spotify.com/v1/browse/featured-playlists?country=DK"
         );
         if (data) {
-          setFeaturedPlaylists(data.playlists.items); // Fix here: use data instead of response
+          setFeaturedPlaylists(data.playlists.items);
           setLoading(false);
           console.log(data);
           setKey((prevKey) => prevKey + 1);
@@ -52,33 +52,44 @@ const FeaturedPage = () => {
 
   return (
     <>
-      <Header className="uppercase tracking-wider text-black dark:text-white flex justify-between py-6 px-6 dark:bg-secondary-color  font-extralight" />
-      <div className="dark:bg-secondary-color">
-        <Heading
-          level="1"
-          className="font-bold text-transparent text-5xl px-6 pt-0 pb-8 bg-clip-text inline-block bg-gradient-to-r from-orange to-primarycolor dark:bg-secondary-color "
-          title="Featured"
+      <div className="dark:bg-secondary-color  dark:text-white">
+        <Header
+          className="px-6 "
+          buttonClass=""
+          showBackButton={true}
+          showSearchButton={true}
+          isDarkMode={false}
+          showPageName={true}
+          textColor=""
         />
       </div>
-      <main className="px-6 pb-20 dark:bg-secondary-color">
+
+
+
+      <main className="px-6 pb-20 dark:bg-secondary-color ">
+
         {loading ? (
           <p>Loading featured playlists...</p>
         ) : (
-          <div className="flex flex-col gap-10">
+          <div className="flex  flex-col gap-10">
             {featuredPlaylists.map((playlist) => (
-              <div key={playlist.id}>
-                <article className="relative drop-shadow-[100px_100px_100px_rgba(255,0,0,0.8)">
-                  {/* <h3>{playlist.name}</h3>
+              <div className="m-auto" key={playlist.id}>
+                <Link to={`/playlist?q=${playlist.id}`}>
+                  <article className="relative ">
+                    {/* <h3>{playlist.name}</h3>
                   <p>{playlist.type}</p> */}
-                  <StyledSongs>{playlist.tracks.total + " songs"}</StyledSongs>
-                  <StyledName>{playlist.name}</StyledName>
-                  <img
-                    className="rounded-xl"
-                    src={playlist.images[0].url} // Assuming there is at least one image in the array
-                    alt={playlist.name}
-                    style={{ width: "325px", height: "425px" }}
-                  />
-                </article>
+                    <StyledSongs>
+                      {playlist.tracks.total + " songs"}
+                    </StyledSongs>
+                    <StyledName>{playlist.name}</StyledName>
+                    <img
+                      className="rounded-xl"
+                      src={playlist.images[0].url} // Assuming there is at least one image in the array
+                      alt={playlist.name}
+
+                    />
+                  </article>
+                </Link>
               </div>
             ))}
           </div>

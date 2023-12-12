@@ -40,9 +40,9 @@ const PlayerPage = () => {
           <img src={Backward} alt="Backward" />
         </button>
 
-        <button id="seekback">
-          <IoPlayBackSharp className="text-4xl" />
-        </button>
+          <button id="seekback">
+            <IoPlayBackSharp className="text-4xl" />
+          </button>
 
         <button
           id="togglePlay"
@@ -51,12 +51,12 @@ const PlayerPage = () => {
           <IoPlaySharp className="text-white text-[40px]" />
         </button>
 
-        <IoPlayForwardSharp className="text-4xl" />
+          <IoPlayForwardSharp className="text-4xl" />
 
-        <button id="next">
-          <img src={Forward} alt="Forward" />
-        </button>
-      </div>
+          <button id="next">
+            <img src={Forward} alt="Forward" />
+          </button>
+        </div>
 
       <button id="test">play this</button>
     </>

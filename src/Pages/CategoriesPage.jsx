@@ -43,11 +43,21 @@ const CategoriesPage = () => {
 
   return (
     <>
-      <Header className="uppercase tracking-wider text-black dark:text-white flex justify-between py-6 px-6 dark:bg-secondary-color" />
+      <div className="dark:bg-secondary-color dark:text-white">
+        <Header
+          className=""
+          buttonClass=""
+          showBackButton={true}
+          showSearchButton={true}
+          isDarkMode={true}
+          showPageName={true}
+          textColor="dark:text-white"
+        />
+      </div>
       <main className="px-6 pb-20 dark:bg-secondary-color dark:text-white">
         <Heading
           level="1"
-          className="font-bold text-transparent text-5xl bg-clip-text inline-block bg-gradient-to-r from-orange to-primarycolor py-12"
+          className="font-bold dark:bg-secondary-color text-transparent text-5xl bg-clip-text inline-block bg-gradient-to-r from-orange to-primarycolor py-12"
           title="Categories"
         />
         <section className="flex flex-col gap-6">

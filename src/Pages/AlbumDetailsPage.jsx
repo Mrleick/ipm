@@ -98,9 +98,7 @@ const AlbumDetailsPage = () => {
                   <IoIosArrowBack className="text-white text-2xl drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,0.8)]" />
                 </button>
               </Link>
-              <h2 className="text-white text-lg font-extralight drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,0.8)]">
-                AlbumDetails
-              </h2>
+              <h2 className="text-white">AlbumDetails</h2>
               <button className="dark:text-white text-black text-2xl"></button>
             </header>
             <div className="px-6 pb-20">
@@ -108,19 +106,18 @@ const AlbumDetailsPage = () => {
                 {albumDetails.name}
               </h1>
               <p className="text-white font-bold text-base drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,0.8)]">
-                {albumDetails.total_tracks + " songs"}
+                {albumDetails.total_tracks === 1
+                  ? albumDetails.total_tracks + " song"
+                  : albumDetails.total_tracks + " songs"}
               </p>
               <div>
-                {" "}
                 {albumDetails.genres && albumDetails.genres.items ? (
                   albumDetails.genres.items.map((genres, index) => (
                     <section
                       className="flex justify-between max-w-lg"
                       key={index}
                     >
-                      {" "}
                       <h4 className="pt-60 text-white font-extralight drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,0.8)]">
-                        {" "}
                         genres hashtags
                       </h4>
                       <div className="flex gap-2 pt-3 text-white">
@@ -131,9 +128,7 @@ const AlbumDetailsPage = () => {
                   ))
                 ) : (
                   <>
-                    {" "}
                     <h4 className="pt-60 text-white font-extralight drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,0.8)]">
-                      {" "}
                       genres hashtags
                     </h4>
                     <div className="flex gap-2 pt-3 text-white">
@@ -176,7 +171,7 @@ const AlbumDetailsPage = () => {
                     <p className="font-light"> {track.artists[1]?.name}</p>
                   </div>
                 </section>
-                <p className="w-6 text-right flex justify-end">
+                <p className="w-6 text-right mt-auto mb-auto flex justify-end">
                   {millisToMinutesAndSeconds(track.duration_ms, "s")}
                 </p>
               </li>

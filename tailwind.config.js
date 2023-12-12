@@ -22,8 +22,6 @@ export default {
         "custom-red": "#E54028",
       },
       fontFamily: {
-        sans: ["Graphik", "sans-serif"],
-        serif: ["Merriweather", "serif"],
         poppins: ["Poppins", "sans-serif"],
       },
       boxShadow: {
