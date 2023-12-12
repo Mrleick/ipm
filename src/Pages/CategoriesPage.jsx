@@ -23,6 +23,7 @@ const colors = [
 
 const CategoriesPage = () => {
   const [categories, setCategories] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     async function fetchDataFromSpotify() {
@@ -32,6 +33,7 @@ const CategoriesPage = () => {
         );
         if (data) {
           setCategories(data.categories.items);
+          setLoading(false);
         }
       } catch (error) {
         console.error("An error occurred:", error);
@@ -61,16 +63,20 @@ const CategoriesPage = () => {
           title="Categories"
         />
         <section className="flex flex-col gap-6">
-          {categories.map((category, index) => (
-            <Accordion
-              key={index}
-              className={`relative z-20 rounded-md px-6 py-4 cursor-pointer ${
-                colors[index % colors.length]
-              }`}
-              heading={category.name}
-              category={category.id}
-            />
-          ))}
+          {loading ? (
+            <p className="px-6">Loading Categories...</p>
+          ) : (
+            categories.map((category, index) => (
+              <Accordion
+                key={index}
+                className={`relative z-20 rounded-md px-6 py-4 cursor-pointer ${
+                  colors[index % colors.length]
+                }`}
+                heading={category.name}
+                category={category.id}
+              />
+            ))
+          )}
         </section>
       </main>
       <FooterMenu />
