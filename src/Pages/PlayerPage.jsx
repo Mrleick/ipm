@@ -8,8 +8,14 @@ import {
   IoPlayForwardSharp,
   IoPlaySharp,
 } from "react-icons/io5";
+import { useOutletContext } from 'react-router-dom';
 
 const PlayerPage = () => {
+  const [GlobalPlayer, setGlobalPlayer] = useOutletContext()
+
+  function pausePlay () {
+    GlobalPlayer && GlobalPlayer.togglePlay().then(() => console.log("yay"))
+  }
 
   return (
     <>
@@ -45,7 +51,7 @@ const PlayerPage = () => {
           </button>
 
         <button
-          id="togglePlay"
+          onClick={pausePlay}
           className="flex justify-center items-center h-[75px] w-[75px] rounded-full bg-gradient-to-r from-orange to-primarycolor"
         >
           <IoPlaySharp className="text-white text-[40px]" />
