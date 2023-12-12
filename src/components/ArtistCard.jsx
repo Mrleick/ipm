@@ -7,8 +7,8 @@ const MAX_NAME_LENGTH = 15;
 
 const ArtistCard = () => {
   const [token, setToken] = useState();
+  const [loading, setLoading] = useState(true);
   const [artists, setArtists] = useState([]);
-
   useEffect(() => {
     async function fetchDataFromSpotify() {
       try {
@@ -17,6 +17,7 @@ const ArtistCard = () => {
         );
         if (data) {
           setArtists(data.albums.items);
+          setLoading(false);
         }
       } catch (error) {
         console.error("Error fetching artists data:", error);
@@ -28,44 +29,32 @@ const ArtistCard = () => {
 
   return (
     <div className="flex overflow-x-auto">
-      {artists
-        .slice()
-        .reverse()
-        .map((artist) => (
-          <div
-            key={artist.id}
-            className="flex flex-col items-center m-4"
-            style={{ minWidth: "5rem" }}
-          >
-            <div className="relative w-24 h-24 overflow-hidden shadow-lg rounded-full">
-              <Link to={`/albumDetails/${artist.id}`} key={artist.id}>
-                <img
-                  src={artist.images[0].url}
-                  alt={`${artist.name} background`}
-                  className="w-full h-full object-cover rounded-full"
-                />
-              </Link>
-            </div>
-            <p
-              className="mt-2 text-center"
-              style={{
-                whiteSpace: "nowrap",
-                overflow: "hidden",
-                textOverflow: "ellipsis",
-                maxWidth: "100px",
-              }}
+ {loading ? (
+        <p className="px-6">Loading featured artists...</p>
+      ) : (
+        artists
+          .slice()
+          .reverse()
+          .map((artist) => (
+            <div
+              key={artist.id}
+              className="flex flex-col items-center m-4"
+              style={{ minWidth: "5rem" }}
             >
-              {artist.name.charAt(0).toUpperCase() +
-                artist.name
-                  .slice(1)
-                  .toLowerCase()
-                  .substring(0, MAX_NAME_LENGTH)}
-              {artist.name.length > MAX_NAME_LENGTH ? "..." : ""}
-            </p>
-          </div>
-        ))}
+              <div className="relative w-24 h-24 overflow-hidden shadow-lg rounded-full">
+                <Link to={`/albumDetails/${artist.id}`} key={artist.id}>
+                  <img
+                    src={artist.images[0].url}
+                    alt={`${artist.name} background`}
+                    className="w-full h-full object-cover rounded-full"
+                  />
+                </Link>
+              </div>
+              <p className="mt-2 text-center">{artist.name}</p>
+            </div>
+          ))
+      )}
     </div>
   );
 };
-
 export default ArtistCard;
