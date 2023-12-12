@@ -41,7 +41,7 @@ const ArtistCard = () => {
                   src={artist.images[0].url}
                   alt={`${artist.name} background`}
                   className="w-full h-full object-cover rounded-full"
-                />{" "}
+                />
               </Link>
             </div>
             <p className="mt-2 text-center">{artist.name}</p>
