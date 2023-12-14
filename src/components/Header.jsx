@@ -10,6 +10,7 @@ export default function Header({
   showSearchButton = true,
   isDarkMode = false,
   showPageName = true,
+  customTitle,
   textColor,
 }) {
   const location = useLocation();
@@ -35,8 +36,10 @@ export default function Header({
           justifyContent: "center",
         }}
       >
-        {showPageName && (
+        {showPageName ? (
           <Heading level="2" className={className} title={pathname} />
+        ) : (
+          <div className={className}>{customTitle}</div>
         )}
       </div>
       {showSearchButton && (
