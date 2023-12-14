@@ -67,7 +67,7 @@ export default function ImageSlider({ slides }) {
                 }}
               >
                 <Link
-                  to={`/albumDetails/${playlist.track?.album.id}`}
+                  to={`/songs/${playlist.track?.album.id}`}
                   key={playlist.track?.album.id}
                 >
                   <img

@@ -10,6 +10,7 @@ import { IoIosArrowBack, IoIosSearch } from "react-icons/io";
 
 const SongsPage = () => {
   const [album, setAlbum] = useState({});
+  const [loading, setLoading] = useState(true);
   const { id } = useParams();
 
   useEffect(() => {
@@ -20,7 +21,8 @@ const SongsPage = () => {
         );
         console.log("API Response:", data);
         if (data) {
-          setAlbum(data); // Set the entire data object as the album
+          setAlbum(data);
+          setLoading(false);
           console.log("Album:", album);
         }
       } catch (error) {
@@ -55,7 +57,10 @@ const SongsPage = () => {
       </div>
       <main className="dark:bg-secondary-color bg-white ">
         <section className="px-5 overflow-y-auto max-h-fit pb-96 text-black dark:text-white">
-          {album.tracks &&
+          {loading ? (
+            <p className="px-6">Loading songs...</p>
+          ) : (
+            album.tracks &&
             album.tracks.items.map((song) => (
               <Track
                 title={song.name}
@@ -68,7 +73,8 @@ const SongsPage = () => {
                 playtime={millisToMinutesAndSeconds(song.duration_ms)}
                 key={song.id}
               />
-            ))}
+            ))
+          )}
         </section>
       </main>
       <FooterMenu />

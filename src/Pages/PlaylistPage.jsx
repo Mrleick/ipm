@@ -16,6 +16,7 @@ function millisToMinutesAndSeconds(millis) {
 
 const PlaylistPage = () => {
   const [playlists, setPlaylists] = useState([]);
+  const [loading, setLoading] = useState(true);
   let params = new URLSearchParams(document.location.search);
   let playlistUrl = params.get("q");
   let playlistDescription = params.get("desc");
@@ -30,6 +31,7 @@ const PlaylistPage = () => {
         );
         if (data) {
           setPlaylists(data.items);
+          setLoading(false);
         }
       } catch (error) {
         console.error("An error occurred:", error);
@@ -62,40 +64,46 @@ const PlaylistPage = () => {
           className="font-bold text-center pb-10 text-xl"
           title={playlistDescription}
         />
-
         <section className="flex flex-col gap-6">
-          {playlists?.map((playlist, index) => (
-            <div
-              key={index}
-              className="flex gap-6 justify-between items-center"
-            >
-              <Link to="/">
-                <div className="h-11 w-11 bg-slate-400 flex items-center justify-center bg-gradient-to-r from-orange to-primarycolor rounded-full">
-                  <IoIosPlay size={24} color="white" />
+          {loading ? (
+            <p>Loading playlist...</p>
+          ) : (
+            playlists?.map((playlist, index) => (
+              <div
+                key={index}
+                className="flex gap-6 justify-between items-center"
+              >
+                <Link to="/">
+                  <div className="h-11 w-11 bg-slate-400 flex items-center justify-center bg-gradient-to-r from-orange to-primarycolor rounded-full">
+                    <IoIosPlay size={24} color="white" />
+                  </div>
+                </Link>
+                <div className="flex-grow">
+                  <h3 className="font-extrabold capitalize pb-1">
+                    {playlist.track?.name}
+                  </h3>
+                  <div className="flex gap-4 flex-wrap max-w-20">
+                    {playlist.track?.artists
+                      ?.slice(0, 3)
+                      .map((artist, index) => (
+                        <p className="text-sm font-light" key={index}>
+                          {artist.name}
+                        </p>
+                      ))}
+                  </div>
                 </div>
-              </Link>
-              <div className="flex-grow">
-                <h3 className="font-extrabold capitalize pb-1">
-                  {playlist.track?.name}
-                </h3>
-                <div className="flex gap-4 flex-wrap max-w-20">
-                  {playlist.track?.artists?.slice(0, 3).map((artist, index) => (
-                    <p className="text-sm font-light" key={index}>
-                      {artist.name}
-                    </p>
-                  ))}
-                </div>
+                {/* <p className="text-xs dark:text-white text-gray-600">
+          {durationConverter(playlist.track.duration_ms).minutes}:
+          {durationConverter(playlist.track.duration_ms).seconds}
+        </p> */}
+                <p className="w-6 text-right flex justify-end">
+                  {millisToMinutesAndSeconds(playlist.track?.duration_ms, "s")}
+                </p>
               </div>
-              {/* <p className="text-xs dark:text-white text-gray-600">
-                {durationConverter(playlist.track.duration_ms).minutes}:
-                {durationConverter(playlist.track.duration_ms).seconds}
-              </p> */}
-              <p className="w-6 text-right flex justify-end">
-                {millisToMinutesAndSeconds(playlist.track?.duration_ms, "s")}
-              </p>
-            </div>
-          ))}
+            ))
+          )}
         </section>
+
         <Button
           title="LISTEN ALL"
           color="border-primarycolor text-primarycolor"
