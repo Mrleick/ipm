@@ -62,17 +62,14 @@ const Accordion = ({ heading, category, className }) => {
             className="pl-7 pr-6 pt-4 flex flex-col gap-2"
           >
             {subCategories?.map(
-              (item, index) =>
+              (item) =>
                 item &&
                 item.name && (
-                  <Link to={`/playlist?q=${item.id}`}>
-                    <div
-                      key={index}
-                      className="flex w-full justify-between py-3"
-                    >
+                  <Link to={`/playlist?q=${item.id}`} key={item.id}>
+                    <div className="flex w-full justify-between py-3">
                       {item.name}
                       <IoIosArrowForward size={22} />
-                    </div>{" "}
+                    </div>
                   </Link>
                 )
             )}
