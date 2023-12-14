@@ -65,7 +65,10 @@ const Accordion = ({ heading, category, className }) => {
               (item) =>
                 item &&
                 item.name && (
-                  <Link to={`/playlist?q=${item.id}`} key={item.id}>
+                  <Link
+                    to={`/playlist?q=${item.id}&desc=${item.name}`}
+                    key={item.id}
+                  >
                     <div className="flex w-full justify-between py-3">
                       {item.name}
                       <IoIosArrowForward size={22} />
