@@ -41,22 +41,24 @@ const SongsPage = () => {
 
   return (
     <>
-      <div className="dark:bg-secondary-color bg-white ">
+      <div className="dark:bg-secondary-color ease-in duration-300 bg-white ">
         <header className="flex justify-between py-6 tracking-widest px-6">
           <Link to="/artists">
-            <button className="text-black dark:text-white">
+            <button className="text-black ease-in duration-300 dark:text-white">
               <IoIosArrowBack className="text-white text-2xl drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,0.8)]" />
             </button>
           </Link>
-          <h2 className="text-black dark:text-white">songs</h2>
-          <button className="dark:text-white text-black text-2xl">
+          <h2 className="text-black ease-in duration-300 dark:text-white">
+            songs
+          </h2>
+          <button className="dark:text-white ease-in duration-300 text-black text-2xl">
             <IoIosSearch />
           </button>
         </header>
         <Heading level="1" title="All Songs" className="pt-0 pb-5 px-5" />
       </div>
-      <main className="dark:bg-secondary-color bg-white ">
-        <section className="px-5 overflow-y-auto max-h-fit pb-96 text-black dark:text-white">
+      <main className="dark:bg-secondary-color ease-in duration-300 bg-white ">
+        <section className="px-5 ease-in duration-300 overflow-y-auto max-h-fit pb-96 text-black dark:text-white">
           {loading ? (
             <p className="px-6">Loading songs...</p>
           ) : (

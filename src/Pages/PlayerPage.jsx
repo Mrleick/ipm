@@ -16,6 +16,12 @@ const PlayerPage = () => {
   function pausePlay () {
     GlobalPlayer && GlobalPlayer.togglePlay().then(() => console.log("yay"))
   }
+  function next () {
+    GlobalPlayer && GlobalPlayer.nextTrack().then(() => console.log("yay"))
+  }
+  function previous () {
+    GlobalPlayer && GlobalPlayer.previousTrack().then(() => console.log("yay"))
+  }
 
   return (
     <>
@@ -42,7 +48,7 @@ const PlayerPage = () => {
       </div>
 
       <div className="flex gap-x-4 justify-center items-center">
-        <button id="previous">
+        <button onClick={previous}>
           <img src={Backward} alt="Backward" />
         </button>
 
@@ -59,12 +65,10 @@ const PlayerPage = () => {
 
           <IoPlayForwardSharp className="text-4xl" />
 
-          <button id="next">
+          <button onClick={next}>
             <img src={Forward} alt="Forward" />
           </button>
         </div>
-
-      <button id="test">play this</button>
     </>
   );
 };

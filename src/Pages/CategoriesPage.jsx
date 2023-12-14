@@ -45,7 +45,7 @@ const CategoriesPage = () => {
 
   return (
     <>
-      <div className="dark:bg-secondary-color dark:text-white">
+      <div className="dark:bg-secondary-color ease-in duration-300 dark:text-white">
         <Header
           className=""
           buttonClass=""
@@ -56,7 +56,7 @@ const CategoriesPage = () => {
           textColor="dark:text-white"
         />
       </div>
-      <main className="px-6 pb-20 dark:bg-secondary-color dark:text-white">
+      <main className="px-6 pb-20 ease-in duration-300 dark:bg-secondary-color dark:text-white">
         <Heading
           level="1"
           className="font-bold dark:bg-secondary-color text-transparent text-5xl bg-clip-text inline-block bg-gradient-to-r from-orange to-primarycolor py-12"
