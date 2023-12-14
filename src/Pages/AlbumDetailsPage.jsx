@@ -95,15 +95,15 @@ const AlbumDetailsPage = () => {
                 backgroundImage: `url(${albumDetails.images[0].url})`,
               }}
             >
-              <header className="flex justify-between py-6 tracking-widest px-6">
-                <Link to="/Albums">
-                  <button className="text-black   dark:text-white">
-                    <IoIosArrowBack className="text-white text-2xl drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,0.8)]" />
-                  </button>
-                </Link>
-                <h2 className="text-white">AlbumDetails</h2>
-                <button className="dark:text-white text-black text-2xl"></button>
-              </header>
+              <Header
+                className="text-white"
+                buttonClass="text-white"
+                showBackButton={true}
+                showSearchButton={false}
+                isDarkMode={false}
+                showPageName={false}
+                customTitle="AlbumDetails"
+              />
               <div className="px-6 pb-20">
                 <h1 className="text-white font-bold text-4xl pt-8 pb-7 drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,0.8)]">
                   {albumDetails.name}
