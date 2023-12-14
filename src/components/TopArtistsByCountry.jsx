@@ -36,7 +36,7 @@ const TopArtistsByCountry = ({ country }) => {
             key={playlist.id}
             className="relative w-40 h-40 overflow-hidden m-0 shadow-lg rounded-lg dark:shadow-gray-700 shadow-slate-700"
           >
-            <Link to={`/playlist?q=${playlist.id}`}>
+            <Link to={`/playlist?q=${playlist.id}&desc=${playlist.name}`}>
               <img
                 src={playlist.images[0].url}
                 alt={`${playlist.name} background`}
