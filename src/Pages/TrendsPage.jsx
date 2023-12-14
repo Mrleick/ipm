@@ -54,7 +54,7 @@ const TrendsPage = () => {
   }, []);
 
   return (
-    <div className="dark:text-white max-w-[375px] m-auto dark:bg-primarycolor">
+    <div className="dark:text-white ease-in duration-300 max-w-[375px] m-auto dark:bg-primarycolor">
       {/* <p>{genre}</p>
       {tracks.length > 0 && <p>{tracks[0].id}</p>} */}
       <Header
@@ -70,13 +70,13 @@ const TrendsPage = () => {
       <main className="px-6 pb-20">
         <Heading
           level="1"
-          className="font-bold text-transparent dark:text-white text-5xl bg-clip-text inline-block bg-gradient-to-r from-orange to-primarycolor py-12"
+          className="font-bold ease-in duration-300 text-transparent dark:text-white text-5xl bg-clip-text inline-block bg-gradient-to-r from-orange to-primarycolor py-12"
           title="Latest Trends"
         />
 
         <section className="flex flex-col gap-6 h-96">
           {playlists.length > 0 && (
-            <div className="w-full h-full drop-shadow-[0_15px_1.2px_rgba(0,0,0,0.5)] rounded-md bg-slate-700 relative">
+            <div className="w-full h-full drop-shadow-[0_5px_1.2px_rgba(0,0,0,0.5)] rounded-md bg-slate-700 relative">
               <div className="absolute right-6 -top-4 h-11 w-11 bg-slate-400 flex items-center justify-center bg-gradient-to-r from-orange to-primarycolor rounded-full">
                 <IoMdWifi size={32} color="white" />
               </div>
@@ -99,14 +99,14 @@ const TrendsPage = () => {
             </div>
           )}
         </section>
-        <section className="bg-primarycolor py-5 -mt-10 -ml-6 -mr-6 rounded-l-lg dark:bg-white">
+        <section className="bg-primarycolor ease-in duration-300 py-5 -mt-10 -ml-6 -mr-6 rounded-l-lg dark:bg-white">
           <div className="flex py-20">
             {tracks.length > 0 && <ImageSliderDefault slides={tracks} />}{" "}
           </div>
         </section>
         <section className="flex flex-col gap-6 -mt-10 h-96">
           {playlists.length > 1 && (
-            <div className="w-full h-full  rounded-md bg-slate-700 relative">
+            <div className="w-full h-full rounded-md bg-slate-700 relative">
               <div className="absolute right-6 -top-4 h-11 w-11 bg-slate-400 flex items-center justify-center bg-gradient-to-r from-orange to-primarycolor rounded-full">
                 <IoMdWifi size={32} color="white" />
               </div>
