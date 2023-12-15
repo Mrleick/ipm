@@ -68,7 +68,7 @@ const PlayerPage = () => {
       </div>
       <div className="flex justify-between mx-auto mt-[15px] mb-[15px] max-w-[325px]">
         <p>00:00</p>
-        <p> {playtime ? playtime : "01:23"} </p>
+        <p> {playtime ? playtime : "00:00"} </p>
       </div>
 
       <div className="flex gap-x-4 justify-center mb-4 items-center">
