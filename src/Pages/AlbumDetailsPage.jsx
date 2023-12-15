@@ -7,6 +7,7 @@ import Header from "../components/Header";
 import FooterMenu from "../components/FooterMenu";
 import tw from "tailwind-styled-components";
 import { IoPlaySharp } from "react-icons/io5";
+import { useOutletContext } from "react-router-dom";
 
 import { IoIosArrowBack, IoIosSearch } from "react-icons/io";
 
@@ -56,6 +57,7 @@ function millisToMinutesAndSeconds(millis) {
 
 const AlbumDetailsPage = () => {
   const [albumDetails, setAlbumDetails] = useState([]);
+  const {Authtoken, setAuthtoken} = useOutletContext()
   const [loading, setLoading] = useState(true);
   const { id } = useParams();
 
@@ -81,6 +83,23 @@ const AlbumDetailsPage = () => {
 
     fetchDataFromSpotify();
   }, []);
+
+  function PlaySelectedTrack (uri) {
+    
+    fetch("https://api.spotify.com/v1/me/player/play", {
+      method : "PUT",
+      headers : {
+        Authorization : `Bearer ${Authtoken}`,
+        "Content-type" : "application/json",
+      },
+      body : JSON.stringify({
+        "uris" : [`${uri}`],
+      })
+    })
+    .then(response => response.json())
+.then(data => console.log(data))
+.catch(error => console.error('Error:', error));
+  }
 
   return (
     <>
@@ -161,9 +180,11 @@ const AlbumDetailsPage = () => {
               >
                 <section className="flex gap-5 py-2 items-center">
                   {" "}
-                  <StyledIconDiv>
-                    <StyledPlayIcon />{" "}
-                  </StyledIconDiv>
+                  <button onClick={()=> PlaySelectedTrack(track.uri)}>
+                    <StyledIconDiv>
+                      <StyledPlayIcon />{" "}
+                    </StyledIconDiv>
+                  </button>
                   <div className="flex flex-col">
                     <h3 className="font-poppins w-40 font-bold text-secondary-color  dark:text-white">
                       {" "}

@@ -11,7 +11,7 @@ import { useOutletContext } from "react-router-dom";
 import React, { Suspense, useState } from "react";
 
 export default function LoginPage() {
-  const [PreemToken, setPreemToken] = useOutletContext();
+  const {Authtoken, setAuthToken} = useOutletContext();
   const PlayConnect = React.lazy(() => import("../Player/PlayConnect"));
   const [showPlayConnect, setShowPlayConnect] = useState(false);
   const handleClick = async () => {
@@ -83,7 +83,8 @@ export default function LoginPage() {
     const data = await response.json();
     console.log(data);
 
-    setPreemToken(data.access_token);
+    setAuthToken(data.access_token);
+    console.log(Authtoken)
     localStorage.setItem("access_token", data.access_token);
     localStorage.setItem("refresh_token", data.refresh_token);
   };
@@ -113,6 +114,7 @@ export default function LoginPage() {
     window.location.href = authUrl.toString();
   };
 
+  
   return (
     <>
       <header className="dark:bg-primarycolor">

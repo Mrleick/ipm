@@ -3,7 +3,7 @@ import Header from "../components/Header";
 import FooterMenu from "../components/FooterMenu";
 import { useState, useEffect } from "react";
 import fetchFromApi from "../lib/fetchFromApi";
-import { Link } from "react-router-dom";
+import { Link, useOutletContext } from "react-router-dom";
 import { IoIosPlay } from "react-icons/io";
 import Button from "../components/ui/Button";
 import ImageSlider from "../components/ImageSlider";
@@ -17,6 +17,7 @@ function millisToMinutesAndSeconds(millis) {
 const PlaylistPage = () => {
   const [playlists, setPlaylists] = useState([]);
   const [loading, setLoading] = useState(true);
+  const {Authtoken, setAuthtoken} = useOutletContext()
   let params = new URLSearchParams(document.location.search);
   let playlistUrl = params.get("q");
   let playlistDescription = params.get("desc");
@@ -40,6 +41,25 @@ const PlaylistPage = () => {
 
     fetchDataFromSpotify();
   }, []);
+
+
+ 
+  
+  function PlaySelectedTrack (uri) {
+    fetch("https://api.spotify.com/v1/me/player/play", {
+      method : "PUT",
+      headers : {
+        Authorization : `Bearer ${Authtoken}`,
+        "Content-type" : "application/json",
+      },
+      body : JSON.stringify({
+        "uris" : [`${uri}`],
+      })
+    })
+    .then(response => response.json())
+.then(data => console.log(data))
+.catch(error => console.error('Error:', error));
+  }
 
   return (
     <>
@@ -73,11 +93,11 @@ const PlaylistPage = () => {
                 key={index}
                 className="flex gap-6 justify-between items-center"
               >
-                <Link to="/">
+                <button onClick={() => PlaySelectedTrack(playlist.track?.uri)}>
                   <div className="h-11 w-11 bg-slate-400 flex items-center justify-center bg-gradient-to-r from-orange to-primarycolor rounded-full">
                     <IoIosPlay size={24} color="white" />
                   </div>
-                </Link>
+                </button>
                 <div className="flex-grow">
                   <h3 className="font-extrabold capitalize pb-1">
                     {playlist.track?.name}

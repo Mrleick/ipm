@@ -1,15 +1,14 @@
 import { useState, useEffect } from "react";
 import FooterMenu from "../components/FooterMenu";
 import Header from "../components/Header";
-import { Link } from "react-router-dom";
+import { Link, useOutletContext } from "react-router-dom";
 import fetchFromApi from "../lib/fetchFromApi";
 const AlbumPage = () => {
-  const [token, setToken] = useState();
-  const [album, setAlbum] = useState();
   const [loading, setLoading] = useState(true);
   const [songs, setSongs] = useState();
   const [FeatAlbums, setFeatAlbums] = useState();
 
+  //////////////////// context /////
   useEffect(() => {
     async function fetchDataFromSpotify() {
       try {
