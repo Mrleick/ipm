@@ -21,7 +21,7 @@ hover:text-primarycolor
 `;
 
 export default function FooterMenu() {
-  const {darkmode,setdarkmode} = useOutletContext();
+  const { darkmode, setdarkmode } = useOutletContext();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const handleDarkmode = () => {
@@ -35,7 +35,7 @@ export default function FooterMenu() {
   return (
     <IconContext.Provider value={{ className: "react-icons" }}>
       <div className="relative">
-        <footer className="fixed bottom-0 left-0 z-50 w-full p-4 bg-white border-t border-gray-200 shadow dark:bg-additional-color dark:border-additional-color">
+        <footer className="fixed bottom-0 left-0 z-50 w-full p-4 bg-white border-t ease-in duration-300 border-gray-200 shadow dark:bg-additional-color dark:border-additional-color">
           <nav className="flex justify-around items-center">
             <Link to="/artists">
               <GradientIcon
@@ -84,7 +84,10 @@ export default function FooterMenu() {
               <ul className="dark:text-white text-center">
                 <div className="flex justify-evenly pb-5 m-auto">
                   <ListItems className="flex items-center ">
-                    <IoIosLogIn size={24} color={darkmode ? "white" : "black"} />
+                    <IoIosLogIn
+                      size={24}
+                      color={darkmode ? "white" : "black"}
+                    />
                     <Link to="/Login">Login</Link>{" "}
                   </ListItems>
                   <ListItems className="flex items-center">
@@ -93,7 +96,7 @@ export default function FooterMenu() {
                   </ListItems>
                 </div>
                 <ListItems>
-                  <Link to="/AlbumDetails/4aawyAB9vmqN3uQ7FjRGTy">Details</Link>
+                  <Link to="/AlbumDetails/5gDhBFSQWB2CfXHc4AvAfb">Details</Link>
                 </ListItems>
                 <ListItems>
                   <Link to="/Albums">Albums</Link>

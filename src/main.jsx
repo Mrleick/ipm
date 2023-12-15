@@ -15,8 +15,8 @@ import Songs from "./Pages/SongsPage";
 import Artists from "./Pages/ArtistsPage";
 import Albums from "./Pages/AlbumsPage";
 import AlbumDetails from "./Pages/AlbumDetailsPage";
-
 import TempRouting from "./Pages/TempRoutingPage";
+import Errorview from "./Pages/Errorview.jsx";
 
 import {
   createBrowserRouter,
@@ -27,7 +27,7 @@ import {
 
 const router = createBrowserRouter(
   createRoutesFromElements(
-    <Route path="/" element={<App />}>
+    <Route path="/" element={<App />} errorElement={<Errorview />}>
       <Route index element={<Welcome />} />
       <Route path="/Login/" element={<Login />} />
       <Route path="/Walkthrough/" element={<Walkthrough />} />

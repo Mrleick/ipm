@@ -34,7 +34,7 @@ const TrendsPage = () => {
     }
 
     fetchDataFromSpotify();
-  }, []);
+  }, [genre]);
 
   useEffect(() => {
     async function fetchDataFromSpotify() {
@@ -51,7 +51,7 @@ const TrendsPage = () => {
     }
 
     fetchDataFromSpotify();
-  }, []);
+  }, [genre]);
 
   return (
     <div className="dark:text-white max-w-[375px] m-auto dark:bg-primarycolor">
@@ -63,7 +63,8 @@ const TrendsPage = () => {
         showBackButton={true}
         showSearchButton={true}
         isDarkMode={true}
-        showPageName={true}
+        showPageName={false}
+        customTitle="Trends"
         textColor="dark:text-white"
       />
 
@@ -101,7 +102,13 @@ const TrendsPage = () => {
         </section>
         <section className="bg-primarycolor py-5 -mt-10 -ml-6 -mr-6 rounded-l-lg dark:bg-white">
           <div className="flex py-20">
-            {tracks.length > 0 && <ImageSliderDefault slides={tracks} />}{" "}
+            {tracks.length > 0 ? (
+              <ImageSliderDefault slides={tracks} />
+            ) : (
+              <div className="dark:text-black pl-8">
+                "{genre}" is not a valid genre
+              </div>
+            )}
           </div>
         </section>
         <section className="flex flex-col gap-6 -mt-10 h-96">

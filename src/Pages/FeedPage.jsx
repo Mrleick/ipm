@@ -30,7 +30,7 @@ const FeedPage = () => {
   ];
 
   return (
-    <div className="dark:text-white dark:bg-secondary-color">
+    <div className="dark:text-white ease-in duration-300 dark:bg-secondary-color">
       <Header
         className=""
         buttonClass=""
@@ -41,7 +41,7 @@ const FeedPage = () => {
         textColor=""
       />
       <main className="">
-        <Container className="dark:bg-secondary-color">
+        <Container className="dark:bg-secondary-color ease-in duration-300">
           <Heading title="Events feed" />
           <Genres />
           <section className="VerticalMovieListContainer">
