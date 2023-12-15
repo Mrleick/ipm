@@ -4,7 +4,7 @@ import roundpexel2 from "../assets/2.png";
 import roundpexel3 from "../assets/3.png";
 
 const Feedgroup = () => {
-  const [counter, setCounter] = useState(0);
+  const [counter, setCounter] = useState(1239);
 
   useEffect(() => {
     const timerId = setInterval(() => {
