@@ -72,10 +72,10 @@ export default function Header({
       </header>
 
       <form onSubmit={handleSearchFormSubmit} className="flex justify-center">
-        <div className="relative flex">
+        <div className="relative flex m-auto">
           <input
             placeholder="Search in genres..."
-            className={`bg-gray-100 border-2 ml-8 pl-2 p-0 rounded-l-xl align-middle border-gray-400  w-72 ${
+            className={`bg-gray-100 dark:bg-gray-400 border-2 text-black ml-8 pl-3 p-0 rounded-l-xl align-middle border-gray-600 w-72 ${
               isSearchVisible ? "" : "hidden"
             }`}
             type="search"
@@ -84,7 +84,7 @@ export default function Header({
           />
           <button
             type="submit"
-            className={`bg-light-blue text-white w-7 h-7 text-xs rounded-r-xl ${
+            className={`bg-light-blue dark:bg-dark-blue mr-6 text-white w-7 h-7 text-sm rounded-r-xl ${
               isSearchVisible ? "" : "hidden"
             }`}
           >
