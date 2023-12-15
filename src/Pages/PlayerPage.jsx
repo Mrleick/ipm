@@ -29,7 +29,7 @@ const PlayerPage = () => {
   function previous() {
     SPPlayer && SPPlayer.previousTrack().then(() => console.log("yay"));
   }
-  console.log(isPlaying);
+
   return (
     <>
       <div className="dark:text-white ease-in duration-300 dark:bg-secondary-color">
