@@ -11,16 +11,16 @@ import {
 import { useOutletContext } from 'react-router-dom';
 
 const PlayerPage = () => {
-  const [GlobalPlayer, setGlobalPlayer] = useOutletContext()
+  const {SPPlayer, setSPPlayer} = useOutletContext()
 
   function pausePlay () {
-    GlobalPlayer && GlobalPlayer.togglePlay().then(() => console.log("yay"))
+    SPPlayer && SPPlayer.togglePlay().then(() => console.log("yay"))
   }
   function next () {
-    GlobalPlayer && GlobalPlayer.nextTrack().then(() => console.log("yay"))
+    SPPlayer && SPPlayer.nextTrack().then(() => console.log("yay"))
   }
   function previous () {
-    GlobalPlayer && GlobalPlayer.previousTrack().then(() => console.log("yay"))
+    SPPlayer && SPPlayer.previousTrack().then(() => console.log("yay"))
   }
 
   return (

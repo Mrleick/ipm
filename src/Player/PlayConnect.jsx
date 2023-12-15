@@ -2,12 +2,12 @@ import { useEffect} from "react";
 import { useOutletContext } from "react-router-dom";
 
 const PlayConnect = () => {
-  const [preemToken, setPreemToken] = useOutletContext()
-  const [GlobalPlayer,setGlobalPlayer] = useOutletContext()
-  console.log("here is preem token  " + preemToken)
+  const {Authtoken, setAuthToken} = useOutletContext()
+  const {SPPlayer,setSPPlayer} = useOutletContext()
+  
   useEffect(() => {
-    console.log("here is preem token in effect " + preemToken)
-        const token = preemToken;
+        console.log(Authtoken)
+        const token = Authtoken;
         const player = new Spotify.Player({
           name: "IPlayMusic",
           getOAuthToken: (cb) => {
@@ -30,8 +30,8 @@ const PlayConnect = () => {
             }),
           });
         });
-        console.log(Object.getPrototypeOf(player))
-        setGlobalPlayer(player)
+        
+        setSPPlayer(player)
         player.connect();
      
   }, []);

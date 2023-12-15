@@ -8,7 +8,7 @@ function App() {
   const [GlobalPlayer,setGlobalPlayer] = useState()
   return (
     <div className={"app " + (context && "dark")}>
-      <Outlet context={[context, setContext,preemToken,setPreemToken,GlobalPlayer,setGlobalPlayer]} />
+      <Outlet context={{darkmode: context, setdarkmode: setContext,Authtoken: preemToken,setAuthToken: setPreemToken,SPPlayer :GlobalPlayer,setSPPlayer: setGlobalPlayer}} />
     </div>
   );
 }
