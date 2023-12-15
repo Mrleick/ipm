@@ -1,3 +1,4 @@
+import React, { useState } from "react";
 import Header from "../components/Header";
 import Wave from "../assets/sound-wave-3.png";
 import Vinyl from "../assets/vinyl.png";
@@ -9,24 +10,28 @@ import {
   IoPlaySharp,
 } from "react-icons/io5";
 import { useOutletContext } from "react-router-dom";
-import FooterMenu from "../components/FooterMenu";
 
 const PlayerPage = () => {
-  const { SPPlayer, setSPPlayer } = useOutletContext();
+  const { SPPlayer } = useOutletContext();
+  const [isPlaying, setIsPlaying] = useState(false);
 
   function pausePlay() {
-    SPPlayer && SPPlayer.togglePlay().then(() => console.log("yay"));
+    SPPlayer &&
+      SPPlayer.togglePlay().then(() => {
+        setIsPlaying((prevIsPlaying) => !prevIsPlaying);
+      });
   }
+
   function next() {
     SPPlayer && SPPlayer.nextTrack().then(() => console.log("yay"));
   }
+
   function previous() {
     SPPlayer && SPPlayer.previousTrack().then(() => console.log("yay"));
   }
-
+  console.log(isPlaying);
   return (
     <>
-      {" "}
       <div className="dark:text-white ease-in duration-300 dark:bg-secondary-color">
         <Header
           className=""
@@ -39,7 +44,9 @@ const PlayerPage = () => {
         />
         <div className="flex justify-center items-center mx-auto mt-[64px] w-full relative">
           <img className="p-0 absolute w-[375px]" src={Wave} alt="Sound Wave" />
-          <img className="p-0 z-10" src={Vinyl} alt="Record Cover" />
+          <div className={`p-0 z-10 ${isPlaying ? "animate-spin" : ""}`}>
+            <img src={Vinyl} alt="Record Cover" />
+          </div>
         </div>
         <div className="mt-28">
           <h2 className="font-bold text-center">Don’t Call Me Up</h2>
@@ -71,7 +78,7 @@ const PlayerPage = () => {
             onClick={pausePlay}
             className="flex justify-center items-center h-[75px] w-[75px] rounded-full bg-gradient-to-r from-orange to-primarycolor"
           >
-            <IoPlaySharp className="text-white text-[40px]" />
+            <IoPlaySharp className={`text-white text-[40px]`} />
           </button>
 
           <IoPlayForwardSharp className="text-4xl" />
