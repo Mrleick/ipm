@@ -4,7 +4,6 @@ import Header from "../components/Header";
 import { Link, useOutletContext } from "react-router-dom";
 import fetchFromApi from "../lib/fetchFromApi";
 const AlbumPage = () => {
-
   const [loading, setLoading] = useState(true);
   const [songs, setSongs] = useState();
   const [FeatAlbums, setFeatAlbums] = useState();
@@ -66,9 +65,11 @@ const AlbumPage = () => {
           <p className="text-black  dark:text-white font-bold text-lg">
             Featured Albums
           </p>
-          <a href="#" className="no-underline text-primarycolor">
-            View more
-          </a>
+          <Link to="/Featured">
+            <a href="#" className="no-underline text-primarycolor">
+              View more
+            </a>
+          </Link>
         </div>
         <section className="gap-5 flex overflow-x-auto px-5 pb-8 ">
           {FeatAlbums &&
@@ -87,9 +88,11 @@ const AlbumPage = () => {
           <p className="text-black mb-5  dark:text-white font-bold text-lg">
             New Releases
           </p>
-          <a href="#" className="no-underline text-primarycolor">
-            View more
-          </a>
+          <Link to="/AlbumDetails/5gDhBFSQWB2CfXHc4AvAfb">
+            <a href="#" className="no-underline text-primarycolor">
+              View more
+            </a>
+          </Link>
         </div>
         <section className="mb-16 flex flex-col dark:bg-red-500">
           {songs &&
@@ -118,7 +121,7 @@ const AlbumPage = () => {
                       </p>
                     </span>
                   </div>
-         <p className="m-0 ">
+                  <p className="m-0 ">
                     {single.total_tracks === 1
                       ? single.total_tracks + " song"
                       : single.total_tracks + " songs"}
