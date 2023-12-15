@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Link } from "react-router-dom";
 import { IoIosArrowForward, IoIosMore } from "react-icons/io";
+
 import fetchFromApi from "../lib/fetchFromApi";
 
 const Accordion = ({ heading, category, className }) => {
@@ -61,16 +62,18 @@ const Accordion = ({ heading, category, className }) => {
             className="pl-7 pr-6 pt-4 flex flex-col gap-2"
           >
             {subCategories?.map(
-              (item, index) =>
+              (item) =>
                 item &&
                 item.name && (
-                  <div
-                    key={index}
-                    className="flex justify-between items-center py-3"
+                  <Link
+                    to={`/playlist?q=${item.id}&desc=${item.name}`}
+                    key={item.id}
                   >
-                    <Link to="/">{item.name}</Link>
-                    <IoIosArrowForward size={22} />
-                  </div>
+                    <div className="flex w-full justify-between py-3">
+                      {item.name}
+                      <IoIosArrowForward size={22} />
+                    </div>
+                  </Link>
                 )
             )}
           </motion.div>
