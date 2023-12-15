@@ -21,7 +21,7 @@ hover:text-primarycolor
 `;
 
 export default function FooterMenu() {
-  const {darkmode,setdarkmode} = useOutletContext();
+  const { darkmode, setdarkmode } = useOutletContext();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const handleDarkmode = () => {
@@ -84,7 +84,10 @@ export default function FooterMenu() {
               <ul className="dark:text-white text-center">
                 <div className="flex justify-evenly pb-5 m-auto">
                   <ListItems className="flex items-center ">
-                    <IoIosLogIn size={24} color={darkmode ? "white" : "black"} />
+                    <IoIosLogIn
+                      size={24}
+                      color={darkmode ? "white" : "black"}
+                    />
                     <Link to="/Login">Login</Link>{" "}
                   </ListItems>
                   <ListItems className="flex items-center">
@@ -93,7 +96,7 @@ export default function FooterMenu() {
                   </ListItems>
                 </div>
                 <ListItems>
-                  <Link to="/AlbumDetails/4aawyAB9vmqN3uQ7FjRGTy">Details</Link>
+                  <Link to="/AlbumDetails/5gDhBFSQWB2CfXHc4AvAfb">Details</Link>
                 </ListItems>
                 <ListItems>
                   <Link to="/Albums">Albums</Link>
