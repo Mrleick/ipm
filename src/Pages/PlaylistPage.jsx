@@ -63,7 +63,7 @@ const PlaylistPage = () => {
 
   return (
     <>
-      <section className="pb-20 bg-wave bg-cover dark:bg-secondary-color dark:text-white min-h-96">
+      <section className="pb-20 bg-wave bg-cover ease-in duration-300 dark:bg-secondary-color dark:text-white min-h-96">
         <Header
           className="px-6 "
           buttonClass=""
@@ -78,7 +78,7 @@ const PlaylistPage = () => {
           <ImageSlider slides={playlists} />
         </div>
       </section>
-      <main className="px-6 pb-24 pb-20bg dark:bg-secondary-color dark:text-white">
+      <main className="px-6 pb-24 pb-20bg ease-in duration-300 dark:bg-secondary-color dark:text-white">
         <Heading
           level="2"
           className="font-bold text-center pb-10 text-xl"

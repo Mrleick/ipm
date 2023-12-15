@@ -52,7 +52,7 @@ const FeaturedPage = () => {
 
   return (
     <>
-      <div className="dark:bg-secondary-color  dark:text-white">
+      <div className="dark:bg-secondary-color ease-in duration-300 dark:text-white">
         <Header
           className="px-6 "
           buttonClass=""
@@ -64,10 +64,7 @@ const FeaturedPage = () => {
         />
       </div>
 
-
-
-      <main className="px-6 pb-20 dark:bg-secondary-color ">
-
+      <main className="px-6 pb-20 ease-in duration-300 dark:bg-secondary-color ">
         {loading ? (
           <p>Loading featured playlists...</p>
         ) : (
@@ -86,7 +83,6 @@ const FeaturedPage = () => {
                       className="rounded-xl"
                       src={playlist.images[0].url} // Assuming there is at least one image in the array
                       alt={playlist.name}
-
                     />
                   </article>
                 </Link>

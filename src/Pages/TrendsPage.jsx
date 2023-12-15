@@ -63,7 +63,8 @@ const TrendsPage = () => {
         showBackButton={true}
         showSearchButton={true}
         isDarkMode={true}
-        showPageName={true}
+        showPageName={false}
+        customTitle="Trends"
         textColor="dark:text-white"
       />
 
