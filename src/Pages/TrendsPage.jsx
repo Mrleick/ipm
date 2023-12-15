@@ -102,7 +102,11 @@ const TrendsPage = () => {
         </section>
         <section className="bg-primarycolor py-5 -mt-10 -ml-6 -mr-6 rounded-l-lg dark:bg-white">
           <div className="flex py-20">
-            {tracks.length > 0 && <ImageSliderDefault slides={tracks} />}{" "}
+            {tracks.length > 0 ? (
+              <ImageSliderDefault slides={tracks} />
+            ) : (
+              <div className="pl-8">{genre} is not a valid genre</div>
+            )}
           </div>
         </section>
         <section className="flex flex-col gap-6 -mt-10 h-96">
