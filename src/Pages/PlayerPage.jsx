@@ -1,4 +1,3 @@
-import React, { useState } from "react";
 import Header from "../components/Header";
 import Wave from "../assets/sound-wave-3.png";
 import Vinyl from "../assets/vinyl.png";
@@ -10,24 +9,38 @@ import {
   IoPlaySharp,
 } from "react-icons/io5";
 import { useOutletContext } from "react-router-dom";
+import { useEffect, useState } from "react";
 
 const PlayerPage = () => {
-  const { SPPlayer } = useOutletContext();
-  const [isPlaying, setIsPlaying] = useState(false);
+  const { SPPlayer, setSPPlayer } = useOutletContext();
+  const [currentTrack, setCurrentTrack] = useState();
+  const [currentArtist, setCurrentArtist] = useState();
+  const [playtime, setPlaytime] = useState();
 
   function pausePlay() {
-    SPPlayer &&
-      SPPlayer.togglePlay().then(() => {
-        setIsPlaying((prevIsPlaying) => !prevIsPlaying);
-      });
+    SPPlayer && SPPlayer.togglePlay().then(() => console.log("yay"));
   }
-
   function next() {
     SPPlayer && SPPlayer.nextTrack().then(() => console.log("yay"));
   }
-
   function previous() {
     SPPlayer && SPPlayer.previousTrack().then(() => console.log("yay"));
+  }
+
+  useEffect(() => {
+    SPPlayer &&
+      SPPlayer.getCurrentState().then((state) => {
+        console.log(state);
+        setCurrentTrack(state.track_window.current_track.name);
+        setCurrentArtist(state.track_window.current_track.artists[0].name);
+        setPlaytime(millisToMinutesAndSeconds(state.duration));
+      });
+  });
+
+  function millisToMinutesAndSeconds(millis) {
+    var minutes = Math.floor(millis / 60000);
+    var seconds = ((millis % 60000) / 1000).toFixed(0);
+    return minutes + ":" + (seconds < 10 ? "0" : "") + seconds;
   }
 
   return (
