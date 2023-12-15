@@ -33,7 +33,7 @@ export default function ImageSliderDefault({ slides }) {
     }
 
     fetchDataFromSpotify();
-  }, []);
+  }, [genre]);
 
   return (
     <div className="embla">
