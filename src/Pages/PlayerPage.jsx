@@ -52,10 +52,11 @@ const PlayerPage = () => {
       </div>
       <div className="mt-28">
         <h2 className="font-bold text-center">
-          {" "}
-          {currentTrack && currentTrack}{" "}
+          {currentTrack ? currentTrack : "Track not found"}
         </h2>
-        <p className="text-center"> {currentArtist && currentArtist} </p>
+        <p className="text-center">
+          {currentArtist ? currentArtist : "Artist not found"}
+        </p>
       </div>
       <div className="flex justify-center items-center mt-4">
         <input
@@ -67,10 +68,10 @@ const PlayerPage = () => {
       </div>
       <div className="flex justify-between mx-auto mt-[15px] mb-[15px] max-w-[325px]">
         <p>00:00</p>
-        <p> {playtime ? playtime : "00:00"} </p>
+        <p> {playtime ? playtime : "01:23"} </p>
       </div>
 
-      <div className="flex gap-x-4 justify-center items-center">
+      <div className="flex gap-x-4 justify-center mb-4 items-center">
         <button onClick={previous}>
           <img src={Backward} alt="Backward" />
         </button>
