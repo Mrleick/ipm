@@ -34,7 +34,7 @@ const TrendsPage = () => {
     }
 
     fetchDataFromSpotify();
-  }, []);
+  }, [genre]);
 
   useEffect(() => {
     async function fetchDataFromSpotify() {
@@ -51,7 +51,7 @@ const TrendsPage = () => {
     }
 
     fetchDataFromSpotify();
-  }, []);
+  }, [genre]);
 
   return (
     <div className="dark:text-white max-w-[375px] m-auto dark:bg-primarycolor">
@@ -105,7 +105,9 @@ const TrendsPage = () => {
             {tracks.length > 0 ? (
               <ImageSliderDefault slides={tracks} />
             ) : (
-              <div className="pl-8">{genre} is not a valid genre</div>
+              <div className="dark:text-black pl-8">
+                "{genre}" is not a valid genre
+              </div>
             )}
           </div>
         </section>
