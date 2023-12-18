@@ -15,7 +15,6 @@ import Songs from "./Pages/SongsPage";
 import Artists from "./Pages/ArtistsPage";
 import Albums from "./Pages/AlbumsPage";
 import AlbumDetails from "./Pages/AlbumDetailsPage";
-import TempRouting from "./Pages/TempRoutingPage";
 import Errorview from "./Pages/Errorview.jsx";
 
 import {
@@ -41,7 +40,6 @@ const router = createBrowserRouter(
       <Route path="/Artists/" element={<Artists />} />
       <Route path="/Albums/" element={<Albums />} />
       <Route path="/AlbumDetails/:id" element={<AlbumDetails />} />
-      <Route path="/TempRouting/" element={<TempRouting />} />
     </Route>
   )
 );
