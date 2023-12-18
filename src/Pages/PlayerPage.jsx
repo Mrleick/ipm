@@ -1,3 +1,4 @@
+import React from "react";
 import Header from "../components/Header";
 import Wave from "../assets/sound-wave-3.png";
 import Vinyl from "../assets/vinyl.png";
@@ -13,11 +14,16 @@ import { useEffect, useState } from "react";
 
 const PlayerPage = () => {
   const { SPPlayer, setSPPlayer } = useOutletContext();
+  const [isPlaying, setIsPlaying] = useState(false);
   const [currentTrack, setCurrentTrack] = useState();
   const [currentArtist, setCurrentArtist] = useState();
   const [playtime, setPlaytime] = useState();
 
   function pausePlay() {
+    SPPlayer &&
+      SPPlayer.togglePlay().then(() => {
+        setIsPlaying((prevIsPlaying) => !prevIsPlaying);
+      });
     SPPlayer && SPPlayer.togglePlay().then(() => console.log("yay"));
   }
   function next() {
@@ -26,6 +32,7 @@ const PlayerPage = () => {
   function previous() {
     SPPlayer && SPPlayer.previousTrack().then(() => console.log("yay"));
   }
+  console.log(isPlaying);
 
   useEffect(() => {
     SPPlayer &&
@@ -48,7 +55,9 @@ const PlayerPage = () => {
       <Header className="uppercase  text-black dark:text-white flex justify-between py-6 px-6 dark:bg-secondary-color  font-extralight" />
       <div className="flex justify-center items-center mx-auto mt-[64px] w-full relative">
         <img className="p-0 absolute w-[375px]" src={Wave} alt="Sound Wave" />
-        <img className="p-0 z-10" src={Vinyl} alt="Record Cover" />
+        <div className={`p-0 z-10 ${isPlaying ? "animate-spin" : ""}`}>
+          <img src={Vinyl} alt="Record Cover" />
+        </div>
       </div>
       <div className="mt-28">
         <h2 className="font-bold text-center">
